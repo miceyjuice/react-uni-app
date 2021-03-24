@@ -1,10 +1,12 @@
 import styled from "styled-components";
-import { Theme } from "../Theme";
 
 export const Search = styled.div`
-  padding: 1rem 5rem;
-  border: 1px solid ${Theme.Colors.grey};
-  width: 22.5rem;
+  display: flex;
+  position: relative;
+  justify-content: flex-start;
+  align-items: center;
+  width: 30%;
+  height: 3.43rem;
 `;
 
 export default Search;

@@ -1,8 +1,11 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import styled from "styled-components";
 
-import Theme from "../../styledHelpers/Theme";
-import homeIcon from "../../assets/icons/house.png";
+import homeIcon from "../../assets/icons/house.svg";
+import searchIcon from "../../assets/icons/search.svg";
+import dropdownIcon from "../../assets/icons/arrow-down.svg";
+import commentsIcon from "../../assets/icons/comments.svg";
+import notificationIcon from "../../assets/icons/bell.svg";
 
 import Nav from "../../styledHelpers/components/Nav";
 import Logo from "../../styledHelpers/components/Logo";
@@ -11,6 +14,7 @@ import Search from "../../styledHelpers/components/Search";
 import Icons from "../../styledHelpers/components/Icons";
 import Ul from "../../styledHelpers/components/Ul";
 import Li from "../../styledHelpers/components/Li";
+import { Theme } from "../../styledHelpers/Theme";
 
 const StyledA = styled.a`
   display: inline-block;
@@ -23,6 +27,7 @@ const StyledA = styled.a`
     display: block;
     position: absolute;
     height: 100%;
+    max-height: 1.56rem;
     width: 1.5rem;
     left: -3rem;
     top: 0;
@@ -31,6 +36,72 @@ const StyledA = styled.a`
     background-size: contain;
     background-repeat: no-repeat;
   }
+
+  ::after {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 100%;
+    max-height: 1.56rem;
+    width: 0.5rem;
+    right: -5rem;
+    top: 0;
+    background-image: url(${dropdownIcon});
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+`;
+
+const SearchInput = styled.input`
+  padding: 0.5em 3rem;
+  margin: 0.5em;
+  background: ${Theme.Colors.black};
+  border: 1px solid ${Theme.Colors.grey};
+  border-radius: 0.625rem;
+  height: 100%;
+  width: 100%;
+  max-width: 22.5rem;
+  font-size: ${Theme.FontSizes[18]};
+  color: ${Theme.Colors.white};
+  transition: box-shadow 200ms cubic-bezier(0.47, 0, 0.745, 0.715);
+
+  ::placeholder {
+    color: #757575;
+  }
+
+  :focus {
+    outline: none;
+    box-shadow: 0 0 2px 1px ${Theme.Colors.pink};
+  }
+`;
+
+const SearchIcon = styled.div`
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 1.1875rem;
+  left: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background-image: url(${searchIcon});
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+`;
+
+const Icon = styled("div")<{ haveBg?: boolean; bgImage: string }>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  width: 3rem;
+  border-radius: ${(haveBg) => (haveBg ? "50%" : "0px")};
+  background-color: ${(props) =>
+    props.haveBg ? Theme.Colors.pink : "transparent"};
+  background-image: ${(props) => `url('${props.bgImage}')`};
+  background-repeat: no-repeat;
+  background-position: center;
 `;
 
 export const App: FC = () => {
@@ -45,8 +116,15 @@ export const App: FC = () => {
             </Li>
           </Ul>
         </Menu>
-        <Search></Search>
-        <Icons></Icons>
+        <Search>
+          <SearchIcon />
+          <SearchInput type="text" placeholder="Search Legalcluster" />
+        </Search>
+        <Icons>
+          <Icon bgImage={homeIcon}></Icon>
+          <Icon bgImage={commentsIcon} haveBg></Icon>
+          <Icon bgImage={notificationIcon} haveBg></Icon>
+        </Icons>
       </Nav>
     </>
   );

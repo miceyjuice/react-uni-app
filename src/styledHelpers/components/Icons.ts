@@ -1,10 +1,12 @@
 import styled from "styled-components";
-import { Theme } from "../Theme";
 
 export const Search = styled.div`
-  height: 2rem;
-  width: 22.5rem;
-  background-color: ${Theme.Colors.pink};
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  max-height: 3rem;
+  min-width: 10.3rem;
 `;
 
 export default Search;
