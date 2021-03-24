@@ -1,7 +1,11 @@
-import React from "react";
 import ReactDOM from "react-dom";
-import "./styles/styles.scss";
 
 import MainPage from "./components/MainPage/MainPage";
+import Layout from "./layout/Layout";
 
-ReactDOM.render(<MainPage />, document.getElementById("root"));
+ReactDOM.render(
+  <Layout>
+    <MainPage />
+  </Layout>,
+  document.getElementById("root")
+);

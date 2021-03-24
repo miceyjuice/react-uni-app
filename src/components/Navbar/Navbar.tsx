@@ -1,43 +1,53 @@
 import React, { FC } from "react";
 import styled from "styled-components";
 
-const Logo = styled.div``;
+import Theme from "../../styledHelpers/Theme";
+import homeIcon from "../../assets/icons/house.png";
 
-const Nav = styled.div`
-  width: 100%;
-  padding: 2rem;
-  background-color: #f9f9f9;
+import Nav from "../../styledHelpers/components/Nav";
+import Logo from "../../styledHelpers/components/Logo";
+import Menu from "../../styledHelpers/components/Menu";
+import Search from "../../styledHelpers/components/Search";
+import Icons from "../../styledHelpers/components/Icons";
+import Ul from "../../styledHelpers/components/Ul";
+import Li from "../../styledHelpers/components/Li";
+
+const StyledA = styled.a`
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  position: relative;
+
+  ::before {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 1.5rem;
+    left: -3rem;
+    top: 0;
+    background-image: url(${homeIcon});
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
 `;
-
-const Menu = styled.div``;
-const Ul = styled.div``;
-const Li = styled.div``;
-const Search = styled.div``;
-const SearchInput = styled.div``;
-const Icons = styled.div``;
-const Icon = styled.div``;
 
 export const App: FC = () => {
   return (
     <>
-      <Logo>
-        <img src="" alt="" />
-      </Logo>
-      <Menu>
-        <Nav>
+      <Nav>
+        <Logo></Logo>
+        <Menu>
           <Ul>
-            <Li>SOMETHING</Li>
+            <Li>
+              <StyledA>Home</StyledA>
+            </Li>
           </Ul>
-        </Nav>
-      </Menu>
-      <Search>
-        <SearchInput></SearchInput>
-      </Search>
-      <Icons>
-        <Icon></Icon>
-        <Icon></Icon>
-        <Icon></Icon>
-      </Icons>
+        </Menu>
+        <Search></Search>
+        <Icons></Icons>
+      </Nav>
     </>
   );
 };

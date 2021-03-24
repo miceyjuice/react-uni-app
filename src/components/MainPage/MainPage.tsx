@@ -1,5 +1,4 @@
-import React, { FC } from "react";
-
+import { FC } from "react";
 import Navbar from "../Navbar/Navbar";
 import SideBar from "../Sidebar/Sidebar";
 
