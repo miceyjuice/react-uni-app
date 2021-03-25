@@ -2,8 +2,8 @@ import { FC } from "react";
 import styled from "styled-components";
 
 import homeIcon from "../../assets/icons/house.svg";
-import searchIcon from "../../assets/icons/search.svg";
 import dropdownIcon from "../../assets/icons/arrow-down.svg";
+import searchIcon from "../../assets/icons/search.svg";
 import commentsIcon from "../../assets/icons/comments.svg";
 import notificationIcon from "../../assets/icons/bell.svg";
 
@@ -14,44 +14,8 @@ import Search from "../../styledHelpers/components/Search";
 import Icons from "../../styledHelpers/components/Icons";
 import Ul from "../../styledHelpers/components/Ul";
 import Li from "../../styledHelpers/components/Li";
+import StyledA from "../../styledHelpers/components/StyledA";
 import { Theme } from "../../styledHelpers/Theme";
-
-const StyledA = styled.a`
-  display: inline-block;
-  text-align: center;
-  text-decoration: none;
-  position: relative;
-
-  ::before {
-    content: "";
-    display: block;
-    position: absolute;
-    height: 100%;
-    max-height: 1.56rem;
-    width: 1.5rem;
-    left: -3rem;
-    top: 0;
-    background-image: url(${homeIcon});
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-  }
-
-  ::after {
-    content: "";
-    display: block;
-    position: absolute;
-    height: 100%;
-    max-height: 1.56rem;
-    width: 0.5rem;
-    right: -5rem;
-    top: 0;
-    background-image: url(${dropdownIcon});
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-  }
-`;
 
 const SearchInput = styled.input`
   padding: 0.5em 3rem;
@@ -112,7 +76,9 @@ export const App: FC = () => {
         <Menu>
           <Ul>
             <Li>
-              <StyledA>Home</StyledA>
+              <StyledA beforeImg={homeIcon} afterImg={dropdownIcon}>
+                Home
+              </StyledA>
             </Li>
           </Ul>
         </Menu>
