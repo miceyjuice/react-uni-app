@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import logo from "../../assets/logo-alt.png";
+import Theme from '../Theme'
 
 export const Logo = styled.div`
   width: 46px;
   height: 53px;
-  background-image: url(${logo});
+  background-image: url(${process.env.PUBLIC_URL}/${Theme.Icons.logo});
   background-position: center;
   background-size: 100%;
   background-repeat: no-repeat;

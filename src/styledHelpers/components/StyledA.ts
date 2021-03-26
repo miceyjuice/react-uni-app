@@ -6,6 +6,7 @@ export const StyledA = styled("a")<{beforeImg: string,afterImg?: string,padding?
   text-decoration: none;
   position: relative;
   padding-left: ${({padding}) => padding ? padding : '0'};
+  font-size: 1.125rem;
 
   ::before {
     content: "";
@@ -16,7 +17,7 @@ export const StyledA = styled("a")<{beforeImg: string,afterImg?: string,padding?
     width: 1.5rem;
     left: -3rem;
     top: 0;
-    background-image: ${(props) => `url('${props.beforeImg}')`};
+    background-image: ${(props) => `url('${process.env.PUBLIC_URL}${props.beforeImg}')`};
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -31,7 +32,7 @@ export const StyledA = styled("a")<{beforeImg: string,afterImg?: string,padding?
     width: 0.5rem;
     right: -5rem;
     top: 0;
-    background-image: ${(props) => `url('${props.afterImg}')`};
+    background-image: ${(props) => `url(${process.env.PUBLIC_URL}${props.afterImg})`};
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;

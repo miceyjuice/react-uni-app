@@ -5,6 +5,7 @@ export const Menu = styled.div`
   display: flex;
   justify-content: flex-start;
   padding-left: 2rem;
+  position: relative;
 `;
 
 export default Menu;
