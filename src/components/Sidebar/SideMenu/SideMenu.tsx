@@ -36,17 +36,17 @@ const SideMenu = () => {
     <Wrapper>
     <StyledUl>
           <StyledLi padding={"0.6rem 1.5rem"} transparent>
-            <StyledA padding={"2rem"} beforeImg={""}>
+            <StyledA padding={"3rem"} beforeImg={""}>
               Publications
             </StyledA>
           </StyledLi>
           <StyledLi padding={"0.6rem 1.5rem"} transparent>
-            <StyledA padding={"2rem"} beforeImg={""}>
+            <StyledA padding={"3rem"} beforeImg={""}>
               Ecosystem
             </StyledA>
           </StyledLi>
           <StyledLi padding={"0.6rem 1.5rem"} transparent>
-            <StyledA padding={"2rem"} beforeImg={""}>
+            <StyledA padding={"3rem"} beforeImg={""}>
               Entities
             </StyledA>
           </StyledLi>

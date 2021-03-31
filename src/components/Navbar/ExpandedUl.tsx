@@ -4,26 +4,68 @@ import Ul from "../../styledHelpers/components/navbar/Ul";
 import StyledA from "../../styledHelpers/components/StyledA";
 import SearchInput from '../../styledHelpers/components/navbar/SearchInput';
 import Theme from "../../styledHelpers/Theme";
+import styled from "styled-components";
+
+const InnerLi = styled(Li)`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  text-align: start !important;
+  height: auto;
+
+  > * {
+    flex-basis: 100%;
+    text-align: unset;
+  }
+
+  a {
+    padding: 0 0 1rem 3rem;
+  }
+`;
+
+const SectionParagraph = styled.p`
+  font-weight: ${Theme.FontWeights.semibold};
+`;
+
+const FilterSearchInput = styled(SearchInput)`
+  max-height: 1.875rem;
+  padding-left: 0.8rem;
+`;
+
+const StyledUl = styled(Ul)`
+  background-color: ${Theme.Colors.darkGrey};
+  left: -4rem;
+`;
 
 
-export const App: FC = () => {
+export const ExpandedUl: FC = () => {
   return (
-      <Ul>
+      <StyledUl>
         <Li>
-          <SearchInput type="text"/>
+          <FilterSearchInput type="text" placeholder="Filter..."/>
         </Li>
-        <Li>
-          <StyledA beforeImg={Theme.Icons.home} afterImg={Theme.Icons.dropdown}>
+        <InnerLi>
+          <SectionParagraph>
+            Platform
+          </SectionParagraph>
+          <StyledA beforeImg={Theme.Icons.home}>
             Home
           </StyledA>
-        </Li>
-        <Li>
-          <StyledA beforeImg={Theme.Icons.home} afterImg={Theme.Icons.dropdown}>
-            Home
+          <StyledA beforeImg={Theme.Icons.home}>
+            Publications
           </StyledA>
-        </Li>
-      </Ul>
+          <StyledA beforeImg={Theme.Icons.home}>
+            People
+          </StyledA>
+          <StyledA beforeImg={Theme.Icons.home}>
+            Entities
+          </StyledA>
+          <StyledA beforeImg={Theme.Icons.home}>
+            Administration
+          </StyledA>
+        </InnerLi>
+      </StyledUl>
   );
 };
 
-export default App;
+export default ExpandedUl;

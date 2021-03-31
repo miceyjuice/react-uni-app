@@ -39,14 +39,17 @@ const Icon = styled("div")<{ haveBg?: boolean; bgImage: string }>`
   background-image: ${(props) => `url('${process.env.PUBLIC_URL}${props.bgImage}')`};
   background-repeat: no-repeat;
   background-position: center;
+  background-size: 50%;
 `;
 
-const DropdownWrapper = styled.div``;
+const DropdownWrapper = styled.div`
+  > * {
+    color: ${Theme.Colors.red};
+  }
+`;
 
 export const NavBar: FC = () => {
   const [wrapperRef, dropdownOpen, toggleDropdown] = useDropdown();
-
-  console.log(`${process.env.PUBLIC_URL}`);
 
   return (
     <>

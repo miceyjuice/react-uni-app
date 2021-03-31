@@ -22,7 +22,7 @@ const AddButton = styled.button`
 
 const ProfileStyledA = styled(StyledA)`
   ::before {
-    left: -0.5rem;
+    left: -0.2rem;
     width: 2rem;
     height: 100%;
   }
@@ -70,14 +70,14 @@ export const ProfileSection: FC = () => {
       <ProfileOptions>
           <StyledUl>
             <StyledLi padding={"1rem 1.5rem"}>
-              <ProfileStyledA padding={"2rem"} beforeImg={Theme.Icons.network}>
+              <ProfileStyledA padding={"3rem"} beforeImg={Theme.Icons.network}>
                 {" "}
                 Your network{" "}
               </ProfileStyledA>
               <AddButton />
             </StyledLi>
             <StyledLi padding={"1rem 1.5rem"}>
-              <ProfileStyledA padding={"2rem"} beforeImg={Theme.Icons.yourPublications}>
+              <ProfileStyledA padding={"3rem"} beforeImg={Theme.Icons.yourPublications}>
                 {" "}
                 Your publications{" "}
               </ProfileStyledA>
