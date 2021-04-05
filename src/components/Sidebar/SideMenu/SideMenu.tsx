@@ -1,5 +1,6 @@
-import React from 'react';
+import { FC } from 'react';
 import styled from 'styled-components';
+import { Theme } from '../../../styledHelpers/Theme'
 
 import StyledA from "../../../styledHelpers/components/StyledA";
 
@@ -31,22 +32,22 @@ export const StyledLi = styled("li")<{ transparent?: boolean; padding: string }>
   border-radius: 0.5rem;
 `;
 
-const SideMenu = () => {
+const SideMenu: FC = () => {
   return (
     <Wrapper>
     <StyledUl>
           <StyledLi padding={"0.6rem 1.5rem"} transparent>
-            <StyledA padding={"3rem"} beforeImg={""}>
+            <StyledA paddingLeft={"3rem"} beforeImg={Theme.Icons.yourPublications}>
               Publications
             </StyledA>
           </StyledLi>
           <StyledLi padding={"0.6rem 1.5rem"} transparent>
-            <StyledA padding={"3rem"} beforeImg={""}>
+            <StyledA paddingLeft={"3rem"} beforeImg={Theme.Icons.ecosystem}>
               Ecosystem
             </StyledA>
           </StyledLi>
           <StyledLi padding={"0.6rem 1.5rem"} transparent>
-            <StyledA padding={"3rem"} beforeImg={""}>
+            <StyledA paddingLeft={"3rem"} beforeImg={Theme.Icons.entities}>
               Entities
             </StyledA>
           </StyledLi>

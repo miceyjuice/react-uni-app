@@ -6,7 +6,9 @@ export const Icons = {
   comments: '/assets/icons/comments.svg',
   notification: '/assets/icons/bell.svg',
   network: '/assets/icons/network.png',
-  yourPublications: '/assets/icons/yourpublications.png'
+  yourPublications: '/assets/icons/yourpublications.png',
+  ecosystem: '/assets/icons/ecosystem.svg',
+  entities: '/assets/icons/entities.svg'
 };
 
 export default Icons;

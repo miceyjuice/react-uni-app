@@ -38,7 +38,7 @@ const PersonImage = styled.div`
   width: 6.25rem;
   height: 6.25rem;
   border-radius: 50%;
-  background-color: #ccc;
+  background-color: ${Theme.Colors.grey};
 `;
 
 const PersonFullName = styled.h3`
@@ -70,14 +70,14 @@ export const ProfileSection: FC = () => {
       <ProfileOptions>
           <StyledUl>
             <StyledLi padding={"1rem 1.5rem"}>
-              <ProfileStyledA padding={"3rem"} beforeImg={Theme.Icons.network}>
+              <ProfileStyledA paddingLeft={"3rem"} beforeImg={Theme.Icons.network}>
                 {" "}
                 Your network{" "}
               </ProfileStyledA>
               <AddButton />
             </StyledLi>
             <StyledLi padding={"1rem 1.5rem"}>
-              <ProfileStyledA padding={"3rem"} beforeImg={Theme.Icons.yourPublications}>
+              <ProfileStyledA paddingLeft={"3rem"} beforeImg={Theme.Icons.yourPublications}>
                 {" "}
                 Your publications{" "}
               </ProfileStyledA>
