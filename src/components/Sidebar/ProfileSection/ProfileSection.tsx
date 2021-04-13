@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Theme from "../../../styledHelpers/Theme";
 
 import StyledA from "../../../styledHelpers/components/StyledA";
-import { StyledUl, StyledLi } from '../SideMenu/SideMenu';
+import { StyledUl, StyledLi } from "../SideMenu/SideMenu";
 
 const Wrapper = styled.div`
   text-align: center;
@@ -58,36 +58,42 @@ const PersonJob = styled.p`
 
 const ProfileOptions = styled.div``;
 
-
 export const ProfileSection: FC = () => {
   return (
     <Wrapper>
       <PersonBlock>
-          <PersonImage />
-          <PersonFullName>Humberta Swift</PersonFullName>
-          <PersonJob>Job title - Company</PersonJob>
+        <PersonImage />
+        <PersonFullName>Humberta Swift</PersonFullName>
+        <PersonJob>Job title - Company</PersonJob>
       </PersonBlock>
       <ProfileOptions>
-          <StyledUl>
-            <StyledLi padding={"1rem 1.5rem"}>
-              <ProfileStyledA paddingLeft={"3rem"} beforeImg={Theme.Icons.network}>
-                {" "}
-                Your network{" "}
-              </ProfileStyledA>
-              <AddButton />
-            </StyledLi>
-            <StyledLi padding={"1rem 1.5rem"}>
-              <ProfileStyledA paddingLeft={"3rem"} beforeImg={Theme.Icons.yourPublications}>
-                {" "}
-                Your publications{" "}
-              </ProfileStyledA>
-              <AddButton />
-            </StyledLi>
-          </StyledUl>
-        </ProfileOptions>
+        <StyledUl>
+          <StyledLi padding={"1rem 1.5rem"}>
+            <ProfileStyledA
+              to="/your-network"
+              paddingLeft={"3rem"}
+              beforeImg={Theme.Icons.network}
+            >
+              {" "}
+              Your network{" "}
+            </ProfileStyledA>
+            <AddButton />
+          </StyledLi>
+          <StyledLi padding={"1rem 1.5rem"}>
+            <ProfileStyledA
+            to="/your-publications"
+              paddingLeft={"3rem"}
+              beforeImg={Theme.Icons.yourPublications}
+            >
+              {" "}
+              Your publications{" "}
+            </ProfileStyledA>
+            <AddButton />
+          </StyledLi>
+        </StyledUl>
+      </ProfileOptions>
     </Wrapper>
   );
-}
+};
 
 export default ProfileSection;
-

@@ -59,10 +59,11 @@ export const NavBar: FC = () => {
         <Menu>
           <DropdownWrapper ref={wrapperRef}>
             <StyledA
+              to="/"
               onClick={toggleDropdown}
               beforeImg={Theme.Icons.home}
               afterImg={Theme.Icons.dropdown}
-              paddingLeft={'3rem'}
+              paddingLeft={"3rem"}
             >
               Home
             </StyledA>

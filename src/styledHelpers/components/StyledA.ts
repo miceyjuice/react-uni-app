@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import Theme from "../Theme";
+import { Link } from 'react-router-dom';
 
-export const StyledA = styled("a")<{beforeImg: string,afterImg?: string,paddingLeft?: string,paddingTop?: string, beforeLeft?: string, fontSize?: string, fontColor?: string}>`
+export const StyledA = styled(Link)<{beforeImg: string,afterImg?: string,paddingLeft?: string,paddingTop?: string, beforeLeft?: string, fontSize?: string, fontColor?: string}>`
   display: inline-block;
   text-align: left;
   text-decoration: none;

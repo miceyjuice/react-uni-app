@@ -50,11 +50,109 @@ export const ExpandedUl: FC = () => {
       </Li>
       <InnerLi>
         <SectionParagraph>Platform</SectionParagraph>
-        <StyledA paddingTop={'2px'} fontColor={Theme.Colors.white} beforeImg={Theme.Icons.home} beforeLeft={'5%'} fontSize={'0.875rem'}>Home</StyledA>
-        <StyledA paddingTop={'2px'} fontColor={Theme.Colors.white} beforeImg={Theme.Icons.home} beforeLeft={'5%'} fontSize={'0.875rem'}>Publications</StyledA>
-        <StyledA paddingTop={'2px'} fontColor={Theme.Colors.white} beforeImg={Theme.Icons.home} beforeLeft={'5%'} fontSize={'0.875rem'}>People</StyledA>
-        <StyledA paddingTop={'2px'} fontColor={Theme.Colors.white} beforeImg={Theme.Icons.home} beforeLeft={'5%'} fontSize={'0.875rem'}>Entities</StyledA>
-        <StyledA paddingTop={'2px'} fontColor={Theme.Colors.white} beforeImg={Theme.Icons.home} beforeLeft={'5%'} fontSize={'0.875rem'}>Administration</StyledA>
+        <StyledA
+          to="/"
+          paddingTop={"2px"}
+          fontColor={Theme.Colors.white}
+          beforeImg={Theme.Icons.home}
+          beforeLeft={"5%"}
+          fontSize={"0.875rem"}
+        >
+          Home
+        </StyledA>
+        <StyledA
+          to="/publications"
+          paddingTop={"2px"}
+          fontColor={Theme.Colors.white}
+          beforeImg={Theme.Icons.home}
+          beforeLeft={"5%"}
+          fontSize={"0.875rem"}
+        >
+          Publications
+        </StyledA>
+        <StyledA
+          to="/people"
+          paddingTop={"2px"}
+          fontColor={Theme.Colors.white}
+          beforeImg={Theme.Icons.home}
+          beforeLeft={"5%"}
+          fontSize={"0.875rem"}
+        >
+          People
+        </StyledA>
+        <StyledA
+          to="/entities"
+          paddingTop={"2px"}
+          fontColor={Theme.Colors.white}
+          beforeImg={Theme.Icons.home}
+          beforeLeft={"5%"}
+          fontSize={"0.875rem"}
+        >
+          Entities
+        </StyledA>
+        <StyledA
+          to="/administration"
+          paddingTop={"2px"}
+          fontColor={Theme.Colors.white}
+          beforeImg={Theme.Icons.home}
+          beforeLeft={"5%"}
+          fontSize={"0.875rem"}
+        >
+          Administration
+        </StyledA>
+      </InnerLi>
+      <InnerLi>
+        <SectionParagraph>Workspaces</SectionParagraph>
+        <StyledA
+          to="/client-contract"
+          paddingTop={"2px"}
+          fontColor={Theme.Colors.white}
+          beforeImg={Theme.Icons.home}
+          beforeLeft={"5%"}
+          fontSize={"0.875rem"}
+        >
+          Client contract
+        </StyledA>
+        <StyledA
+          to="/supplier-contract"
+          paddingTop={"2px"}
+          fontColor={Theme.Colors.white}
+          beforeImg={Theme.Icons.home}
+          beforeLeft={"5%"}
+          fontSize={"0.875rem"}
+        >
+          Supplier contract
+        </StyledA>
+        <StyledA
+          to="/corporate"
+          paddingTop={"2px"}
+          fontColor={Theme.Colors.white}
+          beforeImg={Theme.Icons.home}
+          beforeLeft={"5%"}
+          fontSize={"0.875rem"}
+        >
+          Corporate
+        </StyledA>
+        <StyledA
+          to="/group-norms"
+          paddingTop={"2px"}
+          fontColor={Theme.Colors.white}
+          beforeImg={Theme.Icons.home}
+          beforeLeft={"5%"}
+          fontSize={"0.875rem"}
+        >
+          Group Norms
+        </StyledA>
+        <StyledA
+          to="/real-estate-contracts"
+          paddingTop={"2px"}
+          fontColor={Theme.Colors.white}
+          beforeImg={Theme.Icons.home}
+          beforeLeft={"5%"}
+          fontSize={"0.875rem"}
+        >
+          Real estate contracts
+        </StyledA>
       </InnerLi>
     </StyledUl>
   );
