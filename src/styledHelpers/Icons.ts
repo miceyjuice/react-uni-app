@@ -8,7 +8,9 @@ export const Icons = {
   network: '/assets/icons/network.png',
   yourPublications: '/assets/icons/yourpublications.png',
   ecosystem: '/assets/icons/ecosystem.svg',
-  entities: '/assets/icons/entities.svg'
+  entities: '/assets/icons/entities.svg',
+  userAdd: '/assets/icons/user-plus.svg',
+  plus: '/assets/icons/plus.svg'
 };
 
 export default Icons;

@@ -27,7 +27,7 @@ const SearchIcon = styled.div`
   opacity: 20%;
 `;
 
-const Icon = styled("div")<{ haveBg?: boolean; bgImage: string }>`
+const Icon = styled.div<{ haveBg?: boolean; bgImage: string, bgSize?: string }>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,7 +40,7 @@ const Icon = styled("div")<{ haveBg?: boolean; bgImage: string }>`
     `url('${process.env.PUBLIC_URL}${props.bgImage}')`};
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 50%;
+  background-size: ${({bgSize}) => bgSize ? bgSize : '50%'};
 `;
 
 const DropdownWrapper = styled.div`
@@ -49,35 +49,42 @@ const DropdownWrapper = styled.div`
   }
 `;
 
+const LeftNav = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
 export const NavBar: FC = () => {
   const [wrapperRef, dropdownOpen, toggleDropdown] = useDropdown();
 
   return (
     <React.Fragment>
       <Nav>
-        <Logo></Logo>
-        <Menu>
-          <DropdownWrapper ref={wrapperRef}>
-            <StyledA
-              to="/"
-              onClick={toggleDropdown}
-              beforeImg={Theme.Icons.home}
-              afterImg={Theme.Icons.dropdown}
-              paddingLeft={"3rem"}
-            >
-              Home
-            </StyledA>
-            {dropdownOpen && <ExpandedUl />}
-          </DropdownWrapper>
-        </Menu>
+        <LeftNav>
+          <Logo></Logo>
+          <Menu>
+            <DropdownWrapper ref={wrapperRef}>
+              <StyledA
+                to="/"
+                onClick={toggleDropdown}
+                beforeImg={Theme.Icons.home}
+                afterImg={Theme.Icons.dropdown}
+                paddingLeft={"3rem"}
+              >
+                Home
+              </StyledA>
+              {dropdownOpen && <ExpandedUl />}
+            </DropdownWrapper>
+          </Menu>
+        </LeftNav>
         <Search>
           <SearchIcon />
           <SearchInput type="text" placeholder="Search Legalcluster" />
         </Search>
         <Icons>
           <Icon bgImage={Theme.Icons.home}></Icon>
-          <Icon bgImage={Theme.Icons.comments} haveBg></Icon>
-          <Icon bgImage={Theme.Icons.notification} haveBg></Icon>
+          <Icon bgImage={Theme.Icons.comments} haveBg bgSize={'38%'}></Icon>
+          <Icon bgImage={Theme.Icons.notification} haveBg bgSize={'38%'}></Icon>
         </Icons>
       </Nav>
     </React.Fragment>

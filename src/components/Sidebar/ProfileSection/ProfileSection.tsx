@@ -12,12 +12,20 @@ const Wrapper = styled.div`
   flex-wrap: wrap;
 `;
 
-const AddButton = styled.button`
+const AddButton = styled.button<{bgImage: string, bgSize?: string}>`
   width: 2.75rem;
   height: 2.75rem;
   background-color: ${Theme.Colors.darkGrey};
   border: none;
   border-radius: 0.5rem;
+  background-image: ${({bgImage}) => `url('${bgImage}')`};
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: ${({bgSize}) => bgSize ? bgSize : '50%'};
+
+  :hover{
+    cursor: pointer;
+  }
 `;
 
 const ProfileStyledA = styled(StyledA)`
@@ -77,7 +85,7 @@ export const ProfileSection: FC = () => {
               {" "}
               Your network{" "}
             </ProfileStyledA>
-            <AddButton />
+            <AddButton bgImage={Theme.Icons.userAdd}/>
           </StyledLi>
           <StyledLi padding={"1rem 1.5rem"}>
             <ProfileStyledA
@@ -88,7 +96,7 @@ export const ProfileSection: FC = () => {
               {" "}
               Your publications{" "}
             </ProfileStyledA>
-            <AddButton />
+            <AddButton bgSize={'38%'} bgImage={Theme.Icons.plus}/>
           </StyledLi>
         </StyledUl>
       </ProfileOptions>
