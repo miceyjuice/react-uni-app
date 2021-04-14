@@ -4,7 +4,7 @@ export const Ul = styled.ul`
   list-style-type: none;
   padding: 0;
   position: absolute;
-  top: 2rem;
+  top: 2.5rem;
   left: 0;
 `;
 
