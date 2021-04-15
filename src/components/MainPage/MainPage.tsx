@@ -1,12 +1,21 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import Navbar from "../Navbar/Navbar";
 import SideBar from "../Sidebar/Sidebar";
 import Wrapper from "../../styledHelpers/components/Wrapper";
 import Content from "../../styledHelpers/components/Content";
-import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { getUsers } from "../../actions/usersActions";
 
-export const App: FC = () => {
+type GetUsers = ReturnType<typeof getUsers>;
+
+export const MainPage: FC = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch<GetUsers>(getUsers());
+  }, []);
+
   return (
     <>
       <Router>
@@ -26,4 +35,4 @@ export const App: FC = () => {
   );
 };
 
-export default App;
+export default MainPage;

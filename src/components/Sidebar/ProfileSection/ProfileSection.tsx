@@ -5,6 +5,10 @@ import Theme from "../../../styledHelpers/Theme";
 import StyledA from "../../../styledHelpers/components/StyledA";
 import { StyledUl, StyledLi } from "../SideMenu/SideMenu";
 
+import { useSelector } from "react-redux";
+import { IState } from "../../../reducers";
+import { IUsersReducer } from "../../../reducers/usersReducers";
+
 const Wrapper = styled.div`
   text-align: center;
   display: flex;
@@ -12,18 +16,18 @@ const Wrapper = styled.div`
   flex-wrap: wrap;
 `;
 
-const AddButton = styled.button<{bgImage: string, bgSize?: string}>`
+const AddButton = styled.button<{ bgImage: string; bgSize?: string }>`
   width: 2.75rem;
   height: 2.75rem;
   background-color: ${Theme.Colors.darkGrey};
   border: none;
   border-radius: 0.5rem;
-  background-image: ${({bgImage}) => `url('${bgImage}')`};
+  background-image: ${({ bgImage }) => `url('${bgImage}')`};
   background-repeat: no-repeat;
   background-position: center;
-  background-size: ${({bgSize}) => bgSize ? bgSize : '50%'};
+  background-size: ${({ bgSize }) => (bgSize ? bgSize : "50%")};
 
-  :hover{
+  :hover {
     cursor: pointer;
   }
 `;
@@ -67,11 +71,18 @@ const PersonJob = styled.p`
 const ProfileOptions = styled.div``;
 
 export const ProfileSection: FC = () => {
+  const { usersList } = useSelector<IState, IUsersReducer>((globalState) => ({
+    ...globalState.users,
+  }));
+
   return (
     <Wrapper>
+      {console.log(usersList)}
       <PersonBlock>
         <PersonImage />
-        <PersonFullName>Humberta Swift</PersonFullName>
+        <PersonFullName>
+          {usersList[Math.floor(Math.random() * 9)]?.name}
+        </PersonFullName>
         <PersonJob>Job title - Company</PersonJob>
       </PersonBlock>
       <ProfileOptions>
@@ -85,18 +96,18 @@ export const ProfileSection: FC = () => {
               {" "}
               Your network{" "}
             </ProfileStyledA>
-            <AddButton bgImage={Theme.Icons.userAdd}/>
+            <AddButton bgImage={Theme.Icons.userAdd} />
           </StyledLi>
           <StyledLi padding={"1rem 1.5rem"}>
             <ProfileStyledA
-            to="/your-publications"
+              to="/your-publications"
               paddingLeft={"3rem"}
               beforeImg={Theme.Icons.yourPublications}
             >
               {" "}
               Your publications{" "}
             </ProfileStyledA>
-            <AddButton bgSize={'38%'} bgImage={Theme.Icons.plus}/>
+            <AddButton bgSize={"38%"} bgImage={Theme.Icons.plus} />
           </StyledLi>
         </StyledUl>
       </ProfileOptions>
