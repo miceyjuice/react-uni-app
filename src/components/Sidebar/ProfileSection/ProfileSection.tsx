@@ -1,4 +1,4 @@
-import { FC } from "react";
+import React, { FC } from "react";
 import styled from "styled-components";
 import Theme from "../../../styledHelpers/Theme";
 
@@ -8,6 +8,7 @@ import { StyledUl, StyledLi } from "../SideMenu/SideMenu";
 import { useSelector } from "react-redux";
 import { IState } from "../../../reducers";
 import { IUsersReducer } from "../../../reducers/usersReducers";
+import { Link } from "react-router-dom";
 
 const Wrapper = styled.div`
   text-align: center;
@@ -96,7 +97,7 @@ export const ProfileSection: FC = () => {
               {" "}
               Your network{" "}
             </ProfileStyledA>
-            <AddButton bgImage={Theme.Icons.userAdd} />
+            <Link to="/new-user"><AddButton bgImage={Theme.Icons.userAdd} /></Link>
           </StyledLi>
           <StyledLi padding={"1rem 1.5rem"}>
             <ProfileStyledA
@@ -107,7 +108,7 @@ export const ProfileSection: FC = () => {
               {" "}
               Your publications{" "}
             </ProfileStyledA>
-            <AddButton bgSize={"38%"} bgImage={Theme.Icons.plus} />
+            <Link to="/new-publication"><AddButton bgSize={"38%"} bgImage={Theme.Icons.plus} /></Link>
           </StyledLi>
         </StyledUl>
       </ProfileOptions>

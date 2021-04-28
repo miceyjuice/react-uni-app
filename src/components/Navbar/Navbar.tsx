@@ -11,6 +11,7 @@ import Icons from "../../styledHelpers/components/Icons";
 import ExpandedUl from "./ExpandedUl/ExpandedUl";
 import StyledA from "../../styledHelpers/components/StyledA";
 import { Theme } from "../../styledHelpers/Theme";
+import { Link } from "react-router-dom";
 
 const SearchIcon = styled.div`
   display: block;
@@ -27,7 +28,7 @@ const SearchIcon = styled.div`
   opacity: 20%;
 `;
 
-const Icon = styled.div<{ haveBg?: boolean; bgImage: string, bgSize?: string }>`
+const Icon = styled.div<{ haveBg?: boolean; bgImage: string; bgSize?: string }>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,7 +41,7 @@ const Icon = styled.div<{ haveBg?: boolean; bgImage: string, bgSize?: string }>`
     `url('${process.env.PUBLIC_URL}${props.bgImage}')`};
   background-repeat: no-repeat;
   background-position: center;
-  background-size: ${({bgSize}) => bgSize ? bgSize : '50%'};
+  background-size: ${({ bgSize }) => (bgSize ? bgSize : "50%")};
 `;
 
 const DropdownWrapper = styled.div`
@@ -54,6 +55,53 @@ const LeftNav = styled.div`
   align-items: center;
 `;
 
+const CurrentRoute = styled.div<{beforeImg: string, afterImg: string}>`
+  display: inline-flex;
+  text-align: left;
+  text-decoration: none;
+  position: relative;
+  min-width: 13rem;
+  padding: 0 3rem;
+  align-items: center;
+
+  :hover{
+    cursor: pointer;
+  }
+
+  ::before {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 100%;
+    max-height: 1.56rem;
+    width: 1.5rem;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-image: ${(props) => `url('${process.env.PUBLIC_URL}${props.beforeImg}')`};
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  ::after {
+    content: "";
+    display: ${(props) => (props.afterImg ? "block" : "none")};
+    position: absolute;
+    height: 100%;
+    max-height: 1.56rem;
+    width: 0.5rem;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0; 
+    height: 0; 
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #fff;
+  }
+`;
+
 export const NavBar: FC = () => {
   const [wrapperRef, dropdownOpen, toggleDropdown] = useDropdown();
 
@@ -64,15 +112,13 @@ export const NavBar: FC = () => {
           <Logo></Logo>
           <Menu>
             <DropdownWrapper ref={wrapperRef}>
-              <StyledA
-                to="/"
+              <CurrentRoute
                 onClick={toggleDropdown}
                 beforeImg={Theme.Icons.home}
                 afterImg={Theme.Icons.dropdown}
-                paddingLeft={"3rem"}
               >
                 Home
-              </StyledA>
+              </CurrentRoute>
               {dropdownOpen && <ExpandedUl />}
             </DropdownWrapper>
           </Menu>
@@ -82,9 +128,19 @@ export const NavBar: FC = () => {
           <SearchInput type="text" placeholder="Search Legalcluster" />
         </Search>
         <Icons>
-          <Icon bgImage={Theme.Icons.home}></Icon>
-          <Icon bgImage={Theme.Icons.comments} haveBg bgSize={'38%'}></Icon>
-          <Icon bgImage={Theme.Icons.notification} haveBg bgSize={'38%'}></Icon>
+          <Link to="/">
+            <Icon bgImage={Theme.Icons.home}></Icon>
+          </Link>
+          <Link to="/comments">
+            <Icon bgImage={Theme.Icons.comments} haveBg bgSize={"38%"}></Icon>
+          </Link>
+          <Link to="/notifications">
+            <Icon
+              bgImage={Theme.Icons.notification}
+              haveBg
+              bgSize={"38%"}
+            ></Icon>
+          </Link>
         </Icons>
       </Nav>
     </React.Fragment>
