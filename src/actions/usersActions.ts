@@ -11,3 +11,13 @@ export const getUsers = (): Promise<ISingleUser[]> =>
       usersList,
     });
   }) as any;
+  
+  export const getUsersPhotos = (): Promise<ISingleUser[]> =>
+  (async (dispatch: Dispatch) => {
+    const response = await fetch("https://jsonplaceholder.typicode.com/photos");
+    const usersPhotos = await response.json();
+    dispatch({
+      type: actionTypes.GET_PHOTOS,
+      usersPhotos,
+    });
+  }) as any;

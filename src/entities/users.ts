@@ -21,3 +21,11 @@ export interface ISingleUser {
     bs: string;
   };
 }
+
+export interface ISingleUserPhoto {
+  albumID: number;
+  id: number;
+  title: string;
+  url: string;
+  thumbnailUrl: string;
+}

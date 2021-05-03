@@ -4,25 +4,29 @@ import { StyledUl, StyledLi } from "../SideMenu/SideMenu";
 import { useSelector } from "react-redux";
 import { IState } from "../../../reducers";
 import { IUsersReducer } from "../../../reducers/usersReducers";
+import { IUsersPhotosReducer } from "../../../reducers/usersPhotosReducers";
 import { Link } from "react-router-dom";
 import { AddButton, PersonBlock, PersonFullName, PersonImage, PersonJob, ProfileStyledA, Wrapper } from "./ProfileSectionStyle";
 
 
 
 export const ProfileSection: FC = () => {
-  const { usersList } = useSelector<IState, IUsersReducer>((globalState) => ({
+  const { usersList, usersPhotosList } = useSelector<IState, IUsersReducer & IUsersPhotosReducer>((globalState) => ({
     ...globalState.users,
+    ...globalState.usersPhotosList
   }));
 
   return (
     <Wrapper>
       {console.log(usersList)}
       <PersonBlock>
-        <PersonImage />
+        <PersonImage src={ usersPhotosList[0]?.url } />
         <PersonFullName>
           {usersList[0]?.name}
         </PersonFullName>
-        <PersonJob>Job title - Company</PersonJob>
+        <PersonJob>
+          { usersList[0]?.company.name }
+        </PersonJob>
       </PersonBlock>
       <>
         <StyledUl>

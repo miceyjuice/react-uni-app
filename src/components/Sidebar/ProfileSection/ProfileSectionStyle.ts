@@ -39,11 +39,10 @@ export const PersonBlock = styled.div`
   justify-content: center;
 `;
 
-export const PersonImage = styled.div`
+export const PersonImage = styled.img`
   width: 6.25rem;
   height: 6.25rem;
   border-radius: 50%;
-  background-color: ${Theme.Colors.grey};
 `;
 
 export const PersonFullName = styled.h3`

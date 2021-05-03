@@ -5,15 +5,17 @@ import Wrapper from "../../styledHelpers/components/Wrapper";
 import Content from "../../styledHelpers/components/Content";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { getUsers } from "../../actions/usersActions";
+import { getUsers, getUsersPhotos } from "../../actions/usersActions";
 
 type GetUsers = ReturnType<typeof getUsers>;
+type GetUsersPhotos = ReturnType<typeof getUsersPhotos>;
 
 export const MainPage: FC = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch<GetUsers>(getUsers());
+    dispatch<GetUsersPhotos>(getUsersPhotos());
   }, []);
 
   return (
