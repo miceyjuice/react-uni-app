@@ -10,7 +10,13 @@ export const Icons = {
   ecosystem: '/assets/icons/ecosystem.svg',
   entities: '/assets/icons/entities.svg',
   userAdd: '/assets/icons/user-plus.svg',
-  plus: '/assets/icons/plus.svg'
+  plus: '/assets/icons/plus.svg',
+  contract: '/assets/icons/contract.svg',
+  book: '/assets/icons/book.svg',
+  administration: '/assets/icons/administration.svg',
+  privacy: '/assets/icons/privacy.svg',
+  settings: '/assets/icons/settings.svg',
+  logout: '/assets/icons/logout.svg'
 };
 
 export default Icons;

@@ -12,7 +12,7 @@ export const Workspace: FC = () => {
         to="/client-contract"
         paddingTop={"2px"}
         fontColor={Theme.Colors.white}
-        beforeImg={Theme.Icons.home}
+        beforeImg={Theme.Icons.contract}
         beforeLeft={"5%"}
         fontSize={"0.875rem"}
       >
@@ -22,7 +22,7 @@ export const Workspace: FC = () => {
         to="/supplier-contract"
         paddingTop={"2px"}
         fontColor={Theme.Colors.white}
-        beforeImg={Theme.Icons.home}
+        beforeImg={Theme.Icons.contract}
         beforeLeft={"5%"}
         fontSize={"0.875rem"}
       >
@@ -42,7 +42,7 @@ export const Workspace: FC = () => {
         to="/group-norms"
         paddingTop={"2px"}
         fontColor={Theme.Colors.white}
-        beforeImg={Theme.Icons.home}
+        beforeImg={Theme.Icons.book}
         beforeLeft={"5%"}
         fontSize={"0.875rem"}
       >
@@ -52,7 +52,7 @@ export const Workspace: FC = () => {
         to="/real-estate-contracts"
         paddingTop={"2px"}
         fontColor={Theme.Colors.white}
-        beforeImg={Theme.Icons.home}
+        beforeImg={Theme.Icons.contract}
         beforeLeft={"5%"}
         fontSize={"0.875rem"}
       >

@@ -54,7 +54,7 @@ export const Platform: FC = () => {
         to="/administration"
         paddingTop={"2px"}
         fontColor={Theme.Colors.white}
-        beforeImg={Theme.Icons.home}
+        beforeImg={Theme.Icons.administration}
         beforeLeft={"5%"}
         fontSize={"0.875rem"}
       >

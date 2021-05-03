@@ -38,7 +38,7 @@ export const Account: FC = () => {
         <StyledA
           to="/client-contract"
           fontColor={Theme.Colors.white}
-          beforeImg={Theme.Icons.home}
+          beforeImg={Theme.Icons.privacy}
           beforeLeft={"5%"}
           fontSize={"0.875rem"}
         >
@@ -47,7 +47,7 @@ export const Account: FC = () => {
         <StyledA
           to="/client-contract"
           fontColor={Theme.Colors.white}
-          beforeImg={Theme.Icons.home}
+          beforeImg={Theme.Icons.settings}
           beforeLeft={"5%"}
           fontSize={"0.875rem"}
         >
