@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 
-export const App: FC = () => {
+export const Feed: FC = () => {
   return <div> To jest App </div>;
 };
 
-export default App;
+export default Feed;

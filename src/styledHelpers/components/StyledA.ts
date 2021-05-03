@@ -25,7 +25,8 @@ export const StyledA = styled(Link)<{beforeImg: string,afterImg?: string,padding
     max-height: 1.56rem;
     width: 1.5rem;
     left: ${(props) => props.beforeLeft ? props.beforeLeft : '0'};
-    top: 0;
+    top: 50%;
+    transform: translateY(-50%);
     background-image: ${(props) => `url('${process.env.PUBLIC_URL}${props.beforeImg}')`};
     background-position: center;
     background-size: contain;

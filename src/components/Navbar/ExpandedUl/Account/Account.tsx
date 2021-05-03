@@ -3,26 +3,58 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { IState } from "../../../../reducers";
 import { IUsersReducer } from "../../../../reducers/usersReducers";
+import { IUsersPhotosReducer } from "../../../../reducers/usersPhotosReducers";
 import { SectionParagraph } from "../../../../styledHelpers/components/navbar/expandedUl/SectionParagraph";
-import { AccountBox, AccountImg, AccountInfo, CustomLi } from "./AccountStyle";
-
+import {
+  AccountBox,
+  AccountImg,
+  AccountInfo,
+  AccountLi,
+  LinksWrap,
+} from "./AccountStyle";
+import StyledA from "../../../../styledHelpers/components/StyledA";
+import Theme from "../../../../styledHelpers/Theme";
 
 export const Account: FC = () => {
-  const { usersList } = useSelector<IState, IUsersReducer>((globalState) => ({
+  const { usersList, usersPhotosList } = useSelector<
+    IState,
+    IUsersReducer & IUsersPhotosReducer
+  >((globalState) => ({
     ...globalState.users,
+    ...globalState.usersPhotosList,
   }));
 
   return (
-    <CustomLi>
+    <AccountLi>
       <SectionParagraph>Account</SectionParagraph>
       <AccountBox>
-        <AccountImg />
+        <AccountImg src={usersPhotosList[0]?.url} />
         <AccountInfo>
-          { usersList[0]?.name }
+          {usersList[0]?.name}
           <Link to="/profile">See profile</Link>
         </AccountInfo>
       </AccountBox>
-    </CustomLi>
+      <LinksWrap>
+        <StyledA
+          to="/client-contract"
+          fontColor={Theme.Colors.white}
+          beforeImg={Theme.Icons.home}
+          beforeLeft={"5%"}
+          fontSize={"0.875rem"}
+        >
+          Privacy
+        </StyledA>
+        <StyledA
+          to="/client-contract"
+          fontColor={Theme.Colors.white}
+          beforeImg={Theme.Icons.home}
+          beforeLeft={"5%"}
+          fontSize={"0.875rem"}
+        >
+          Settings
+        </StyledA>
+      </LinksWrap>
+    </AccountLi>
   );
 };
 export default Account;

@@ -5,7 +5,9 @@ import SearchInput from "../../../../styledHelpers/components/navbar/SearchInput
 
 const FilterSearchInput = styled(SearchInput)`
   max-height: 1.875rem;
-  padding-left: 0.8rem;
+  padding: 1.2rem;
+  width: 100% !important;
+  font-size: 0.9rem;
 `;
 
 export const Filter: FC = () => {

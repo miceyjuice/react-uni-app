@@ -1,13 +1,15 @@
 import styled from "styled-components";
-import Li from "../../../../styledHelpers/components/navbar/Li";
+import { InnerLi } from "../../../../styledHelpers/components/navbar/expandedUl/InnerLi";
 
-export const CustomLi = styled(Li)`
-  flex-wrap: wrap;
-  height: 100%;
+export const AccountLi = styled(InnerLi)`
+  box-shadow: 0px -19px 1rem -23px #222;
+  margin-top: 1rem;
+  border-top: 1px solid #222;
 `;
 
 export const AccountBox = styled.div`
   display: flex;
+  align-items: center;
 `;
 
 export const AccountImg = styled.img`
@@ -24,4 +26,19 @@ export const AccountInfo = styled.div`
   flex-wrap: wrap;
   align-items: center;
   font-size: 1rem;
+  padding-left: 0.5rem;
+
+  > a {
+    padding: 0 !important;
+    color: #3161ad;
+    font-size: 0.8rem;
+  }
+`;
+
+export const LinksWrap = styled.div`
+  margin-top: 1rem;
+
+  > * {
+    padding-left: 3rem;
+  }
 `;

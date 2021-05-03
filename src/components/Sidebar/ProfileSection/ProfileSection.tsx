@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import Theme from "../../../styledHelpers/Theme";
-import { StyledUl, StyledLi } from "../SideMenu/SideMenu";
+import { StyledUl, StyledLi } from "../SideMenu/SideMenuStyle";
 import { useSelector } from "react-redux";
 import { IState } from "../../../reducers";
 import { IUsersReducer } from "../../../reducers/usersReducers";

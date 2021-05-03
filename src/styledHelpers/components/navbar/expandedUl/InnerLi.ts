@@ -14,6 +14,6 @@ height: auto;
 }
 
 a {
-  padding: 0 0 1rem 3rem;
+  padding: 0.5rem 0 0.5rem 3rem !important;
 }
 `;
