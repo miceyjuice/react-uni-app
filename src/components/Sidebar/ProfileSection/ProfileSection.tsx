@@ -11,6 +11,9 @@ import { AddButton, PersonBlock, PersonFullName, PersonImage, PersonJob, Profile
 
 
 export const ProfileSection: FC = () => {
+
+  const randomId = Math.floor(Math.random() * 9);
+
   const { usersList, usersPhotosList } = useSelector<IState, IUsersReducer & IUsersPhotosReducer>((globalState) => ({
     ...globalState.users,
     ...globalState.usersPhotosList
@@ -20,12 +23,12 @@ export const ProfileSection: FC = () => {
     <Wrapper>
       {console.log(usersList)}
       <PersonBlock>
-        <PersonImage src={ usersPhotosList[0]?.url } />
+        <PersonImage src={ usersPhotosList[randomId]?.url } />
         <PersonFullName>
-          {usersList[0]?.name}
+          {usersList[randomId]?.name}
         </PersonFullName>
         <PersonJob>
-          { usersList[0]?.company.name }
+          { usersList[randomId]?.company.name }
         </PersonJob>
       </PersonBlock>
       <>

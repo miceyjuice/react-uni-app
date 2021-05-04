@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState, ChangeEvent } from "react";
 import styled from "styled-components";
 import Li from "../../../../styledHelpers/components/navbar/Li";
 import SearchInput from "../../../../styledHelpers/components/navbar/SearchInput";
@@ -11,9 +11,16 @@ const FilterSearchInput = styled(SearchInput)`
 `;
 
 export const Filter: FC = () => {
+  const [inputText, setInputText] = useState<string>('');
+
+  const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    const text = e.target.value;
+    setInputText(text);
+  }
+
   return (
     <Li>
-      <FilterSearchInput type="text" placeholder="Filter..." />
+      <FilterSearchInput type="text" placeholder="Filter..." value={inputText} onChange={inputHandler} />
     </Li>
   );
 }
