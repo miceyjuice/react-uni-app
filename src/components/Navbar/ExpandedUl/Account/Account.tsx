@@ -36,7 +36,7 @@ export const Account: FC = () => {
       </AccountBox>
       <LinksWrap>
         <StyledA
-          to="/client-contract"
+          to="/privacy"
           fontColor={Theme.Colors.white}
           beforeImg={Theme.Icons.privacy}
           beforeLeft={"5%"}
@@ -45,7 +45,7 @@ export const Account: FC = () => {
           Privacy
         </StyledA>
         <StyledA
-          to="/client-contract"
+          to="/settings"
           fontColor={Theme.Colors.white}
           beforeImg={Theme.Icons.settings}
           beforeLeft={"5%"}
