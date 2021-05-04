@@ -12,7 +12,7 @@ export const LogoutLi = styled(InnerLi)`
     padding-left: 1rem !important;
 
     ::before{
-        max-width: 1.2rem;
+        max-width: 1.2rem
     }
 
     :hover{

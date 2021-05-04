@@ -1,6 +1,4 @@
 import { FC } from "react";
-import styled from "styled-components";
-import { Li } from "../../../../styledHelpers/components/navbar/Li";
 import { StyledA } from "../../../../styledHelpers/components/StyledA";
 import Theme from "../../../../styledHelpers/Theme";
 import { SectionParagraph } from "../../../../styledHelpers/components/navbar/expandedUl/SectionParagraph";
