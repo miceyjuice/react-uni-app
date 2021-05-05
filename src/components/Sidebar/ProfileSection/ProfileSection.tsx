@@ -7,12 +7,10 @@ import { IUsersReducer } from "../../../reducers/usersReducers";
 import { IUsersPhotosReducer } from "../../../reducers/usersPhotosReducers";
 import { Link } from "react-router-dom";
 import { AddButton, PersonBlock, PersonFullName, PersonImage, PersonJob, ProfileStyledA, Wrapper } from "./ProfileSectionStyle";
+import { IUserIdProps } from '../../MainPage/MainPage';
 
 
-
-export const ProfileSection: FC = () => {
-
-  const randomId = Math.floor(Math.random() * 9);
+export const ProfileSection: FC<IUserIdProps> = ({userId}) => {
 
   const { usersList, usersPhotosList } = useSelector<IState, IUsersReducer & IUsersPhotosReducer>((globalState) => ({
     ...globalState.users,
@@ -23,12 +21,12 @@ export const ProfileSection: FC = () => {
     <Wrapper>
       {console.log(usersList)}
       <PersonBlock>
-        <PersonImage src={ usersPhotosList[randomId]?.url } />
+        <PersonImage src={ usersPhotosList[userId]?.url } />
         <PersonFullName>
-          {usersList[randomId]?.name}
+          {usersList[userId]?.name}
         </PersonFullName>
         <PersonJob>
-          { usersList[randomId]?.company.name }
+          { usersList[userId]?.company.name }
         </PersonJob>
       </PersonBlock>
       <>

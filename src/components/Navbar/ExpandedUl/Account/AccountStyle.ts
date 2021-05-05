@@ -18,7 +18,10 @@ export const AccountImg = styled.img`
   height: 1.7rem;
   min-width: 1.7rem;
   margin: 0 0.4rem;
-  background-color: black;
+  filter: invert(40%) grayscale(100%) brightness(40%) sepia(100%)
+    hue-rotate(-50deg) saturate(400%) contrast(2);
+  filter: grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg)
+    saturate(600%) contrast(0.8);
 `;
 
 export const AccountInfo = styled.div`

@@ -11,10 +11,10 @@ import ExpandedUl from "./ExpandedUl/ExpandedUl";
 import { Theme } from "../../styledHelpers/Theme";
 import { Link, useLocation } from "react-router-dom";
 import { CurrentRoute, DropdownWrapper, Icon, LeftNav, SearchIcon } from "./NavbarStyle";
+import { IUserIdProps } from '../MainPage/MainPage';
 
 
-
-export const NavBar: FC = () => {
+export const NavBar: FC<IUserIdProps> = ({userId}) => {
   const [wrapperRef, dropdownOpen, toggleDropdown] = useDropdown();
 
   const GetCurrentRoute = ():string => {
@@ -39,7 +39,7 @@ export const NavBar: FC = () => {
               >
                 { GetCurrentRoute() }
               </CurrentRoute>
-              {dropdownOpen && <ExpandedUl />}
+              {dropdownOpen && <ExpandedUl userId={userId} />}
             </DropdownWrapper>
           </Menu>
         </LeftNav>

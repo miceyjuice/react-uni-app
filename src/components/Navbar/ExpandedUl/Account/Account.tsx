@@ -15,9 +15,11 @@ import {
 import StyledA from "../../../../styledHelpers/components/StyledA";
 import Theme from "../../../../styledHelpers/Theme";
 
+interface IAccountIdProps {
+  id: number;
+}
 
-
-export const Account: FC = () => {
+export const Account: FC<IAccountIdProps> = ({id}) => {
   const { usersList, usersPhotosList } = useSelector<
     IState,
     IUsersReducer & IUsersPhotosReducer
@@ -30,9 +32,9 @@ export const Account: FC = () => {
     <AccountLi>
       <SectionParagraph>Account</SectionParagraph>
       <AccountBox>
-        <AccountImg src={usersPhotosList[0]?.url} />
+        <AccountImg src={usersPhotosList[id]?.url} />
         <AccountInfo>
-          {usersList[0]?.name}
+          {usersList[id]?.name}
           <Link to="/profile">See profile</Link>
         </AccountInfo>
       </AccountBox>

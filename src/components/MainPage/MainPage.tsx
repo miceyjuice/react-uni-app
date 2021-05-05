@@ -8,11 +8,17 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getUsers, getUsersPhotos } from "../../actions/usersActions";
 
+export interface IUserIdProps {
+  userId: number;
+}
+
 type GetUsers = ReturnType<typeof getUsers>;
 type GetUsersPhotos = ReturnType<typeof getUsersPhotos>;
 
 export const MainPage: FC = () => {
   const dispatch = useDispatch();
+  
+  const randomId = Math.floor(Math.random() * 9);
 
   useEffect(() => {
     dispatch<GetUsers>(getUsers());
@@ -22,9 +28,9 @@ export const MainPage: FC = () => {
   return (
     <>
       <Router>
-        <Navbar />
+        <Navbar userId={randomId} />
         <Wrapper>
-          <SideBar />
+          <SideBar userId={randomId} />
           <Content>
             <Switch>
               <Route path="/publications">Publications component</Route>
