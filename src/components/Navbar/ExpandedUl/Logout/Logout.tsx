@@ -4,7 +4,6 @@ import Theme from "../../../../styledHelpers/Theme";
 import { LogoutLi } from "./LogoutStyle";
 
 
-
 export const Logout: FC = () => {
   return (
     <LogoutLi>
