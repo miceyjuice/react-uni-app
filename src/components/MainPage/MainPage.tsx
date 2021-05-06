@@ -7,6 +7,7 @@ import Content from "../../styledHelpers/components/Content";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getUsers, getUsersPhotos } from "../../actions/usersActions";
+import Publications from "../Publications/Publications";
 
 export interface IUserIdProps {
   userId: number;
@@ -36,8 +37,7 @@ export const MainPage: FC = () => {
               <Route path="/publications">Publications component</Route>
               <Route path="/entities">Entities component</Route>
               <Route path="/">
-                Home component
-                <Feed/>
+                <Publications/>
               </Route>
             </Switch>
           </Content>
