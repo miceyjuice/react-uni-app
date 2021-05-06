@@ -7,10 +7,10 @@ import { IUsersReducer } from "../../../reducers/usersReducers";
 import { IUsersPhotosReducer } from "../../../reducers/usersPhotosReducers";
 import { Link } from "react-router-dom";
 import { AddButton, PersonBlock, PersonFullName, PersonImage, PersonJob, ProfileStyledA, Wrapper } from "./ProfileSectionStyle";
-import { IUserIdProps } from '../../MainPage/MainPage';
+import { IUserProps } from '../../MainPage/MainPage';
 
 
-export const ProfileSection: FC<IUserIdProps> = ({userId}) => {
+export const ProfileSection: FC<IUserProps> = ({userId}) => {
 
   const { usersList, usersPhotosList } = useSelector<IState, IUsersReducer & IUsersPhotosReducer>((globalState) => ({
     ...globalState.users,
@@ -19,7 +19,6 @@ export const ProfileSection: FC<IUserIdProps> = ({userId}) => {
 
   return (
     <Wrapper>
-      {console.log(usersList)}
       <PersonBlock>
         <PersonImage src={ usersPhotosList[userId]?.url } />
         <PersonFullName>

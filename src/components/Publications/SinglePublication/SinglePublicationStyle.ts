@@ -28,6 +28,7 @@ export const Content = styled.p`
 export const Date = styled.p`
   font-size: ${Theme.FontSizes[10]};
   padding-right: 1rem;
+  align-self: center;
 `;
 export const Account = styled.div`
   display: flex;

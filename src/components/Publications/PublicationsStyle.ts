@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-wrap: nowrap;
   width: 100%;
-  min-height: 25rem;
+  max-height: 27rem;
   border-radius: 0.5rem;
   background-color: #262525;
 `;
@@ -21,12 +21,15 @@ export const MainPublication = styled.div`
 
 export const MainImg = styled.img`
   max-width: 100%;
-
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem 0 0 0.5rem;
 `;
 
 export const MainInfo = styled.div`
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -46,7 +49,7 @@ export const Content = styled.p`
 `;
 
 export const Date = styled.p`
-  flex-basis: 30%;
+  flex-basis: 25%;
   padding-right: 0.5rem;
   font-size: ${Theme.FontSizes[12]};
 `;

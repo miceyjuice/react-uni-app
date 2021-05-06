@@ -3,7 +3,8 @@ import { useSelector } from "react-redux";
 import { IState } from "../../../reducers";
 import { IUsersPhotosReducer } from "../../../reducers/usersPhotosReducers";
 import { IUsersReducer } from "../../../reducers/usersReducers";
-import { IUserIdProps } from "../../MainPage/MainPage";
+import { IUsersPostsReducer } from "../../../reducers/usersPostsReducers";
+import { IUserProps } from "../../MainPage/MainPage";
 import {
   Content,
   PublicationImg,
@@ -15,13 +16,14 @@ import {
   AccountInfo,
 } from "./SinglePublicationStyle";
 
-export const Publication: FC<IUserIdProps> = ({ userId }) => {
-  const { usersList, usersPhotosList } = useSelector<
+export const SinglePublication: FC<IUserProps> = ({ userId, postId }) => {
+  const { usersList, usersPhotosList, usersPostsList } = useSelector<
     IState,
-    IUsersReducer & IUsersPhotosReducer
+    IUsersReducer & IUsersPhotosReducer & IUsersPostsReducer
   >((globalState) => ({
     ...globalState.users,
     ...globalState.usersPhotosList,
+    ...globalState.usersPostsList
   }));
 
   return (
@@ -31,10 +33,7 @@ export const Publication: FC<IUserIdProps> = ({ userId }) => {
       />
       <PublicationInfo>
         <Content>
-          jdasjod asda sdasdasda iddasda sada jdasjod asda sdasdasda iddasda
-          sada jdasjod asda sdasdasda iddasda sada jdasjod asda sdasdasda
-          iddasda sada jdasjod asda sdasdasda iddasda sada jdasjod asda
-          sdasdasda iddasda sada
+          { usersPostsList?.filter( post => post.userId === userId )[postId!]?.title }
         </Content>
         <Date>7 jan. 2020</Date>
         <Account>
@@ -46,4 +45,4 @@ export const Publication: FC<IUserIdProps> = ({ userId }) => {
   );
 };
 
-export default Publication;
+export default SinglePublication;
