@@ -37,7 +37,7 @@ export const MainPage: FC = () => {
               <Route path="/publications">Publications component</Route>
               <Route path="/entities">Entities component</Route>
               <Route path="/">
-                <Publications/>
+                <Publications userId={randomId} />
               </Route>
             </Switch>
           </Content>

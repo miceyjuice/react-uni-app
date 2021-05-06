@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Theme from "../../styledHelpers/Theme";
 
@@ -13,11 +14,14 @@ export const Wrapper = styled.div`
 export const MainPublication = styled.div`
   position: relative;
   width: 35%;
+  color: ${Theme.Colors.white};
   background: #aaa;
   border-radius: 0.5rem 0 0 0.5rem;
-  background-image: url('https://via.placeholder.com/600/56a8c2');
-  background-position: center;
-  background-size: 100%;
+`;
+
+export const MainImg = styled.img`
+  max-width: 100%;
+
 `;
 
 export const MainInfo = styled.div`
@@ -31,7 +35,7 @@ export const MainInfo = styled.div`
   background: linear-gradient(
     180deg,
     rgba(255, 255, 255, 0) 0%,
-    rgba(65, 65, 65, 1) 100%
+    rgba(11, 11, 11, 0.8) 100%
   );
   border-radius: 0 0 0 0.5rem;
 `;
@@ -43,16 +47,28 @@ export const Content = styled.p`
 
 export const Date = styled.p`
   flex-basis: 30%;
+  padding-right: 0.5rem;
+  font-size: ${Theme.FontSizes[12]};
 `;
 
 export const Account = styled.div`
   display: flex;
   flex-basis: 70%;
+  align-items: center;
+  gap: 0.5rem;
 `;
 
-export const AccountImg = styled.img``;
+export const AccountImg = styled.img`
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  filter: grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg)
+    saturate(400%) contrast(0.8);
+`;
 
-export const AccountInfo = styled.p``;
+export const AccountInfo = styled.p`
+  font-size: ${Theme.FontSizes[12]};
+`;
 
 export const PublicationsBox = styled.div`
   flex-basis: 65%;
@@ -65,8 +81,9 @@ export const BoxTitle = styled.h3`
 `;
 export const PublicationsList = styled.div``;
 
-export const MorePublicationsLink = styled.a`
+export const MorePublicationsLink = styled(Link)`
   font-size: ${Theme.FontSizes[14]};
   color: ${Theme.Colors.pink};
   text-shadow: 0 0 2px ${Theme.Colors.red};
+  text-decoration: none;
 `;
