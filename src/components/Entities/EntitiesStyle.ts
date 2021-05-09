@@ -9,3 +9,11 @@ export const Wrapper = styled.div`
   border-radius: 0.5rem;
   min-height: 20rem;
 `;
+
+export const EntitiesList = styled.div`
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 1rem;
+  padding: 1rem;
+`;

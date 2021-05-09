@@ -164,7 +164,7 @@ export const SearchInput = styled.input`
 `;
 export const SearchIcon = styled.img`
   position: absolute;
-  right: 1rem;
+  right: 0.5rem;
   top: 50%;
   transform: translateY(-50%);
   max-width: 1rem;

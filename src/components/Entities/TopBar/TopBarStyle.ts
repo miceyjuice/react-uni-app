@@ -16,7 +16,7 @@ export const DisplayOptions = styled.div`
   display: flex;
   border: 1px solid #222;
   border-radius: 0.5rem;
-  margin: 0.5rem;
+  margin: 0.5rem 1rem;
 `;
 export const Mosaic = styled.div`
   display: flex;

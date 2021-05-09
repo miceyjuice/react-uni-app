@@ -3,6 +3,10 @@ import Theme from "../../../styledHelpers/Theme";
 import { All, Filter, Filters, LeftBlock, MoreOptions, Resize, RightBlock, Search, SearchIcon, SearchInput, Share, Sort, Wrapper } from "./OptionsStyle";
 
 export const Options: FC = () => {
+  const resizeBox = () => {
+    console.log('clicked');
+  }
+
   return (
     <Wrapper>
       <LeftBlock>
@@ -10,7 +14,7 @@ export const Options: FC = () => {
         <MoreOptions src={process.env.PUBLIC_URL + Theme.Icons.more} />
         <Sort>Sort</Sort>
         <Filters>Filters</Filters>
-        <Resize src={process.env.PUBLIC_URL + Theme.Icons.resize} />
+        <Resize onClick={resizeBox} src={process.env.PUBLIC_URL + Theme.Icons.resize} />
         <Share>Share</Share>
       </LeftBlock>
       <RightBlock>

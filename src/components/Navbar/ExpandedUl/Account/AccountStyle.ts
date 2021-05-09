@@ -35,6 +35,7 @@ export const AccountInfo = styled.div`
     padding: 0 !important;
     color: #3161ad;
     font-size: 0.8rem;
+    flex-basis: 100%;
   }
 `;
 

@@ -6,4 +6,5 @@ export const StyledUl = styled(Ul)`
   left: 7%;
   border-radius: 0 0 10px 10px;
   padding: 0 1rem;
+  width: 90%;
 `;

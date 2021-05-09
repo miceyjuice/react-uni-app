@@ -38,8 +38,9 @@ export const Account = styled.div`
 export const AccountImg = styled.img`
   width: 1rem;
   height: 1rem;
-  background-color: red;
   border-radius: 50%;
+  filter: invert(40%) grayscale(100%) brightness(80%) sepia(100%)
+    hue-rotate(-50deg) saturate(150%) contrast(2);
 `;
 export const AccountInfo = styled.p`
   font-size: ${Theme.FontSizes[10]};

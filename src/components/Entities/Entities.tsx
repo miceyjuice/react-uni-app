@@ -1,31 +1,20 @@
 import React, { FC } from "react";
 import { useSelector } from "react-redux";
-import styled from "styled-components";
 import { IState } from "../../reducers";
 import { IUsersPhotosReducer } from "../../reducers/usersPhotosReducers";
-import { IUsersReducer } from "../../reducers/usersReducers";
-import { Wrapper } from "./EntitiesStyle";
+import { EntitiesList, Wrapper } from "./EntitiesStyle";
 import Entity from "./Entity/Entity";
 import Options from "./Options/Options";
 import TopBar from "./TopBar/TopBar";
 
-const EntitiesList = styled.div`
-  display: grid;
-  width: 100%;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-gap: 1rem;
-  padding: 1rem;
-`;
-
 
 
 export const Entities: FC = () => {
-  const { usersPhotosList } = useSelector<
-    IState,
-    IUsersPhotosReducer
-  >((globalState) => ({
-    ...globalState.usersPhotosList,
-  }));
+  const { usersPhotosList } = useSelector<IState, IUsersPhotosReducer>(
+    (globalState) => ({
+      ...globalState.usersPhotosList,
+    })
+  );
 
   const entities = [
     {

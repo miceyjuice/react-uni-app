@@ -43,10 +43,8 @@ export const PersonImage = styled.img`
   width: 6.25rem;
   height: 6.25rem;
   border-radius: 50%;
-  filter: invert(40%) grayscale(100%) brightness(40%) sepia(100%)
+  filter: invert(40%) grayscale(100%) brightness(50%) sepia(80%)
     hue-rotate(-50deg) saturate(400%) contrast(2);
-  filter: grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg)
-    saturate(600%) contrast(0.8);
 `;
 
 export const PersonFullName = styled.h3`

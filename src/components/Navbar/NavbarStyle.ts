@@ -48,7 +48,7 @@ export const CurrentRoute = styled.div<{beforeImg: string, afterImg: string}>`
   text-align: left;
   text-decoration: none;
   position: relative;
-  min-width: 13rem;
+  min-width: 17rem;
   padding: 0 3rem;
   align-items: center;
 

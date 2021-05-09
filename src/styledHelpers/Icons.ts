@@ -6,6 +6,7 @@ export const Icons = {
   dropdown: "/assets/icons/arrow-down.svg",
   ecosystem: "/assets/icons/ecosystem.svg",
   entities: "/assets/icons/entities.svg",
+  corporate: "/assets/icons/entities.svg",
   home: "/assets/icons/house.svg",
   logo: "/assets/logo-alt.png",
   logout: "/assets/icons/logout.svg",

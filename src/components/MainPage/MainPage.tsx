@@ -9,6 +9,7 @@ import { useDispatch } from "react-redux";
 import { getUsers, getUsersPhotos, getUsersPosts } from "../../actions/usersActions";
 import Publications from "../Publications/Publications";
 import Entities from "../Entities/Entities";
+import Workspaces from "../Workspaces/Workspaces";
 
 export interface IUserProps {
   userId: number;
@@ -44,6 +45,7 @@ export const MainPage: FC = () => {
               </Route>
               <Route path="/">
                 <Publications userId={randomId} />
+                <Workspaces />
               </Route>
             </Switch>
           </Content>

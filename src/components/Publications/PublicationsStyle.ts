@@ -24,6 +24,8 @@ export const MainImg = styled.img`
   width: 100%;
   height: 100%;
   border-radius: 0.5rem 0 0 0.5rem;
+  filter: invert(40%) grayscale(100%) brightness(60%) sepia(100%)
+    hue-rotate(-50deg) saturate(150%) contrast(2);
 `;
 
 export const MainInfo = styled.div`
