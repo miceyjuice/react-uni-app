@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getUsers, getUsersPhotos, getUsersPosts } from "../../actions/usersActions";
 import Publications from "../Publications/Publications";
+import Entities from "../Entities/Entities";
 
 export interface IUserProps {
   userId: number;
@@ -38,7 +39,9 @@ export const MainPage: FC = () => {
           <Content>
             <Switch>
               <Route path="/publications">Publications component</Route>
-              <Route path="/entities">Entities component</Route>
+              <Route path="/entities">
+                <Entities />
+              </Route>
               <Route path="/">
                 <Publications userId={randomId} />
               </Route>

@@ -17,6 +17,15 @@ export const Icons = {
   search: "/assets/icons/search.svg",
   userAdd: "/assets/icons/user-plus.svg",
   yourPublications: "/assets/icons/yourpublications.png",
+  mosaic: "/assets/icons/mosaic.svg",
+  list: "/assets/icons/list.svg",
+  all: "/assets/icons/all.svg",
+  more: "/assets/icons/more.svg",
+  sort: "/assets/icons/sort.svg",
+  filter: "/assets/icons/filter.svg",
+  resize: "/assets/icons/resize.svg",
+  share: "/assets/icons/share.svg",
+  signal: "/assets/icons/signal.svg",
 };
 
 export default Icons;

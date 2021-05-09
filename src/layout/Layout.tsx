@@ -11,12 +11,12 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
     background-color: ${Theme.Colors.black}
   }
 
   *, *::before, *::after{
     box-sizing: inherit;
+    font-family: 'Poppins', sans-serif;
   }
 `;
 
