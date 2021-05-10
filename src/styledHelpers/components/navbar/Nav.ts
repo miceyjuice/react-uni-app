@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import Theme from "../../Theme";
 
-export const Nav = styled.nav`
-  display: flex;
+export const Nav = styled.nav<{isHidden: boolean}>`
+  display: ${({isHidden}) => isHidden ? 'none' : 'flex'};
   justify-content: space-between;
   align-items: center;
   padding: 2rem 3.75rem;

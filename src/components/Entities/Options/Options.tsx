@@ -1,5 +1,6 @@
 import React, { Dispatch, FC, SetStateAction } from "react";
 import Theme from "../../../styledHelpers/Theme";
+import { IDisplayProps } from "../../MainPage/MainPage";
 import {
   All,
   Filter,
@@ -21,12 +22,14 @@ interface IFilterProps {
   filtersVisibility: boolean;
 }
 
-export const Options: FC<IFilterProps> = ({
+export const Options: FC<IFilterProps & IDisplayProps> = ({
   setFiltersVisibility,
   filtersVisibility,
+  isHidden,
+  setDisplayValue
 }) => {
   const resizeBox = () => {
-    console.log("clicked");
+    setDisplayValue!(!isHidden);
   };
 
   const showMoreFilterOptions = () => {

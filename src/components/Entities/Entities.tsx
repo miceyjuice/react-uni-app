@@ -7,8 +7,9 @@ import Entity from "./Entity/Entity";
 import MoreFilterOptions from "./MoreFilterOptions/MoreFilterOptions";
 import Options from "./Options/Options";
 import TopBar from "./TopBar/TopBar";
+import { IDisplayProps } from "../MainPage/MainPage";
 
-export const Entities: FC = () => {
+export const Entities: FC<IDisplayProps> = ({ isHidden, setDisplayValue }) => {
   const { usersPhotosList } = useSelector<IState, IUsersPhotosReducer>(
     (globalState) => ({
       ...globalState.usersPhotosList,
@@ -149,6 +150,8 @@ export const Entities: FC = () => {
       <Options
         filtersVisibility={moreFiltersVisible}
         setFiltersVisibility={setMoreFiltersVisibility}
+        setDisplayValue={setDisplayValue}
+        isHidden={isHidden}
       />
       <MoreFilterOptions filtersVisibility={moreFiltersVisible} />
       <EntitiesList listState={listMosaic}>

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-export const Content = styled.div`
-  flex-basis: 70%;
+export const Content = styled.div<{fullWidth: boolean}>`
+  flex-basis: ${({fullWidth}) => fullWidth ? '100%' : '70%'};
   width: 100%;
 `;
 

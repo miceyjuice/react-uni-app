@@ -11,7 +11,7 @@ export const Wrapper = styled.div<{ visibility: boolean }>`
   border: 1px solid #444;
   border-radius: 0.5rem;
   margin: 1rem 1rem 0 1rem;
-  gap: 1rem;
+  gap: 0.5rem;
 `;
 export const Title = styled.h3`
   flex-basis: 100%;
@@ -27,8 +27,30 @@ export const Row = styled.div`
   align-items: center;
   gap: 2rem;
   font-size: ${Theme.FontSizes[15]};
+
+  > *:not(input):hover{
+    cursor: pointer;
+  }
 `;
-export const Where = styled.div``;
+export const Where = styled.div`
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 1.5rem;
+
+  ::before {
+    content: "";
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    background-image: url(${process.env.PUBLIC_URL + Theme.Icons.cancel});
+    background-size: 60%;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 0rem;
+  }
+`;
 export const Selector = styled.select<{ customColor?: boolean }>`
   background: transparent;
   border: none;

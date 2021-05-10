@@ -1,6 +1,4 @@
 import React, { Dispatch, FC, SetStateAction } from "react";
-import styled from "styled-components";
-import Theme from "../../../styledHelpers/Theme";
 import {
   Row,
   Selector,

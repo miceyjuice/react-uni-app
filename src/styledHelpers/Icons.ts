@@ -27,6 +27,7 @@ export const Icons = {
   resize: "/assets/icons/resize.svg",
   share: "/assets/icons/share.svg",
   signal: "/assets/icons/signal.svg",
+  cancel: "/assets/icons/cancel.svg",
 };
 
 export default Icons;

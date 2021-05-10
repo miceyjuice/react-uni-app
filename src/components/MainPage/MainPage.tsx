@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from "react";
+import React, { Dispatch, FC, SetStateAction, useEffect, useState } from "react";
 import Navbar from "../Navbar/Navbar";
 import SideBar from "../Sidebar/Sidebar";
 import Feed from "../Feed/Feed";
@@ -16,6 +16,11 @@ export interface IUserProps {
   postId?: number;
 }
 
+export interface IDisplayProps {
+  isHidden: boolean;
+  setDisplayValue?: Dispatch<SetStateAction<boolean>>;
+}
+
 type GetUsers = ReturnType<typeof getUsers>;
 type GetUsersPhotos = ReturnType<typeof getUsersPhotos>;
 type GetUsersPosts = ReturnType<typeof getUsersPosts>
@@ -30,18 +35,19 @@ export const MainPage: FC = () => {
     dispatch<GetUsersPosts>(getUsersPosts());
   }, []);
 
+  const [isHidden, setIsHidden] = useState<boolean>(false);
 
   return (
     <>
       <Router>
-        <Navbar userId={randomId} />
+        <Navbar userId={randomId} isHidden={isHidden} />
         <Wrapper>
-          <SideBar userId={randomId} />
-          <Content>
+          <SideBar userId={randomId} isHidden={isHidden} />
+          <Content fullWidth={isHidden}>
             <Switch>
               <Route path="/publications">Publications component</Route>
               <Route path="/entities">
-                <Entities />
+                <Entities setDisplayValue={setIsHidden} isHidden={isHidden}/>
               </Route>
               <Route path="/">
                 <Publications userId={randomId} />
