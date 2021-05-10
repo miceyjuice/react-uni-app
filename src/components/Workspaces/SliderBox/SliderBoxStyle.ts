@@ -20,10 +20,11 @@ export const CategoryImg = styled.img`
   background-color: #444;
   z-index: 100;
 `;
-export const Top = styled.div``;
-export const TopImg = styled.img`
-  width: 100%;
-  max-height: 8rem;
+export const Top = styled.div<{ bgImg: string }>`
+  background-image: ${({ bgImg }) => "url(" + bgImg + ")"};
+  background-size: 50%;
+  background-position: center;
+  height: 8rem;
   border-radius: 0.5rem 0.5rem 0 0;
   filter: invert(40%) grayscale(100%) brightness(60%) sepia(80%)
     hue-rotate(-50deg) saturate(150%) contrast(2);

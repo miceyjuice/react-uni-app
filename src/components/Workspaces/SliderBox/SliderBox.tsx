@@ -1,7 +1,16 @@
 import React, { FC } from "react";
 import styled from "styled-components";
 import Theme from "../../../styledHelpers/Theme";
-import { Bottom, Category, CategoryImg, Title, Top, TopImg, Update, Users, Wrapper } from "./SliderBoxStyle";
+import {
+  Bottom,
+  Category,
+  CategoryImg,
+  Title,
+  Top,
+  Update,
+  Users,
+  Wrapper,
+} from "./SliderBoxStyle";
 
 interface IWorkspaceProps {
   bgImg: string;
@@ -11,8 +20,6 @@ interface IWorkspaceProps {
   usersNumber: number;
   lastUpdate: string;
 }
-
-
 
 export const SliderBox: FC<IWorkspaceProps> = ({
   bgImg,
@@ -25,9 +32,7 @@ export const SliderBox: FC<IWorkspaceProps> = ({
   return (
     <Wrapper>
       <CategoryImg src={process.env.PUBLIC_URL + categoryImg} />
-      <Top>
-        <TopImg src={bgImg} />
-      </Top>
+      <Top bgImg={bgImg}></Top>
       <Bottom>
         <Title>{title}</Title>
         <Category>{category}</Category>
