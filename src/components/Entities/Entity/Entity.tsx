@@ -1,17 +1,29 @@
-import React, { FC } from "react";
-import { Wrapper, EntityContent, EntityImg, EntityInfo, EntityTitle } from "./EntityStyles";
+import React, { Dispatch, FC, SetStateAction } from "react";
+import {
+  Wrapper,
+  EntityContent,
+  EntityImg,
+  EntityInfo,
+  EntityTitle,
+} from "./EntityStyles";
 
 interface IEntityProps {
   imgLink: string;
   title: string;
   content: string;
+  spacedEl: boolean;
 }
 
-export const EntitiesList: FC<IEntityProps> = ({ imgLink, title, content }) => {
+export const EntitiesList: FC<IEntityProps> = ({
+  imgLink,
+  title,
+  content,
+  spacedEl,
+}) => {
   return (
     <Wrapper>
       <EntityImg src={imgLink} />
-      <EntityInfo>
+      <EntityInfo spacedEl={spacedEl}>
         <EntityTitle>{title}</EntityTitle>
         <EntityContent>{content}</EntityContent>
       </EntityInfo>

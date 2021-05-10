@@ -10,10 +10,11 @@ export const Wrapper = styled.div`
   min-height: 20rem;
 `;
 
-export const EntitiesList = styled.div`
+export const EntitiesList = styled.div<{ listState: boolean }>`
   display: grid;
   width: 100%;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: ${({ listState }) =>
+    listState ? "repeat(auto-fit, minmax(250px, 1fr))" : "1fr"};
   grid-gap: 1rem;
   padding: 1rem;
 `;

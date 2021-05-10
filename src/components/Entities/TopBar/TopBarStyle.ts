@@ -17,36 +17,45 @@ export const DisplayOptions = styled.div`
   border: 1px solid #222;
   border-radius: 0.5rem;
   margin: 0.5rem 1rem;
+
+  > *:hover {
+    cursor: pointer;
+    background-color: #444;
+  }
 `;
-export const Mosaic = styled.div`
+export const Mosaic = styled.div<{ isActive: boolean }>`
   display: flex;
   align-items: center;
   background-color: #333;
+  background-color: ${({ isActive }) => (isActive ? "#333" : "transparent")};
   padding: 0 1rem;
   border-radius: 0.5rem;
 `;
 
 export const MosaicImg = styled.img`
   width: 1rem;
-  margin-right: 1rem;
 `;
-export const MosaicText = styled.p`
+export const MosaicText = styled.p<{ isActive: boolean }>`
   color: ${Theme.Colors.white};
   margin: 0;
+  display: ${({ isActive }) => (isActive ? "inline-block" : "none")};
+  padding-left: 1rem;
 `;
-export const List = styled.div`
+export const List = styled.div<{ isActive: boolean }>`
   display: flex;
   align-items: center;
   padding: 0 1rem;
+  background-color: ${({ isActive }) => (!isActive ? "#333" : "transparent")};
+  border-radius: 0.5rem;
 `;
 
 export const ListImg = styled.img`
   width: 1rem;
 `;
 
-export const ListText = styled.p`
+export const ListText = styled.p<{ isActive: boolean }>`
   color: ${Theme.Colors.white};
-  margin-left: 1rem;
+  padding-left: 1rem;
   margin: 0;
-  display: none;
+  display: ${({ isActive }) => (!isActive ? "inline-block" : "none")};
 `;

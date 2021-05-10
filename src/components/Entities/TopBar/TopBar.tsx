@@ -1,19 +1,45 @@
-import React, { FC } from "react";
+import React, { Dispatch, FC, SetStateAction } from "react";
 import Theme from "../../../styledHelpers/Theme";
-import { DisplayOptions, List, ListImg, ListText, Mosaic, MosaicImg, MosaicText, Title, Wrapper } from "./TopBarStyle";
+import {
+  DisplayOptions,
+  List,
+  ListImg,
+  ListText,
+  Mosaic,
+  MosaicImg,
+  MosaicText,
+  Title,
+  Wrapper,
+} from "./TopBarStyle";
 
-export const TopBar: FC = () => {
+interface IEntitiesListProps {
+  setMosaicList: Dispatch<SetStateAction<boolean>>;
+  listMosaic: boolean;
+}
+
+export const TopBar: FC<IEntitiesListProps> = ({
+  setMosaicList,
+  listMosaic,
+}) => {
+  const displayMosaic = () => {
+    setMosaicList(true);
+  };
+
+  const displayList = () => {
+    setMosaicList(false);
+  };
+
   return (
     <Wrapper>
       <Title>Entities</Title>
       <DisplayOptions>
-        <Mosaic>
+        <Mosaic isActive={listMosaic} onClick={displayMosaic}>
           <MosaicImg src={Theme.Icons.mosaic} />
-          <MosaicText>Mosaic</MosaicText>
+          <MosaicText isActive={listMosaic}>Mosaic</MosaicText>
         </Mosaic>
-        <List>
+        <List isActive={listMosaic} onClick={displayList}>
           <ListImg src={Theme.Icons.list} />
-          <ListText>List</ListText>
+          <ListText isActive={listMosaic}>List</ListText>
         </List>
       </DisplayOptions>
     </Wrapper>
