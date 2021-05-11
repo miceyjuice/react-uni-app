@@ -36,3 +36,11 @@ export interface ISingleUserPost {
   title: string;
   body: string;
 }
+
+export interface ISingleUserComment {
+  postId: number;
+  id: number;
+  name: string;
+  email: string;
+  body: string;
+}

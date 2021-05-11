@@ -1,4 +1,10 @@
-import React, { Dispatch, FC, SetStateAction, useEffect, useState } from "react";
+import React, {
+  Dispatch,
+  FC,
+  SetStateAction,
+  useEffect,
+  useState,
+} from "react";
 import Navbar from "../Navbar/Navbar";
 import SideBar from "../Sidebar/Sidebar";
 import Feed from "../Feed/Feed";
@@ -6,7 +12,12 @@ import Wrapper from "../../styledHelpers/components/Wrapper";
 import Content from "../../styledHelpers/components/Content";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { getUsers, getUsersPhotos, getUsersPosts } from "../../actions/usersActions";
+import {
+  getUsers,
+  getUsersComments,
+  getUsersPhotos,
+  getUsersPosts,
+} from "../../actions/usersActions";
 import Publications from "../Publications/Publications";
 import Entities from "../Entities/Entities";
 import Workspaces from "../Workspaces/Workspaces";
@@ -23,7 +34,8 @@ export interface IDisplayProps {
 
 type GetUsers = ReturnType<typeof getUsers>;
 type GetUsersPhotos = ReturnType<typeof getUsersPhotos>;
-type GetUsersPosts = ReturnType<typeof getUsersPosts>
+type GetUsersPosts = ReturnType<typeof getUsersPosts>;
+type GetUsersComments = ReturnType<typeof getUsersComments>;
 
 export const MainPage: FC = () => {
   const dispatch = useDispatch();
@@ -33,6 +45,7 @@ export const MainPage: FC = () => {
     dispatch<GetUsers>(getUsers());
     dispatch<GetUsersPhotos>(getUsersPhotos());
     dispatch<GetUsersPosts>(getUsersPosts());
+    dispatch<GetUsersComments>(getUsersComments());
   }, []);
 
   const [isHidden, setIsHidden] = useState<boolean>(false);
@@ -47,7 +60,7 @@ export const MainPage: FC = () => {
             <Switch>
               <Route path="/publications">Publications component</Route>
               <Route path="/entities">
-                <Entities setDisplayValue={setIsHidden} isHidden={isHidden}/>
+                <Entities setDisplayValue={setIsHidden} isHidden={isHidden} />
               </Route>
               <Route path="/">
                 <Publications userId={randomId} />

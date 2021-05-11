@@ -1,6 +1,11 @@
 import { Dispatch } from "redux";
 import * as actionTypes from "../actions/actionTypes/userTypes";
-import { ISingleUser, ISingleUserPhoto, ISingleUserPost } from "../entities/users";
+import {
+  ISingleUser,
+  ISingleUserComment,
+  ISingleUserPhoto,
+  ISingleUserPost,
+} from "../entities/users";
 
 export const getUsers = (): Promise<ISingleUser[]> =>
   (async (dispatch: Dispatch) => {
@@ -11,8 +16,8 @@ export const getUsers = (): Promise<ISingleUser[]> =>
       usersList,
     });
   }) as any;
-  
-  export const getUsersPhotos = (): Promise<ISingleUserPhoto[]> =>
+
+export const getUsersPhotos = (): Promise<ISingleUserPhoto[]> =>
   (async (dispatch: Dispatch) => {
     const response = await fetch("https://jsonplaceholder.typicode.com/photos");
     const usersPhotos = await response.json();
@@ -21,14 +26,25 @@ export const getUsers = (): Promise<ISingleUser[]> =>
       usersPhotos,
     });
   }) as any;
-  
-  export const getUsersPosts = (): Promise<ISingleUserPost[]> =>
+
+export const getUsersPosts = (): Promise<ISingleUserPost[]> =>
   (async (dispatch: Dispatch) => {
     const response = await fetch("https://jsonplaceholder.typicode.com/posts");
     const userPosts = await response.json();
-    console.log(userPosts);
     dispatch({
       type: actionTypes.GET_POSTS,
       userPosts,
+    });
+  }) as any;
+
+export const getUsersComments = (): Promise<ISingleUserComment[]> =>
+  (async (dispatch: Dispatch) => {
+    const response = await fetch(
+      "https://jsonplaceholder.typicode.com/comments"
+    );
+    const usersComments = await response.json();
+    dispatch({
+      type: actionTypes.GET_COMMENTS,
+      usersComments,
     });
   }) as any;
