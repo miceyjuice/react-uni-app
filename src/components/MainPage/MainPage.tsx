@@ -65,7 +65,7 @@ export const MainPage: FC = () => {
               <Route path="/">
                 <Publications userId={randomId} />
                 <Workspaces />
-                <Feed />
+                <Feed userId={randomId}/>
               </Route>
             </Switch>
           </Content>

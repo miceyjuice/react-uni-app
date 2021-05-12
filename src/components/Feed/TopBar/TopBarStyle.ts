@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Theme from "../../../styledHelpers/Theme";
 
-export const TopBar = styled.div`
+export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -46,4 +46,10 @@ export const Selection = styled.select`
     cursor: pointer;
   }
 `;
-export const Option = styled.option``;
+export const Option = styled.option`
+  background-color: #333;
+
+  :hover{
+    cursor: pointer;
+  }
+`;

@@ -12,11 +12,11 @@ import {
 } from "./WorkListStyle";
 
 interface IWorkListProps {
-    currentPosts: ISingleUserComment[],
-    usersList: ISingleUser[]
+  currentPosts: ISingleUserComment[];
+  usersList: ISingleUser[];
 }
 
-export const WorkList: FC<IWorkListProps> = ({currentPosts, usersList}) => {
+export const WorkList: FC<IWorkListProps> = ({ currentPosts, usersList }) => {
   return (
     <Wrapper>
       {currentPosts.map((comment) => (
@@ -24,7 +24,9 @@ export const WorkList: FC<IWorkListProps> = ({currentPosts, usersList}) => {
           <WorkTitle>{comment.name}</WorkTitle>
           <Content>{comment.body}</Content>
           <BottomBar>
-            <CompanyName>Subsid. corp</CompanyName>
+            <CompanyName>
+              {usersList.find((user) => user.id === comment.postId)?.name}
+            </CompanyName>
             <Category>Contract</Category>
             <LastUpdate>
               Updated 3 days ago by{" "}
