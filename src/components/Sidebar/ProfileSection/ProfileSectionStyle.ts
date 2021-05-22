@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import StyledA from "../../../styledHelpers/components/StyledA";
 import Theme from "../../../styledHelpers/Theme";
@@ -47,12 +48,19 @@ export const PersonImage = styled.img`
     hue-rotate(-50deg) saturate(400%) contrast(2);
 `;
 
-export const PersonFullName = styled.h3`
+export const PersonFullName = styled(Link)`
   flex-basis: 100%;
   font-size: ${Theme.FontSizes[20]};
   font-weight: ${Theme.FontWeights.semibold};
   color: ${Theme.Colors.red};
   margin-bottom: 0;
+  margin-top: 1rem;
+  text-decoration: none;
+  transition: text-decoration 300ms ease-in-out;
+
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 export const PersonJob = styled.p`

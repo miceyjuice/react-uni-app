@@ -28,6 +28,9 @@ export const Icons = {
   share: "/assets/icons/share.svg",
   signal: "/assets/icons/signal.svg",
   cancel: "/assets/icons/cancel.svg",
+  message: "/assets/icons/message.svg",
+  suitcase: "/assets/icons/suitcase.svg",
+  edit: "/assets/icons/edit.svg",
 };
 
 export default Icons;

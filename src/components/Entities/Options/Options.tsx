@@ -1,4 +1,4 @@
-import React, { Dispatch, FC, SetStateAction } from "react";
+import React, { ChangeEvent, Dispatch, FC, SetStateAction } from "react";
 import Theme from "../../../styledHelpers/Theme";
 import { IDisplayProps } from "../../MainPage/MainPage";
 import {
@@ -17,16 +17,25 @@ import {
   Wrapper,
 } from "./OptionsStyle";
 
-interface IFilterProps {
+interface IMoreFilterOptionsProps {
   setFiltersVisibility: Dispatch<SetStateAction<boolean>>;
   filtersVisibility: boolean;
 }
 
-export const Options: FC<IFilterProps & IDisplayProps> = ({
+interface IFilterProps {
+  setFilterValue: Dispatch<SetStateAction<string>>;
+  filterValue: string;
+}
+
+export const Options: FC<
+  IMoreFilterOptionsProps & IDisplayProps & IFilterProps
+> = ({
   setFiltersVisibility,
   filtersVisibility,
   isHidden,
-  setDisplayValue
+  setDisplayValue,
+  filterValue,
+  setFilterValue,
 }) => {
   const resizeBox = () => {
     setDisplayValue!(!isHidden);
@@ -34,6 +43,11 @@ export const Options: FC<IFilterProps & IDisplayProps> = ({
 
   const showMoreFilterOptions = () => {
     setFiltersVisibility(!filtersVisibility);
+  };
+
+  const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    const text = e.target.value;
+    setFilterValue(text);
   };
 
   return (
@@ -48,14 +62,21 @@ export const Options: FC<IFilterProps & IDisplayProps> = ({
           src={process.env.PUBLIC_URL + Theme.Icons.resize}
         />
         <Share
-          onClick={() => navigator.clipboard.writeText(window.location.href)}
+          onClick={() => {
+            navigator.clipboard.writeText(window.location.href);
+            alert("Link copied to the clipboard!");
+          }}
         >
           Share
         </Share>
       </LeftBlock>
       <RightBlock>
         <Search>
-          <SearchInput placeholder="Search..." />
+          <SearchInput
+            placeholder="Search..."
+            value={filterValue}
+            onChange={inputHandler}
+          />
           <SearchIcon src={process.env.PUBLIC_URL + Theme.Icons.search} />
         </Search>
         <Filter>Followed</Filter>

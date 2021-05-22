@@ -21,7 +21,7 @@ export const ProfileSection: FC<IUserProps> = ({userId}) => {
     <Wrapper>
       <PersonBlock>
         <PersonImage src={ usersPhotosList[userId]?.url } />
-        <PersonFullName>
+        <PersonFullName to="/profile">
           {usersList[userId]?.name}
         </PersonFullName>
         <PersonJob>

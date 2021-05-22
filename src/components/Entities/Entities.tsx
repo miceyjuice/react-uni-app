@@ -17,9 +17,9 @@ export const Entities: FC<IDisplayProps> = ({ isHidden, setDisplayValue }) => {
   );
 
   const [listMosaic, setListMosaic] = useState<boolean>(true);
-  const [moreFiltersVisible, setMoreFiltersVisibility] = useState<boolean>(
-    false
-  );
+  const [moreFiltersVisible, setMoreFiltersVisibility] =
+    useState<boolean>(false);
+  const [filterValue, setFilterValue] = useState<string>("");
 
   const entities = [
     {
@@ -152,17 +152,24 @@ export const Entities: FC<IDisplayProps> = ({ isHidden, setDisplayValue }) => {
         setFiltersVisibility={setMoreFiltersVisibility}
         setDisplayValue={setDisplayValue}
         isHidden={isHidden}
+        filterValue={filterValue}
+        setFilterValue={setFilterValue}
       />
       <MoreFilterOptions filtersVisibility={moreFiltersVisible} />
       <EntitiesList listState={listMosaic}>
-        {entities.map((entity) => (
-          <Entity
-            imgLink={entity?.imgLink}
-            title={entity.title}
-            content={entity.content}
-            spacedEl={listMosaic}
-          />
-        ))}
+        {entities
+          .filter((entity) =>
+            entity.title.toLowerCase().includes(filterValue.toLowerCase())
+          )
+          .map((entity) => (
+            <Entity
+              imgLink={entity?.imgLink}
+              title={entity.title}
+              content={entity.content}
+              spacedEl={listMosaic}
+              key={entity.title + Math.floor(Math.random() * 4213)}
+            />
+          ))}
       </EntitiesList>
     </Wrapper>
   );

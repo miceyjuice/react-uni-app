@@ -21,6 +21,7 @@ import {
 import Publications from "../Publications/Publications";
 import Entities from "../Entities/Entities";
 import Workspaces from "../Workspaces/Workspaces";
+import Profile from "../Profile/Profile";
 
 export interface IUserProps {
   userId: number;
@@ -61,6 +62,9 @@ export const MainPage: FC = () => {
               <Route path="/publications">Publications component</Route>
               <Route path="/entities">
                 <Entities setDisplayValue={setIsHidden} isHidden={isHidden} />
+              </Route>
+              <Route path="/profile">
+                <Profile />
               </Route>
               <Route path="/">
                 <Publications userId={randomId} />

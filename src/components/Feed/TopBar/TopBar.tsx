@@ -25,7 +25,13 @@ interface ISelectProps {
   setCurrentPage: Dispatch<SetStateAction<number>>;
 }
 
-export const TopBar: FC<IFilterProps & ISelectProps> = ({ filterValue, setFilterValue, selectValue, setSelectValue, setCurrentPage }) => {
+export const TopBar: FC<IFilterProps & ISelectProps> = ({
+  filterValue,
+  setFilterValue,
+  selectValue,
+  setSelectValue,
+  setCurrentPage,
+}) => {
   const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
     const text = e.target.value;
     setFilterValue(text);
@@ -35,7 +41,7 @@ export const TopBar: FC<IFilterProps & ISelectProps> = ({ filterValue, setFilter
     const selectValueText = e.target.value;
     setSelectValue(selectValueText);
     setCurrentPage(1);
-  }
+  };
 
   return (
     <Wrapper>

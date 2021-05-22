@@ -7,7 +7,6 @@ export const Wrapper = styled.div`
   width: 100%;
   background-color: ${Theme.Colors.darkGrey};
   border-radius: 0.5rem;
-  min-height: 20rem;
 `;
 
 export const EntitiesList = styled.div<{ listState: boolean }>`
