@@ -1,3 +1,4 @@
+import { Field } from "formik";
 import styled from "styled-components";
 import Theme from "../../../styledHelpers/Theme";
 
@@ -8,6 +9,10 @@ export const Wrapper = styled.div`
   padding: 1rem 2rem;
   margin-top: 1rem;
   border-radius: 0.5rem;
+
+  option:focus {
+    background-color: black;
+  }
 `;
 
 export const TopBar = styled.div`
@@ -29,7 +34,7 @@ export const Edit = styled.img`
   width: 1rem;
   height: 1rem;
 `;
-export const Category = styled.p`
+export const Category = styled(Field)`
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
   background-color: #3b1d1d;
@@ -38,4 +43,20 @@ export const Category = styled.p`
   font-size: ${Theme.FontSizes[12]};
   margin-bottom: 0;
   margin-right: 1rem;
+  color: ${Theme.Colors.white};
+  border: none;
+  margin-top: 1rem;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 5px;
+
+  :hover {
+    cursor: pointer;
+  }
+
+  :focus {
+    outline: none;
+  }
 `;

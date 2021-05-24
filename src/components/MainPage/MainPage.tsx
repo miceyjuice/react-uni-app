@@ -64,7 +64,7 @@ export const MainPage: FC = () => {
                 <Entities setDisplayValue={setIsHidden} isHidden={isHidden} />
               </Route>
               <Route path="/profile">
-                <Profile />
+                <Profile userId={randomId} />
               </Route>
               <Route path="/">
                 <Publications userId={randomId} />

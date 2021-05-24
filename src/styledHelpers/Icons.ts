@@ -31,6 +31,8 @@ export const Icons = {
   message: "/assets/icons/message.svg",
   suitcase: "/assets/icons/suitcase.svg",
   edit: "/assets/icons/edit.svg",
+  save: "/assets/icons/save.svg",
+  undo: "/assets/icons/undo.svg",
 };
 
 export default Icons;

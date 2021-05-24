@@ -15,9 +15,6 @@ export const PanelInformations: FC = () => {
       <Formik initialValues={{ fullName: 'John Krasinski' }} onSubmit={(data, {setSubmitting}) => {
         setSubmitting(true);
       }}>
-        <Form>
-          <Field type="input" name="fullName" ></Field>
-        </Form>
       </Formik>
     </Wrapper>
   );
