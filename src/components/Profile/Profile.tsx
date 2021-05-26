@@ -5,6 +5,7 @@ import PanelInformations from "./PanelInformations/PanelInformations";
 import PersonalInfo from "./PersonalInfo/PersonalInfo";
 import { IUserProps } from "../MainPage/MainPage";
 import { Form, Formik } from "formik";
+import Proposals from "./Proposals/Proposals";
 
 export const Wrapper = styled.div`
   color: #f3f3f3;
@@ -24,10 +25,24 @@ export const Profile: FC<IUserProps> = ({ userId }) => {
         toggleUpdating={setisUpdatingPersonalInfo}
         userId={userId}
       />
-      <Formik enableReinitialize initialValues={{}} onSubmit={() => {}}>
+      <Formik
+        enableReinitialize
+        initialValues={{
+          panelInformations: {
+            hourlyFee: "610€/hour (Negociated)",
+            termsAndConditions: "Monthly 10k€ retainer - see with Jeanny Smith",
+            services: "Corporate M&A and international acquisitions",
+          },
+        }}
+        onSubmit={() => {}}
+      >
         <Form>
-          <Categories />
-          <PanelInformations />
+          <Categories
+            isUpdating={isUpdatingMoreInfo}
+            toggleUpdating={setIsUpdatingMoreInfo}
+          />
+          <PanelInformations userId={userId} />
+          <Proposals />
         </Form>
       </Formik>
     </Wrapper>

@@ -33,6 +33,8 @@ export const Icons = {
   edit: "/assets/icons/edit.svg",
   save: "/assets/icons/save.svg",
   undo: "/assets/icons/undo.svg",
+  file: "/assets/icons/file.svg",
+  user: "/assets/icons/user.svg",
 };
 
 export default Icons;

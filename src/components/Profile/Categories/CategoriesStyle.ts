@@ -30,16 +30,11 @@ export const Title = styled.h5`
     margin-bottom: 0;
   }
 `;
-export const Edit = styled.img`
-  width: 1rem;
-  height: 1rem;
-`;
 export const Category = styled(Field)`
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
   background-color: #3b1d1d;
   box-shadow: 0 0 0.5rem #1f1313;
-  width: fit-content;
   font-size: ${Theme.FontSizes[12]};
   margin-bottom: 0;
   margin-right: 1rem;

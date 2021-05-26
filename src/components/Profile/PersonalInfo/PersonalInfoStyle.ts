@@ -121,6 +121,7 @@ export const RightBox = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
+  height: 70%;
 
   > * {
     margin: 0;
