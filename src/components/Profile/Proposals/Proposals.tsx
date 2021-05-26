@@ -19,7 +19,7 @@ interface IProposals {
 const proposals: IProposals[] = [
   {
     title: "Name",
-    elements: ["Operation sex", "Operation botox", "Op. Latandre"],
+    elements: ["Operation m50", "Operation botox", "Op. Latandre"],
   },
   {
     title: "Entity",
@@ -31,7 +31,7 @@ const proposals: IProposals[] = [
   },
   {
     title: "Expertise",
-    elements: ["#Tax", "M&A", "#Social"],
+    elements: ["#Tax", "#M&A", "#Social"],
   },
   {
     title: "Date",

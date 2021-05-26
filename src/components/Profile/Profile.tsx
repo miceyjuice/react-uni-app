@@ -6,6 +6,7 @@ import PersonalInfo from "./PersonalInfo/PersonalInfo";
 import { IUserProps } from "../MainPage/MainPage";
 import { Form, Formik } from "formik";
 import Proposals from "./Proposals/Proposals";
+import InternalReviews from "./InternalReviews/InternalReviews";
 
 export const Wrapper = styled.div`
   color: #f3f3f3;
@@ -43,6 +44,7 @@ export const Profile: FC<IUserProps> = ({ userId }) => {
           />
           <PanelInformations userId={userId} />
           <Proposals />
+          <InternalReviews />
         </Form>
       </Formik>
     </Wrapper>
