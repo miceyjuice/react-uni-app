@@ -7,7 +7,8 @@ import { IUsersReducer } from "../../../reducers/usersReducers";
 import Theme from "../../../styledHelpers/Theme";
 import { IUserProps } from "../../MainPage/MainPage";
 import { Wrapper } from "../Categories/CategoriesStyle";
-import { TextField, } from "../PersonalInfo/PersonalInfoStyle";
+import { TextField } from "../PersonalInfo/PersonalInfoStyle";
+import { IFormikValues } from "../Profile";
 import {
   Option,
   SectionTitle,
@@ -23,7 +24,7 @@ import {
 export const PanelWrapper = styled(Wrapper)`
   gap: 1rem;
 
-  :last-child{
+  :last-child {
     margin-bottom: 2rem;
   }
 `;
@@ -34,7 +35,10 @@ const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
   }
 };
 
-export const PanelInformations: FC<IUserProps> = ({ userId }) => {
+export const PanelInformations: FC<IUserProps & IFormikValues> = ({
+  userId,
+  values,
+}) => {
   const { usersList, usersPhotosList } = useSelector<
     IState,
     IUsersReducer & IUsersPhotosReducer
@@ -48,15 +52,11 @@ export const PanelInformations: FC<IUserProps> = ({ userId }) => {
       <SectionTitle>Panel informations</SectionTitle>
       <CustomSection>
         <SubTitle>Hourly fee</SubTitle>
-        <TextField type="text" name="panelInformations.hourlyFee" disabled />
+        <TextField type="text" name="panelInformations.hourlyFee" />
       </CustomSection>
       <CustomSection>
         <SubTitle>Terms & conditions</SubTitle>
-        <TextField
-          type="text"
-          name="panelInformations.termsAndConditions"
-          disabled
-        />
+        <TextField type="text" name="panelInformations.termsAndConditions" />
         <FileField
           id="file"
           name="file"
@@ -66,13 +66,27 @@ export const PanelInformations: FC<IUserProps> = ({ userId }) => {
       </CustomSection>
       <SectionTitle>Services & projects</SectionTitle>
       <CustomSection>
-        <TextField type="text" name="panelInformations.services" disabled />
+        <TextField type="text" name="panelInformations.services" />
       </CustomSection>
       <SectionTitle>Internal correspondants</SectionTitle>
       <CustomSection>
         <CorrespondantBox>
-          <CorrespondantImg src="https://thispersondoesnotexist.com/image" />
-          <CorrespondantName as="select">
+          <CorrespondantImg
+            src={
+              usersPhotosList.find(
+                (user) =>
+                  user.id ===
+                  usersList.find(
+                    (user) =>
+                      user.name === values.panelInformations.correspondants[0]
+                  )?.id
+              )?.url
+            }
+          />
+          <CorrespondantName
+            component="select"
+            name="panelInformations.correspondants.0"
+          >
             {usersList
               .filter((user) => user.id !== userId + 1)
               .map((user) => (
@@ -85,8 +99,22 @@ export const PanelInformations: FC<IUserProps> = ({ userId }) => {
           <Option beforeImg={Theme.Icons.user}>Profile</Option>
         </CorrespondantBox>
         <CorrespondantBox>
-          <CorrespondantImg src="https://thispersondoesnotexist.com/image" />
-          <CorrespondantName as="select">
+          <CorrespondantImg
+            src={
+              usersPhotosList.find(
+                (user) =>
+                  user.id ===
+                  usersList.find(
+                    (user) =>
+                      user.name === values.panelInformations.correspondants[1]
+                  )?.id
+              )?.url
+            }
+          />
+          <CorrespondantName
+            component="select"
+            name="panelInformations.correspondants.1"
+          >
             {usersList
               .filter((user) => user.id !== userId + 1)
               .map((user) => (
@@ -99,6 +127,9 @@ export const PanelInformations: FC<IUserProps> = ({ userId }) => {
           <Option beforeImg={Theme.Icons.user}>Profile</Option>
         </CorrespondantBox>
       </CustomSection>
+      <div>
+        <pre>{JSON.stringify(values, null, 2)}</pre>
+      </div>
     </PanelWrapper>
   );
 };

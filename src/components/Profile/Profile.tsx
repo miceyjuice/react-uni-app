@@ -13,6 +13,23 @@ export const Wrapper = styled.div`
   color: #f3f3f3;
 `;
 
+export interface IFormikValues {
+  values: {
+    categories: {
+      expertise: string;
+      specialities: string[];
+      admission: string[];
+      counties: string;
+    };
+    panelInformations: {
+      hourlyFee: string;
+      termsAndConditions: string;
+      services: string;
+      correspondants: string[];
+    }
+  };
+}
+
 export const Profile: FC<IUserProps> = ({ userId }) => {
   const [isUpdatingPersonalInfo, setisUpdatingPersonalInfo] =
     useState<boolean>(false);
@@ -28,14 +45,20 @@ export const Profile: FC<IUserProps> = ({ userId }) => {
       <Formik
         enableReinitialize
         initialValues={{
-          expertise: "Mergers and aquisition",
-          specialities: ["Cross border operation", "Transaction over 500M€/S"],
-          admission: ['Paris bar association', 'London bar association'],
-          counties: 'Tunisia',
+          categories: {
+            expertise: "Mergers and aquisition",
+            specialities: [
+              "Cross border operation",
+              "Transaction over 500M€/S",
+            ],
+            admission: ["Paris bar association", "London bar association"],
+            counties: "Tunisia",
+          },
           panelInformations: {
             hourlyFee: "610€/hour (Negociated)",
             termsAndConditions: "Monthly 10k€ retainer - see with Jeanny Smith",
             services: "Corporate M&A and international acquisitions",
+            correspondants: ['Leanne Graham', 'Leanne Graham']
           },
           proposals: {
             name: ["name1", "name2", "name3"],
@@ -57,7 +80,7 @@ export const Profile: FC<IUserProps> = ({ userId }) => {
               toggleUpdating={setIsUpdatingMoreInfo}
               values={values}
             />
-            <PanelInformations userId={userId} />
+            <PanelInformations values={values} userId={userId} />
             <Proposals />
             <InternalReviews />
             <FeeAmount />

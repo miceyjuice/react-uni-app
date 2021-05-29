@@ -5,6 +5,7 @@ import { Category, Title, TopBar, Wrapper } from "./CategoriesStyle";
 import { Field } from "formik";
 import { IUpdateProps } from "../PersonalInfo/PersonalInfo";
 import { EditIcon, SaveIcon } from "../PersonalInfo/PersonalInfoStyle";
+import { IFormikValues } from "../Profile";
 
 interface IOption {
   key: string;
@@ -17,14 +18,6 @@ export interface IField {
 interface ICategories {
   title?: string;
   fields: IField[];
-}
-interface IFormikValues {
-  values: {
-    expertise: string;
-    specialities: string[];
-    admission: string[];
-    counties: string;
-  };
 }
 
 const categories: ICategories[] = [
@@ -156,7 +149,7 @@ export const Categories: FC<IUpdateProps & IFormikValues> = ({
                   <Category
                     component="select"
                     disabled={!isUpdating}
-                    name={`${fields.options[i].key}.${i}`}
+                    name={`categories.${fields.options[i].key}.${i}`}
                     key={`${
                       fields.options[i].key + Math.floor(Math.random() * 150)
                     }`}
@@ -178,8 +171,8 @@ export const Categories: FC<IUpdateProps & IFormikValues> = ({
                 <Category
                   component="select"
                   disabled={!isUpdating}
-                  name="expertise"
-                  value={values.expertise}
+                  name="categories.expertise"
+                  value={values.categories.expertise}
                   key={`${
                     fields.options[i].key + Math.floor(Math.random() * 150)
                   }`}
@@ -201,9 +194,6 @@ export const Categories: FC<IUpdateProps & IFormikValues> = ({
           );
         })}
       </Wrapper>
-      <div>
-        <pre>{JSON.stringify(values, null, 2)}</pre>
-      </div>
     </>
   );
 };
