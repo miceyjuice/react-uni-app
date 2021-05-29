@@ -32,8 +32,6 @@ export const Publications: FC<IUserProps> = ({ userId }) => {
     ...globalState.usersPostsList
   }));
 
-  console.log(usersList, usersPhotosList, usersPostsList);
-
   return (
     <Wrapper>
       <MainPublication>

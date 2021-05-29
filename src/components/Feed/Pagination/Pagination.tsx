@@ -19,10 +19,10 @@ export const Pagination: FC<IPostsProps> = ({ postsPerPage, totalPosts, paginate
   return (
     <Wrapper>
         <PaginationList>
-            {pageNumbers.map( pageNumber => {
+            {pageNumbers.map( (pageNumber, index) => {
                 { isCurrent = pageNumber === currentPage ? true : false }
                 return (
-                <PaginationElement isActive={isCurrent} onClick={() => paginate(pageNumber)}>
+                <PaginationElement key={`pagination${index}`} isActive={isCurrent} onClick={() => paginate(pageNumber)}>
                     { pageNumber }
                 </PaginationElement>
             )})}

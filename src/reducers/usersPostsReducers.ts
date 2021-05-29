@@ -13,7 +13,6 @@ export default (state = defaultState(), action: any) => {
   switch (action.type) {
     case actionTypes.GET_POSTS: {
       const payload: actionTypes.IUserTypes["GET_POSTS"] = action;
-      console.log(payload);
       return {
         ...state,
         usersPostsList: payload.userPosts,

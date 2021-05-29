@@ -12,8 +12,8 @@ const SideMenu: FC = () => {
         <StyledLi padding={"0.6rem 1.5rem"} transparent>
           <StyledA
             to="/publications"
-            paddingLeft={"3rem"}
-            beforeImg={Theme.Icons.yourPublications}
+            paddingleft={"3rem"}
+            beforeimg={Theme.Icons.yourPublications}
           >
             Publications
           </StyledA>
@@ -21,8 +21,8 @@ const SideMenu: FC = () => {
         <StyledLi padding={"0.6rem 1.5rem"} transparent>
           <StyledA
             to="/ecosystem"
-            paddingLeft={"3rem"}
-            beforeImg={Theme.Icons.ecosystem}
+            paddingleft={"3rem"}
+            beforeimg={Theme.Icons.ecosystem}
           >
             Ecosystem
           </StyledA>
@@ -30,8 +30,8 @@ const SideMenu: FC = () => {
         <StyledLi padding={"0.6rem 1.5rem"} transparent>
           <StyledA
             to="/entities"
-            paddingLeft={"3rem"}
-            beforeImg={Theme.Icons.entities}
+            paddingleft={"3rem"}
+            beforeimg={Theme.Icons.entities}
           >
             Entities
           </StyledA>

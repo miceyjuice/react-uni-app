@@ -41,19 +41,19 @@ export const Account: FC<IAccountIdProps> = ({id}) => {
       <LinksWrap>
         <StyledA
           to="/privacy"
-          fontColor={Theme.Colors.white}
-          beforeImg={Theme.Icons.privacy}
-          beforeLeft={"5%"}
-          fontSize={"0.875rem"}
+          fontcolor={Theme.Colors.white}
+          beforeimg={Theme.Icons.privacy}
+          beforeleft={"5%"}
+          fontsize={"0.875rem"}
         >
           Privacy
         </StyledA>
         <StyledA
           to="/settings"
-          fontColor={Theme.Colors.white}
-          beforeImg={Theme.Icons.settings}
-          beforeLeft={"5%"}
-          fontSize={"0.875rem"}
+          fontcolor={Theme.Colors.white}
+          beforeimg={Theme.Icons.settings}
+          beforeleft={"5%"}
+          fontsize={"0.875rem"}
         >
           Settings
         </StyledA>

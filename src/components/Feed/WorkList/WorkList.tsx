@@ -19,8 +19,8 @@ interface IWorkListProps {
 export const WorkList: FC<IWorkListProps> = ({ currentPosts, usersList }) => {
   return (
     <Wrapper>
-      {currentPosts.map((comment) => (
-        <Work>
+      {currentPosts.map((comment, index) => (
+        <Work key={`work${index}`}>
           <WorkTitle>{comment.name}</WorkTitle>
           <Content>{comment.body}</Content>
           <BottomBar>

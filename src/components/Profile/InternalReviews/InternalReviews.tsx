@@ -9,7 +9,7 @@ export const CustomBox = styled(InfoBox)`
     grid-template-columns: repeat(5, 1fr);
 `;
 
-interface IReviews {
+export interface IReviews {
     title: string;
     elements: string[];
   }

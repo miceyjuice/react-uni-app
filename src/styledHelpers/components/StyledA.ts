@@ -2,16 +2,16 @@ import styled from "styled-components";
 import Theme from "../Theme";
 import { Link } from 'react-router-dom';
 
-export const StyledA = styled(Link)<{beforeImg: string,afterImg?: string,paddingLeft?: string,paddingTop?: string, beforeLeft?: string, fontSize?: string, fontColor?: string}>`
+export const StyledA = styled(Link)<{beforeimg: string,afterimg?: string,paddingleft?: string,paddingtop?: string, beforeleft?: string, fontsize?: string, fontcolor?: string}>`
   display: inline-block;
   text-align: left;
   text-decoration: none;
   position: relative;
-  padding-left: ${({paddingLeft}) => paddingLeft ? `${paddingLeft} !important` : '0'};
-  padding-top: ${({paddingTop}) => paddingTop ? `${paddingTop} !important` : '0'};
-  font-size: ${({fontSize}) => fontSize ? fontSize : '1.125rem'};
+  padding-left: ${({paddingleft}) => paddingleft ? `${paddingleft} !important` : '0'};
+  padding-top: ${({paddingtop}) => paddingtop ? `${paddingtop} !important` : '0'};
+  font-size: ${({fontsize}) => fontsize ? fontsize : '1.125rem'};
   min-width: 13rem;
-  color: ${(props) => props.fontColor ? props.fontColor : Theme.Colors.red};
+  color: ${(props) => props.fontcolor ? props.fontcolor : Theme.Colors.red};
 
   :hover {
     cursor: pointer;
@@ -24,10 +24,10 @@ export const StyledA = styled(Link)<{beforeImg: string,afterImg?: string,padding
     height: 100%;
     max-height: 1.56rem;
     width: 1.5rem;
-    left: ${(props) => props.beforeLeft ? props.beforeLeft : '0'};
+    left: ${(props) => props.beforeleft ? props.beforeleft : '0'};
     top: 50%;
     transform: translateY(-50%);
-    background-image: ${(props) => `url('${process.env.PUBLIC_URL}${props.beforeImg}')`};
+    background-image: ${(props) => `url('${process.env.PUBLIC_URL}${props.beforeimg}')`};
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -35,7 +35,7 @@ export const StyledA = styled(Link)<{beforeImg: string,afterImg?: string,padding
 
   ::after {
     content: "";
-    display: ${(props) => (props.afterImg ? "block" : "none")};
+    display: ${(props) => (props.afterimg ? "block" : "none")};
     position: absolute;
     height: 100%;
     max-height: 1.56rem;

@@ -13,11 +13,11 @@ export const Platform: FC<IFilterProps> = ({ filterValue }) => {
         <>
           <StyledA
             to="/"
-            paddingTop={"2px"}
-            fontColor={Theme.Colors.white}
-            beforeImg={Theme.Icons.home}
-            beforeLeft={"5%"}
-            fontSize={"0.875rem"}
+            paddingtop={"2px"}
+            fontcolor={Theme.Colors.white}
+            beforeimg={Theme.Icons.home}
+            beforeleft={"5%"}
+            fontsize={"0.875rem"}
           >
             Home
           </StyledA>
@@ -26,11 +26,11 @@ export const Platform: FC<IFilterProps> = ({ filterValue }) => {
       {"Publications".toLowerCase().includes(filterValue.toLowerCase()) && (
         <StyledA
           to="/publications"
-          paddingTop={"2px"}
-          fontColor={Theme.Colors.white}
-          beforeImg={Theme.Icons.yourPublications}
-          beforeLeft={"5%"}
-          fontSize={"0.875rem"}
+          paddingtop={"2px"}
+          fontcolor={Theme.Colors.white}
+          beforeimg={Theme.Icons.yourPublications}
+          beforeleft={"5%"}
+          fontsize={"0.875rem"}
         >
           Publications
         </StyledA>
@@ -38,11 +38,11 @@ export const Platform: FC<IFilterProps> = ({ filterValue }) => {
       {"People".toLowerCase().includes(filterValue.toLowerCase()) && (
       <StyledA
         to="/people"
-        paddingTop={"2px"}
-        fontColor={Theme.Colors.white}
-        beforeImg={Theme.Icons.network}
-        beforeLeft={"5%"}
-        fontSize={"0.875rem"}
+        paddingtop={"2px"}
+        fontcolor={Theme.Colors.white}
+        beforeimg={Theme.Icons.network}
+        beforeleft={"5%"}
+        fontsize={"0.875rem"}
       >
         People
       </StyledA>
@@ -50,11 +50,11 @@ export const Platform: FC<IFilterProps> = ({ filterValue }) => {
       {"Entities".toLowerCase().includes(filterValue.toLowerCase()) && (
       <StyledA
         to="/entities"
-        paddingTop={"2px"}
-        fontColor={Theme.Colors.white}
-        beforeImg={Theme.Icons.entities}
-        beforeLeft={"5%"}
-        fontSize={"0.875rem"}
+        paddingtop={"2px"}
+        fontcolor={Theme.Colors.white}
+        beforeimg={Theme.Icons.entities}
+        beforeleft={"5%"}
+        fontsize={"0.875rem"}
       >
         Entities
       </StyledA>
@@ -62,11 +62,11 @@ export const Platform: FC<IFilterProps> = ({ filterValue }) => {
       {"Administration".toLowerCase().includes(filterValue.toLowerCase()) && (
       <StyledA
         to="/administration"
-        paddingTop={"2px"}
-        fontColor={Theme.Colors.white}
-        beforeImg={Theme.Icons.administration}
-        beforeLeft={"5%"}
-        fontSize={"0.875rem"}
+        paddingtop={"2px"}
+        fontcolor={Theme.Colors.white}
+        beforeimg={Theme.Icons.administration}
+        beforeleft={"5%"}
+        fontsize={"0.875rem"}
       >
         Administration
       </StyledA>

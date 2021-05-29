@@ -10,13 +10,21 @@ interface IOption {
   key: string;
   value: string;
 }
-interface IField {
+export interface IField {
   options: IOption[];
 }
 
 interface ICategories {
   title?: string;
   fields: IField[];
+}
+interface IFormikValues {
+  values: {
+    expertise: string;
+    specialities: string[];
+    admission: string[];
+    counties: string;
+  };
 }
 
 const categories: ICategories[] = [
@@ -42,11 +50,11 @@ const categories: ICategories[] = [
       {
         options: [
           {
-            key: "category3",
+            key: "specialities",
             value: "Cross border operation",
           },
           {
-            key: "category4",
+            key: "specialities",
             value: "Other operations",
           },
         ],
@@ -54,11 +62,11 @@ const categories: ICategories[] = [
       {
         options: [
           {
-            key: "category5",
+            key: "specialities",
             value: "Transaction over 500M€/$",
           },
           {
-            key: "category6",
+            key: "specialities",
             value: "Transaction under 250M€/$",
           },
         ],
@@ -71,11 +79,11 @@ const categories: ICategories[] = [
       {
         options: [
           {
-            key: "category7",
+            key: "admission",
             value: "Paris bar association",
           },
           {
-            key: "category8",
+            key: "admission",
             value: "London bar association",
           },
         ],
@@ -83,11 +91,11 @@ const categories: ICategories[] = [
       {
         options: [
           {
-            key: "category9",
+            key: "admission",
             value: "Tunisian bar association",
           },
           {
-            key: "category10",
+            key: "admission",
             value: "Spanish bar association",
           },
         ],
@@ -100,11 +108,11 @@ const categories: ICategories[] = [
       {
         options: [
           {
-            key: "category11",
+            key: "counties",
             value: "Tunisia",
           },
           {
-            key: "category12",
+            key: "counties",
             value: "Germany",
           },
         ],
@@ -113,35 +121,77 @@ const categories: ICategories[] = [
   },
 ];
 
-export const Categories: FC<IUpdateProps> = ({
+export const Categories: FC<IUpdateProps & IFormikValues> = ({
   isUpdating,
   toggleUpdating,
+  values,
 }) => {
+  let categoriesCounter: number = 1;
+
   return (
-    <Wrapper>
-      <TopBar>
-        <Title>Expertise</Title>
-        {!isUpdating ? (
-          <EditIcon
-            src={Theme.Icons.edit}
-            onClick={() => toggleUpdating(!isUpdating)}
-          />
-        ) : (
-          <SaveIcon
-            src={Theme.Icons.save}
-            onClick={() => toggleUpdating(!isUpdating)}
-          />
-        )}
-      </TopBar>
-      {categories.map((category) => {
-        if (category.title) {
+    <>
+      <Wrapper>
+        <TopBar>
+          <Title>Expertise</Title>
+          {!isUpdating ? (
+            <EditIcon
+              src={Theme.Icons.edit}
+              onClick={() => toggleUpdating(!isUpdating)}
+            />
+          ) : (
+            // <SaveIcon
+            //   src={Theme.Icons.save}
+            //   onClick={() => toggleUpdating(!isUpdating)}
+            //   type="submit"
+            // />
+            <button onClick={() => toggleUpdating(!isUpdating)} type="submit" />
+          )}
+        </TopBar>
+        {categories.map((category, index) => {
+          if (category.title) {
+            return (
+              <>
+                <Title key={`title${index}`}>{category.title}</Title>
+                {category.fields.map((fields, i) => (
+                  <Category
+                    component="select"
+                    disabled={!isUpdating}
+                    name={`${fields.options[i].key}.${i}`}
+                    key={`${
+                      fields.options[i].key + Math.floor(Math.random() * 150)
+                    }`}
+                  >
+                    {categoriesCounter++}
+                    {fields.options.map((option) => (
+                      <Field as="option" name={option.key} value={option.value}>
+                        {option.value}
+                      </Field>
+                    ))}
+                  </Category>
+                ))}
+              </>
+            );
+          }
           return (
             <>
-              <Title>{category.title}</Title>
-              {category.fields.map((fields) => (
-                <Category as="select" disabled={!isUpdating}>
+              {category.fields.map((fields, i) => (
+                <Category
+                  component="select"
+                  disabled={!isUpdating}
+                  name="expertise"
+                  value={values.expertise}
+                  key={`${
+                    fields.options[i].key + Math.floor(Math.random() * 150)
+                  }`}
+                >
                   {fields.options.map((option) => (
-                    <Field as="option" name={option.key} value={option.value}>
+                    <Field
+                      as="option"
+                      value={option.value}
+                      key={`${
+                        fields.options[i].key + Math.floor(Math.random() * 150)
+                      }`}
+                    >
                       {option.value}
                     </Field>
                   ))}
@@ -149,22 +199,12 @@ export const Categories: FC<IUpdateProps> = ({
               ))}
             </>
           );
-        }
-        return (
-          <>
-            {category.fields.map((fields) => (
-              <Category as="select" disabled={!isUpdating}>
-                {fields.options.map((option) => (
-                  <Field as="option" name={option.key} value={option.value}>
-                    {option.value}
-                  </Field>
-                ))}
-              </Category>
-            ))}
-          </>
-        );
-      })}
-    </Wrapper>
+        })}
+      </Wrapper>
+      <div>
+        <pre>{JSON.stringify(values, null, 2)}</pre>
+      </div>
+    </>
   );
 };
 

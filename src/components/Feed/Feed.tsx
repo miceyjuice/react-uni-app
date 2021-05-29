@@ -44,7 +44,6 @@ export const Feed: FC<{ userId: number }> = ({ userId }) => {
 
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
-  console.log(selectValue);
   return (
     <Wrapper>
       <TopBar

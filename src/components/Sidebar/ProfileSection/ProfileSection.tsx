@@ -33,8 +33,8 @@ export const ProfileSection: FC<IUserProps> = ({userId}) => {
           <StyledLi padding={"1rem 1.5rem"}>
             <ProfileStyledA
               to="/your-network"
-              paddingLeft={"3rem"}
-              beforeImg={Theme.Icons.network}
+              paddingleft={"3rem"}
+              beforeimg={Theme.Icons.network}
             >
               {" "}
               Your network{" "}
@@ -44,8 +44,8 @@ export const ProfileSection: FC<IUserProps> = ({userId}) => {
           <StyledLi padding={"1rem 1.5rem"}>
             <ProfileStyledA
               to="/your-publications"
-              paddingLeft={"3rem"}
-              beforeImg={Theme.Icons.yourPublications}
+              paddingleft={"3rem"}
+              beforeimg={Theme.Icons.yourPublications}
             >
               {" "}
               Your publications{" "}

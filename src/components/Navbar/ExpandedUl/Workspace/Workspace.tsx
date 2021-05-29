@@ -12,11 +12,11 @@ export const Workspace: FC<IFilterProps> = ({ filterValue }) => {
       {"Client contract".toLowerCase().includes(filterValue.toLowerCase()) && (
         <StyledA
           to="/client-contract"
-          paddingTop={"2px"}
-          fontColor={Theme.Colors.white}
-          beforeImg={Theme.Icons.contract}
-          beforeLeft={"5%"}
-          fontSize={"0.875rem"}
+          paddingtop={"2px"}
+          fontcolor={Theme.Colors.white}
+          beforeimg={Theme.Icons.contract}
+          beforeleft={"5%"}
+          fontsize={"0.875rem"}
         >
           Client contract
         </StyledA>
@@ -24,11 +24,11 @@ export const Workspace: FC<IFilterProps> = ({ filterValue }) => {
       {"Supplier contract".toLowerCase().includes(filterValue.toLowerCase()) && (
         <StyledA
           to="/supplier-contract"
-          paddingTop={"2px"}
-          fontColor={Theme.Colors.white}
-          beforeImg={Theme.Icons.contract}
-          beforeLeft={"5%"}
-          fontSize={"0.875rem"}
+          paddingtop={"2px"}
+          fontcolor={Theme.Colors.white}
+          beforeimg={Theme.Icons.contract}
+          beforeleft={"5%"}
+          fontsize={"0.875rem"}
         >
           Supplier contract
         </StyledA>
@@ -36,11 +36,11 @@ export const Workspace: FC<IFilterProps> = ({ filterValue }) => {
       {"Corporate".toLowerCase().includes(filterValue.toLowerCase()) && (
         <StyledA
           to="/corporate"
-          paddingTop={"2px"}
-          fontColor={Theme.Colors.white}
-          beforeImg={Theme.Icons.entities}
-          beforeLeft={"5%"}
-          fontSize={"0.875rem"}
+          paddingtop={"2px"}
+          fontcolor={Theme.Colors.white}
+          beforeimg={Theme.Icons.entities}
+          beforeleft={"5%"}
+          fontsize={"0.875rem"}
         >
           Corporate
         </StyledA>
@@ -48,11 +48,11 @@ export const Workspace: FC<IFilterProps> = ({ filterValue }) => {
       {"Group Norms".toLowerCase().includes(filterValue.toLowerCase()) && (
         <StyledA
           to="/group-norms"
-          paddingTop={"2px"}
-          fontColor={Theme.Colors.white}
-          beforeImg={Theme.Icons.book}
-          beforeLeft={"5%"}
-          fontSize={"0.875rem"}
+          paddingtop={"2px"}
+          fontcolor={Theme.Colors.white}
+          beforeimg={Theme.Icons.book}
+          beforeleft={"5%"}
+          fontsize={"0.875rem"}
         >
           Group norms
         </StyledA>
@@ -60,11 +60,11 @@ export const Workspace: FC<IFilterProps> = ({ filterValue }) => {
       {"Real estate contracts".toLowerCase().includes(filterValue.toLowerCase()) && (
         <StyledA
           to="/real-estate-contracts"
-          paddingTop={"2px"}
-          fontColor={Theme.Colors.white}
-          beforeImg={Theme.Icons.contract}
-          beforeLeft={"5%"}
-          fontSize={"0.875rem"}
+          paddingtop={"2px"}
+          fontcolor={Theme.Colors.white}
+          beforeimg={Theme.Icons.contract}
+          beforeleft={"5%"}
+          fontsize={"0.875rem"}
         >
           Real estate contracts
         </StyledA>

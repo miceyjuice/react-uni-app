@@ -70,7 +70,7 @@ export const Workspaces: FC = () => {
         <Title>Workspaces</Title>
       </TopBar>
       <CustomSlider {...settings}>
-        {workspaces.map((workspace) => (
+        {workspaces.map((workspace, index) => (
           <SliderBox
             bgImg={workspace.bgImgLink}
             title={workspace.title}
@@ -78,6 +78,7 @@ export const Workspaces: FC = () => {
             categoryImg={workspace.categoryImg}
             usersNumber={workspace.usersNumber}
             lastUpdate={workspace.lastUpdate}
+            key={`workspace${index}`}
           />
         ))}
       </CustomSlider>

@@ -7,7 +7,7 @@ import { LogoutLi } from "./LogoutStyle";
 export const Logout: FC = () => {
   return (
     <LogoutLi>
-      <StyledA to="/logout" beforeImg={Theme.Icons.logout}>
+      <StyledA to="/logout" beforeimg={Theme.Icons.logout}>
         Logout
       </StyledA>
     </LogoutLi>

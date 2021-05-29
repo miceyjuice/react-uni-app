@@ -22,6 +22,10 @@ import {
 
 export const PanelWrapper = styled(Wrapper)`
   gap: 1rem;
+
+  :last-child{
+    margin-bottom: 2rem;
+  }
 `;
 
 const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {

@@ -28,6 +28,7 @@ export const Column = styled.div`
   }
 `;
 export const ColumnTitle = styled.h4`
+  margin: 1rem 0;
 `;
 export const FieldSelect = styled(Field)`
   max-width: 100%;
