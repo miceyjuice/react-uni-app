@@ -8,14 +8,14 @@ import { Form, Formik } from "formik";
 import Proposals from "./Proposals/Proposals";
 import InternalReviews from "./InternalReviews/InternalReviews";
 import FeeAmount from "./FeeAmount/FeeAmount";
-import { useFormikContext } from 'formik';
+import { useFormikContext } from "formik";
 
 export const Wrapper = styled.div`
   color: #f3f3f3;
 `;
 
 export interface IFormikValues {
-  handleChange?: Function,
+  handleChange?: Function;
   values: {
     categories: {
       expertise: string;
@@ -43,6 +43,12 @@ export interface IFormikValues {
       location: string[];
       expertise: string[];
       date: string[];
+    };
+    feeAmount: {
+      year: number[];
+      cost: string[];
+      totalAmount: string[];
+      lawFirm: string[];
     };
   };
 }
@@ -103,7 +109,7 @@ export const Profile: FC<IUserProps> = ({ userId }) => {
             ],
             firm: ["Racine", "Clifford chance", "SVZ"],
           },
-          internalReviews :{
+          internalReviews: {
             name: ["Operation m50", "Operation bondi", "Op. Latandre"],
             entity: ["Renault Brjoisoi", "Renault HQ", "Renault Codasda"],
             location: ["France", "USA", "Italia"],
@@ -125,7 +131,13 @@ export const Profile: FC<IUserProps> = ({ userId }) => {
                 day: "numeric",
               }),
             ],
-          }
+          },
+          feeAmount: {
+            year: [2019, 2018, 2017],
+            cost: ["CS 153", "CS 153", "CS 47"],
+            totalAmount: ["3 500 €", "9 500 €", "10 500 €"],
+            lawFirm: ["Clifford chance", "Linklaters", "Linklaters"],
+          },
         }}
         onSubmit={(values) => {
           console.log(values);
@@ -142,7 +154,7 @@ export const Profile: FC<IUserProps> = ({ userId }) => {
             <PanelInformations values={values} userId={userId} />
             <Proposals values={values} handleChange={handleChange} />
             <InternalReviews values={values} />
-            <FeeAmount />
+            <FeeAmount values={values} />
           </Form>
         )}
       </Formik>

@@ -3,64 +3,274 @@ import { Category } from "../Categories/CategoriesStyle";
 import { CustomBox } from "../InternalReviews/InternalReviews";
 import { PanelWrapper } from "../PanelInformations/PanelInformations";
 import { SectionTitle } from "../PanelInformations/PanelInformationsStyle";
-import { Column, ColumnTitle, FieldOption, DateField, SectionLink, InfoBox } from "../Proposals/ProposalsStyle";
-import { IReviews } from '../InternalReviews/InternalReviews';
+import {
+  Column,
+  ColumnTitle,
+  FieldOption,
+  DateField,
+  SectionLink,
+  InfoBox,
+} from "../Proposals/ProposalsStyle";
+import { IReviews } from "../InternalReviews/InternalReviews";
 import styled from "styled-components";
+import { IFormikValues } from "../Profile";
 
 const getYears = (): string[] => {
-    let years = [];
+  let years = [];
 
-    for(let i = 1990; i < 2018; i++){
-        years.push(i.toString());
-    }
-    return years;
-}
+  for (let i = 1990; i < new Date().getFullYear(); i++) {
+    years.push(i.toString());
+  }
+  return years;
+};
 
 const FeeBox = styled(InfoBox)`
-    grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr);
 `;
 
-// const fees: IReviews[] = [
-//     {
-//       title: "Year",
-//       elements: ["1990", "1992", "1998"],
-//     },
-//     {
-//       title: "Cost center",
-//       elements: ["Renault Brjoisoi", "Renault HQ", "Renault Codasda"],
-//     },
-//     {
-//       title: "Total amount",
-//       elements: ["France", "USA", "Italia"],
-//     },
-//     {
-//       title: "Law firm",
-//       elements: ["#Tax", "#M&A", "#Social"],
-//     },
-//   ];
+const fees: IReviews[] = [
+  {
+    title: "Year",
+    fields: [
+      {
+        options: [
+          {
+            key: "year",
+            value: 1998,
+          },
+          {
+            key: "year",
+            value: 2005,
+          },
+          {
+            key: "year",
+            value: 2017,
+          },
+        ],
+      },
+      {
+        options: [
+          {
+            key: "year",
+            value: 2001,
+          },
+          {
+            key: "year",
+            value: 2005,
+          },
+          {
+            key: "year",
+            value: 2017,
+          },
+        ],
+      },
+      {
+        options: [
+          {
+            key: "year",
+            value: 2009,
+          },
+          {
+            key: "year",
+            value: 2005,
+          },
+          {
+            key: "year",
+            value: 2010,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Cost center",
+    fields: [
+      {
+        options: [
+          {
+            key: "cost",
+            value: "CS 153",
+          },
+          {
+            key: "cost",
+            value: "CS 153",
+          },
+          {
+            key: "cost",
+            value: "CS 47",
+          },
+        ],
+      },
+      {
+        options: [
+          {
+            key: "cost",
+            value: "CS 47",
+          },
+          {
+            key: "cost",
+            value: "CS 153",
+          },
+          {
+            key: "cost",
+            value: "CS 47",
+          },
+        ],
+      },
+      {
+        options: [
+          {
+            key: "cost",
+            value: "CS 188",
+          },
+          {
+            key: "cost",
+            value: "CS 153",
+          },
+          {
+            key: "cost",
+            value: "CS 47",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Total amount",
+    fields: [
+      {
+        options: [
+          {
+            key: "totalAmount",
+            value: "3500 €",
+          },
+          {
+            key: "totalAmount",
+            value: "9500 €",
+          },
+          {
+            key: "totalAmount",
+            value: "10500 €",
+          },
+        ],
+      },
+      {
+        options: [
+          {
+            key: "totalAmount",
+            value: "17000 €",
+          },
+          {
+            key: "totalAmount",
+            value: "9500 €",
+          },
+          {
+            key: "totalAmount",
+            value: "10500 €",
+          },
+        ],
+      },
+      {
+        options: [
+          {
+            key: "totalAmount",
+            value: "20500 €",
+          },
+          {
+            key: "totalAmount",
+            value: "9500 €",
+          },
+          {
+            key: "totalAmount",
+            value: "10500 €",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Law firm",
+    fields: [
+      {
+        options: [
+          {
+            key: "lawFirm",
+            value: "Clifford chance",
+          },
+          {
+            key: "lawFirm",
+            value: "Linklaters",
+          },
+          {
+            key: "lawFirm",
+            value: "Bigmatters",
+          },
+        ],
+      },
+      {
+        options: [
+          {
+            key: "lawFirm",
+            value: "Linklaters",
+          },
+          {
+            key: "lawFirm",
+            value: "Bigmatters",
+          },
+          {
+            key: "lawFirm",
+            value: "Clifford chance",
+          },
+        ],
+      },
+      {
+        options: [
+          {
+            key: "lawFirm",
+            value: "Bigmatters",
+          },
+          {
+            key: "lawFirm",
+            value: "Linklaters",
+          },
+          {
+            key: "lawFirm",
+            value: "Clifford chance",
+          },
+        ],
+      },
+    ],
+  },
+];
 
-export const FeeAmount: FC = () => {
+export const FeeAmount: FC<IFormikValues> = ({values}) => {
   return (
     <PanelWrapper>
       <SectionTitle>Amount of fees</SectionTitle>
-      {/* <FeeBox>
+      <FeeBox>
         {fees.map((fee) => (
           <Column>
             <ColumnTitle>{fee.title}</ColumnTitle>
             {fee.title !== "Date"
-              ? fee.elements.map((element, index) => (
-                  <Category as="select">
-                    <FieldOption
-                      as="option"
-                    >
-                      {element}
-                    </FieldOption>
+              ? fee.fields.map((field, index) => (
+                  <Category
+                    component="select"
+                    name={`feeAmount.${field.options[index].key}.${index}`}
+                  >
+                    {field.options.map((option) => (
+                      <FieldOption
+                        as="option"
+                        key={option.key + Math.trunc(Math.random() * 150)}
+                      >
+                        {option.value}
+                      </FieldOption>
+                    ))}
                   </Category>
                 ))
-              : fee.elements.map(() => <DateField type="date"></DateField>)}
+              : fee.fields.map(() => <DateField type="date"></DateField>)}
           </Column>
         ))}
-      </FeeBox> */}
+      </FeeBox>
       <SectionLink>See more fees</SectionLink>
     </PanelWrapper>
   );

@@ -9,7 +9,7 @@ import { IFormikValues } from "../Profile";
 
 interface IOption {
   key: string;
-  value: string;
+  value: string | number;
 }
 export interface IField {
   options: IOption[];

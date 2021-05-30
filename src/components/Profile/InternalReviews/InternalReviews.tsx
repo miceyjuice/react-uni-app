@@ -57,7 +57,6 @@ export const InternalReviews: FC<IFormikValues> = ({ values }) => {
         ))}
       </CustomBox>
       <SectionLink>See more reviews</SectionLink>
-      <pre>{JSON.stringify(values.internalReviews, null, 10)}</pre>
     </PanelWrapper>
   );
 };
