@@ -151,10 +151,18 @@ export const Profile: FC<IUserProps> = ({ userId }) => {
               toggleUpdating={setIsUpdatingMoreInfo}
               values={values}
             />
-            <PanelInformations values={values} userId={userId} />
-            <Proposals values={values} handleChange={handleChange} />
-            <InternalReviews values={values} />
-            <FeeAmount values={values} />
+            <PanelInformations
+              isUpdating={isUpdatingMoreInfo}
+              values={values}
+              userId={userId}
+            />
+            <Proposals
+              isUpdating={isUpdatingMoreInfo}
+              values={values}
+              handleChange={handleChange}
+            />
+            <InternalReviews isUpdating={isUpdatingMoreInfo} values={values} />
+            <FeeAmount isUpdating={isUpdatingMoreInfo} values={values} />
           </Form>
         )}
       </Formik>

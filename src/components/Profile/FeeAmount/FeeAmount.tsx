@@ -14,6 +14,7 @@ import {
 import { IReviews } from "../InternalReviews/InternalReviews";
 import styled from "styled-components";
 import { IFormikValues } from "../Profile";
+import { IUpdateProps } from "../PersonalInfo/PersonalInfo";
 
 const getYears = (): string[] => {
   let years = [];
@@ -243,7 +244,10 @@ const fees: IReviews[] = [
   },
 ];
 
-export const FeeAmount: FC<IFormikValues> = ({values}) => {
+export const FeeAmount: FC<IFormikValues & IUpdateProps> = ({
+  values,
+  isUpdating,
+}) => {
   return (
     <PanelWrapper>
       <SectionTitle>Amount of fees</SectionTitle>
@@ -251,23 +255,22 @@ export const FeeAmount: FC<IFormikValues> = ({values}) => {
         {fees.map((fee) => (
           <Column>
             <ColumnTitle>{fee.title}</ColumnTitle>
-            {fee.title !== "Date"
-              ? fee.fields.map((field, index) => (
-                  <Category
-                    component="select"
-                    name={`feeAmount.${field.options[index].key}.${index}`}
+            {fee.fields.map((field, index) => (
+              <Category
+                component="select"
+                name={`feeAmount.${field.options[index].key}.${index}`}
+                disabled={!isUpdating}
+              >
+                {field.options.map((option) => (
+                  <FieldOption
+                    as="option"
+                    key={option.key + Math.trunc(Math.random() * 150)}
                   >
-                    {field.options.map((option) => (
-                      <FieldOption
-                        as="option"
-                        key={option.key + Math.trunc(Math.random() * 150)}
-                      >
-                        {option.value}
-                      </FieldOption>
-                    ))}
-                  </Category>
-                ))
-              : fee.fields.map(() => <DateField type="date"></DateField>)}
+                    {option.value}
+                  </FieldOption>
+                ))}
+              </Category>
+            ))}
           </Column>
         ))}
       </FeeBox>

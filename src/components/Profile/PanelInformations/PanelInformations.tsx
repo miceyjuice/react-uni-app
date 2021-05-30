@@ -7,6 +7,7 @@ import { IUsersReducer } from "../../../reducers/usersReducers";
 import Theme from "../../../styledHelpers/Theme";
 import { IUserProps } from "../../MainPage/MainPage";
 import { Wrapper } from "../Categories/CategoriesStyle";
+import { IUpdateProps } from "../PersonalInfo/PersonalInfo";
 import { TextField } from "../PersonalInfo/PersonalInfoStyle";
 import { IFormikValues } from "../Profile";
 import {
@@ -35,9 +36,10 @@ const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
   }
 };
 
-export const PanelInformations: FC<IUserProps & IFormikValues> = ({
+export const PanelInformations: FC<IUserProps & IFormikValues & IUpdateProps> = ({
   userId,
   values,
+  isUpdating
 }) => {
   const { usersList, usersPhotosList } = useSelector<
     IState,
@@ -52,21 +54,34 @@ export const PanelInformations: FC<IUserProps & IFormikValues> = ({
       <SectionTitle>Panel informations</SectionTitle>
       <CustomSection>
         <SubTitle>Hourly fee</SubTitle>
-        <TextField type="text" name="panelInformations.hourlyFee" />
+        <TextField
+          type="text"
+          name="panelInformations.hourlyFee"
+          disabled={!isUpdating}
+        />
       </CustomSection>
       <CustomSection>
         <SubTitle>Terms & conditions</SubTitle>
-        <TextField type="text" name="panelInformations.termsAndConditions" />
+        <TextField
+          type="text"
+          name="panelInformations.termsAndConditions"
+          disabled={!isUpdating}
+        />
         <FileField
           id="file"
           name="file"
           type="file"
           onChange={handleFileChange}
+          disabled={!isUpdating}
         />
       </CustomSection>
       <SectionTitle>Services & projects</SectionTitle>
       <CustomSection>
-        <TextField type="text" name="panelInformations.services" />
+        <TextField
+          type="text"
+          name="panelInformations.services"
+          disabled={!isUpdating}
+        />
       </CustomSection>
       <SectionTitle>Internal correspondants</SectionTitle>
       <CustomSection>
@@ -86,14 +101,12 @@ export const PanelInformations: FC<IUserProps & IFormikValues> = ({
           <CorrespondantName
             component="select"
             name="panelInformations.correspondants.0"
+            disabled={!isUpdating}
           >
             {usersList
               .filter((user) => user.id !== userId + 1)
               .map((user) => (
-                <CustomField
-                  as="option"
-                  value={user.name}
-                >
+                <CustomField as="option" value={user.name}>
                   {user.name}
                 </CustomField>
               ))}
@@ -117,6 +130,7 @@ export const PanelInformations: FC<IUserProps & IFormikValues> = ({
           <CorrespondantName
             component="select"
             name="panelInformations.correspondants.1"
+            disabled={!isUpdating}
           >
             {usersList
               .filter((user) => user.id !== userId + 1)

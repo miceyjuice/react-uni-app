@@ -30,11 +30,11 @@ import { IUsersPhotosReducer } from "../../../reducers/usersPhotosReducers";
 import { IUserProps } from "../../MainPage/MainPage";
 import * as Yup from "yup";
 import CustomErrorMsg from "../CustomErrorMsg/CustomErrorMsg";
-import styled from "styled-components";
+import { SaveBtn } from "../Categories/CategoriesStyle";
 
 export interface IUpdateProps {
   isUpdating: boolean;
-  toggleUpdating: Dispatch<SetStateAction<boolean>>;
+  toggleUpdating?: Dispatch<SetStateAction<boolean>>;
 }
 
 export const PersonalInfo: FC<IUpdateProps & IUserProps> = ({
@@ -100,7 +100,7 @@ export const PersonalInfo: FC<IUpdateProps & IUserProps> = ({
       isBold: false,
     },
   ];
-  
+
   return (
     <Wrapper>
       <TopBar>
@@ -131,19 +131,19 @@ export const PersonalInfo: FC<IUpdateProps & IUserProps> = ({
                   <ProfileLink>See profile</ProfileLink>
                 </ProfileImgSection>
                 <MainInfo>
-                    {personalInfos.map((personalInfo) => (
-                      <>
-                        <TextField
-                          name={personalInfo.name}
-                          disabled={personalInfo.isDisabled}
-                          isBold={personalInfo.isBold}
-                        />
-                        <ErrorMessage
-                          name={personalInfo.name}
-                          component={CustomErrorMsg}
-                        ></ErrorMessage>
-                      </>
-                    ))}
+                  {personalInfos.map((personalInfo) => (
+                    <>
+                      <TextField
+                        name={personalInfo.name}
+                        disabled={personalInfo.isDisabled}
+                        isBold={personalInfo.isBold}
+                      />
+                      <ErrorMessage
+                        name={personalInfo.name}
+                        component={CustomErrorMsg}
+                      ></ErrorMessage>
+                    </>
+                  ))}
                 </MainInfo>
               </LeftBox>
               <RightBox>
@@ -151,7 +151,7 @@ export const PersonalInfo: FC<IUpdateProps & IUserProps> = ({
                   <Edit>
                     <EditIcon
                       src={Theme.Icons.edit}
-                      onClick={() => toggleUpdating(!isUpdating)}
+                      onClick={() => toggleUpdating!(!isUpdating)}
                     />
                   </Edit>
                 ) : (
@@ -160,9 +160,9 @@ export const PersonalInfo: FC<IUpdateProps & IUserProps> = ({
                       <UndoIcon type="submit"></UndoIcon>
                     </Undo>
                     <Save>
-                      <SaveIcon
-                        src={Theme.Icons.save}
-                        onClick={() => toggleUpdating(!isUpdating)}
+                      <SaveBtn
+                        onClick={() => toggleUpdating!(!isUpdating)}
+                        type="submit"
                       />
                     </Save>
                   </IconsGroup>

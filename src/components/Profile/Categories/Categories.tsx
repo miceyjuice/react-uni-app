@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import styled from "styled-components";
 import Theme from "../../../styledHelpers/Theme";
-import { Category, Title, TopBar, Wrapper } from "./CategoriesStyle";
+import { Category, SaveBtn, Title, TopBar, Wrapper } from "./CategoriesStyle";
 import { Field } from "formik";
 import { IUpdateProps } from "../PersonalInfo/PersonalInfo";
 import { EditIcon, SaveIcon } from "../PersonalInfo/PersonalInfoStyle";
@@ -129,15 +129,13 @@ export const Categories: FC<IUpdateProps & IFormikValues> = ({
           {!isUpdating ? (
             <EditIcon
               src={Theme.Icons.edit}
-              onClick={() => toggleUpdating(!isUpdating)}
+              onClick={() => toggleUpdating!(!isUpdating)}
             />
           ) : (
-            // <SaveIcon
-            //   src={Theme.Icons.save}
-            //   onClick={() => toggleUpdating(!isUpdating)}
-            //   type="submit"
-            // />
-            <button onClick={() => toggleUpdating(!isUpdating)} type="submit" />
+            <SaveBtn
+              onClick={() => toggleUpdating!(!isUpdating)}
+              type="submit"
+            />
           )}
         </TopBar>
         {categories.map((category, index) => {

@@ -41,6 +41,9 @@ export const DateField = styled(Category)`
   ::-webkit-calendar-picker-indicator {
     filter: invert(1);
   }
+  :disabled{
+    opacity: 0.7;
+  }
 `;
 
 export const SectionLink = styled.a`

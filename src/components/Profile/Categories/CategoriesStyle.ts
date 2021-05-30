@@ -20,6 +20,22 @@ export const TopBar = styled.div`
   justify-content: space-between;
   flex-basis: 100%;
 `;
+
+export const SaveBtn = styled.button`
+  background-color: transparent;
+  background-image: url(${Theme.Icons.save});
+  background-position: center;
+  background-size: cover;
+  width: 1.2rem;
+  height: 1.2rem;
+  border: none;
+
+  :hover {
+    cursor: pointer;
+    filter: opacity(50%);
+  }
+`;
+
 export const Title = styled.h5`
   margin: 0;
   font-size: ${Theme.FontSizes[15]};

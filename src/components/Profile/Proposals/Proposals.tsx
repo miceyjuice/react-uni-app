@@ -13,6 +13,7 @@ import {
 import { IField } from "../Categories/Categories";
 import { IFormikValues } from "../Profile";
 import { Field } from "formik";
+import { IUpdateProps } from "../PersonalInfo/PersonalInfo";
 
 interface IProposals {
   title: string;
@@ -317,7 +318,7 @@ export const proposals: IProposals[] = [
   },
 ];
 
-export const Proposals: FC<IFormikValues> = ({ values, handleChange }) => {
+export const Proposals: FC<IFormikValues & IUpdateProps> = ({ values, handleChange, isUpdating }) => {
   const [dateValue, setDateValue] = useState<string[]>([
     "2010-05-19",
     "2010-05-19",
@@ -336,6 +337,7 @@ export const Proposals: FC<IFormikValues> = ({ values, handleChange }) => {
                   <Category
                     component="select"
                     name={`proposals.${field.options[index].key}.${index}`}
+                    disabled={!isUpdating}
                   >
                     {field.options.map((option) => (
                       <FieldOption
@@ -354,6 +356,7 @@ export const Proposals: FC<IFormikValues> = ({ values, handleChange }) => {
                         component="input"
                         type="date"
                         name={`proposals.${option.key}.${index}`}
+                        disabled={!isUpdating}
                         value={dateValue[index]}
                         key={option.key + Math.trunc(Math.random() * 150)}
                         onChange={(event: ChangeEvent<HTMLDataElement>) => {

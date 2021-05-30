@@ -14,6 +14,7 @@ import {
   SectionLink,
 } from "../Proposals/ProposalsStyle";
 import { proposals } from "../Proposals/Proposals";
+import { IUpdateProps } from "../PersonalInfo/PersonalInfo";
 
 export const CustomBox = styled(InfoBox)`
   grid-template-columns: repeat(5, 1fr);
@@ -28,7 +29,10 @@ const reviews: IReviews[] = proposals.slice(0, proposals.length - 1);
 
 console.log(reviews);
 
-export const InternalReviews: FC<IFormikValues> = ({ values }) => {
+export const InternalReviews: FC<IFormikValues & IUpdateProps> = ({
+  values,
+  isUpdating,
+}) => {
   return (
     <PanelWrapper>
       <SectionTitle>Internal reviews</SectionTitle>
@@ -41,6 +45,7 @@ export const InternalReviews: FC<IFormikValues> = ({ values }) => {
                   <Category
                     component="select"
                     name={`internalReviews.${field.options[index].key}.${index}`}
+                    disabled={!isUpdating}
                   >
                     {field.options.map((option) => (
                       <FieldOption
@@ -52,7 +57,9 @@ export const InternalReviews: FC<IFormikValues> = ({ values }) => {
                     ))}
                   </Category>
                 ))
-              : review.fields.map(() => <DateField type="date"></DateField>)}
+              : review.fields.map(() => (
+                  <DateField type="date" disabled={!isUpdating}></DateField>
+                ))}
           </Column>
         ))}
       </CustomBox>
