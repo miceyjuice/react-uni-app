@@ -8,12 +8,14 @@ import { Form, Formik } from "formik";
 import Proposals from "./Proposals/Proposals";
 import InternalReviews from "./InternalReviews/InternalReviews";
 import FeeAmount from "./FeeAmount/FeeAmount";
+import { useFormikContext } from 'formik';
 
 export const Wrapper = styled.div`
   color: #f3f3f3;
 `;
 
 export interface IFormikValues {
+  handleChange?: Function,
   values: {
     categories: {
       expertise: string;
@@ -26,7 +28,22 @@ export interface IFormikValues {
       termsAndConditions: string;
       services: string;
       correspondants: string[];
-    }
+    };
+    proposals: {
+      name: string[];
+      entity: string[];
+      location: string[];
+      expertise: string[];
+      date: string[];
+      firm: string[];
+    };
+    internalReviews: {
+      name: string[];
+      entity: string[];
+      location: string[];
+      expertise: string[];
+      date: string[];
+    };
   };
 }
 
@@ -34,6 +51,8 @@ export const Profile: FC<IUserProps> = ({ userId }) => {
   const [isUpdatingPersonalInfo, setisUpdatingPersonalInfo] =
     useState<boolean>(false);
   const [isUpdatingMoreInfo, setIsUpdatingMoreInfo] = useState<boolean>(false);
+
+  console.log(typeof useFormikContext());
 
   return (
     <Wrapper>
@@ -58,31 +77,71 @@ export const Profile: FC<IUserProps> = ({ userId }) => {
             hourlyFee: "610€/hour (Negociated)",
             termsAndConditions: "Monthly 10k€ retainer - see with Jeanny Smith",
             services: "Corporate M&A and international acquisitions",
-            correspondants: ['Leanne Graham', 'Leanne Graham']
+            correspondants: ["Leanne Graham", "Leanne Graham"],
           },
           proposals: {
-            name: ["name1", "name2", "name3"],
-            entity: ["entity1", "entity2", "entity3"],
-            location: ["location1", "location2", "location3"],
+            name: ["Operation m50", "Operation bondi", "Op. Latandre"],
+            entity: ["Renault Brjoisoi", "Renault HQ", "Renault Codasda"],
+            location: ["France", "USA", "Italia"],
             expertise: ["expertise1", "expertise2", "expertise3"],
-            date: ["date1", "date2", "date3"],
-            firm: ["firm1", "firm2", "firm3"],
+            date: [
+              new Date().toLocaleString([], {
+                year: "numeric",
+                month: "numeric",
+                day: "numeric",
+              }),
+              new Date().toLocaleString([], {
+                year: "numeric",
+                month: "numeric",
+                day: "numeric",
+              }),
+              new Date().toLocaleString([], {
+                year: "numeric",
+                month: "numeric",
+                day: "numeric",
+              }),
+            ],
+            firm: ["Racine", "Clifford chance", "SVZ"],
           },
+          internalReviews :{
+            name: ["Operation m50", "Operation bondi", "Op. Latandre"],
+            entity: ["Renault Brjoisoi", "Renault HQ", "Renault Codasda"],
+            location: ["France", "USA", "Italia"],
+            expertise: ["expertise1", "expertise2", "expertise3"],
+            date: [
+              new Date().toLocaleString([], {
+                year: "numeric",
+                month: "numeric",
+                day: "numeric",
+              }),
+              new Date().toLocaleString([], {
+                year: "numeric",
+                month: "numeric",
+                day: "numeric",
+              }),
+              new Date().toLocaleString([], {
+                year: "numeric",
+                month: "numeric",
+                day: "numeric",
+              }),
+            ],
+          }
         }}
         onSubmit={(values) => {
           console.log(values);
         }}
       >
-        {({ values, errors, isSubmitting }) => (
+        {({ values, handleChange }) => (
           <Form>
+            {console.log(handleChange)}
             <Categories
               isUpdating={isUpdatingMoreInfo}
               toggleUpdating={setIsUpdatingMoreInfo}
               values={values}
             />
             <PanelInformations values={values} userId={userId} />
-            <Proposals />
-            <InternalReviews />
+            <Proposals values={values} handleChange={handleChange} />
+            <InternalReviews values={values} />
             <FeeAmount />
           </Form>
         )}

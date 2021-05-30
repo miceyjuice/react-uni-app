@@ -1,17 +1,27 @@
 import styled from "styled-components";
 import Theme from "../Theme";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-export const StyledA = styled(Link)<{beforeimg: string,afterimg?: string,paddingleft?: string,paddingtop?: string, beforeleft?: string, fontsize?: string, fontcolor?: string}>`
+export const StyledA = styled(Link)<{
+  beforeimg: string;
+  afterimg?: string;
+  paddingleft?: string;
+  paddingtop?: string;
+  beforeleft?: string;
+  fontsize?: string;
+  fontcolor?: string;
+}>`
   display: inline-block;
   text-align: left;
   text-decoration: none;
   position: relative;
-  padding-left: ${({paddingleft}) => paddingleft ? `${paddingleft} !important` : '0'};
-  padding-top: ${({paddingtop}) => paddingtop ? `${paddingtop} !important` : '0'};
-  font-size: ${({fontsize}) => fontsize ? fontsize : '1.125rem'};
+  padding-left: ${({ paddingleft }) =>
+    paddingleft ? `${paddingleft} !important` : "0"};
+  padding-top: ${({ paddingtop }) =>
+    paddingtop ? `${paddingtop} !important` : "0"};
+  font-size: ${({ fontsize }) => (fontsize ? fontsize : "1.125rem")};
   min-width: 13rem;
-  color: ${(props) => props.fontcolor ? props.fontcolor : Theme.Colors.red};
+  color: ${(props) => (props.fontcolor ? props.fontcolor : Theme.Colors.red)};
 
   :hover {
     cursor: pointer;
@@ -24,10 +34,11 @@ export const StyledA = styled(Link)<{beforeimg: string,afterimg?: string,padding
     height: 100%;
     max-height: 1.56rem;
     width: 1.5rem;
-    left: ${(props) => props.beforeleft ? props.beforeleft : '0'};
+    left: ${(props) => (props.beforeleft ? props.beforeleft : "0")};
     top: 50%;
     transform: translateY(-50%);
-    background-image: ${(props) => `url('${process.env.PUBLIC_URL}${props.beforeimg}')`};
+    background-image: ${({ beforeimg }) =>
+      `url('${process.env.PUBLIC_URL}${beforeimg}')`};
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -43,8 +54,8 @@ export const StyledA = styled(Link)<{beforeimg: string,afterimg?: string,padding
     right: 0;
     top: 50%;
     transform: translateY(-50%);
-    width: 0; 
-    height: 0; 
+    width: 0;
+    height: 0;
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
     border-top: 6px solid #fff;

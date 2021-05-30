@@ -151,7 +151,7 @@ export const Categories: FC<IUpdateProps & IFormikValues> = ({
                     disabled={!isUpdating}
                     name={`categories.${fields.options[i].key}.${i}`}
                     key={`${
-                      fields.options[i].key + Math.floor(Math.random() * 150)
+                      fields.options[i].key + Math.trunc(Math.random() * 150)
                     }`}
                   >
                     {categoriesCounter++}

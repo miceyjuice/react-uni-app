@@ -20,30 +20,30 @@ const FeeBox = styled(InfoBox)`
     grid-template-columns: repeat(4, 1fr);
 `;
 
-const fees: IReviews[] = [
-    {
-      title: "Year",
-      elements: ["1990", "1992", "1998"],
-    },
-    {
-      title: "Cost center",
-      elements: ["Renault Brjoisoi", "Renault HQ", "Renault Codasda"],
-    },
-    {
-      title: "Total amount",
-      elements: ["France", "USA", "Italia"],
-    },
-    {
-      title: "Law firm",
-      elements: ["#Tax", "#M&A", "#Social"],
-    },
-  ];
+// const fees: IReviews[] = [
+//     {
+//       title: "Year",
+//       elements: ["1990", "1992", "1998"],
+//     },
+//     {
+//       title: "Cost center",
+//       elements: ["Renault Brjoisoi", "Renault HQ", "Renault Codasda"],
+//     },
+//     {
+//       title: "Total amount",
+//       elements: ["France", "USA", "Italia"],
+//     },
+//     {
+//       title: "Law firm",
+//       elements: ["#Tax", "#M&A", "#Social"],
+//     },
+//   ];
 
 export const FeeAmount: FC = () => {
   return (
     <PanelWrapper>
       <SectionTitle>Amount of fees</SectionTitle>
-      <FeeBox>
+      {/* <FeeBox>
         {fees.map((fee) => (
           <Column>
             <ColumnTitle>{fee.title}</ColumnTitle>
@@ -60,7 +60,7 @@ export const FeeAmount: FC = () => {
               : fee.elements.map(() => <DateField type="date"></DateField>)}
           </Column>
         ))}
-      </FeeBox>
+      </FeeBox> */}
       <SectionLink>See more fees</SectionLink>
     </PanelWrapper>
   );

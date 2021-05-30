@@ -11,28 +11,30 @@ import {
   SectionLink,
 } from "./ProposalsStyle";
 import { IField } from "../Categories/Categories";
+import { IFormikValues } from "../Profile";
+import { Field } from "formik";
 
 interface IProposals {
   title: string;
   fields: IField[];
 }
 
-const proposals: IProposals[] = [
+export const proposals: IProposals[] = [
   {
     title: "Name",
     fields: [
       {
         options: [
           {
-            key: "name1",
+            key: "name",
             value: "Operation m50",
           },
           {
-            key: "name1",
+            key: "name",
             value: "Operation m51",
           },
           {
-            key: "name1",
+            key: "name",
             value: "Operation m52",
           },
         ],
@@ -40,15 +42,15 @@ const proposals: IProposals[] = [
       {
         options: [
           {
-            key: "name2",
+            key: "name",
             value: "Operation bondi",
           },
           {
-            key: "name2",
+            key: "name",
             value: "Operation mondi",
           },
           {
-            key: "name2",
+            key: "name",
             value: "Operation tondi",
           },
         ],
@@ -56,15 +58,15 @@ const proposals: IProposals[] = [
       {
         options: [
           {
-            key: "name3",
+            key: "name",
             value: "Op. Latandre",
           },
           {
-            key: "name3",
+            key: "name",
             value: "Op. Macabre",
           },
           {
-            key: "name3",
+            key: "name",
             value: "Op. Potrando",
           },
         ],
@@ -77,15 +79,15 @@ const proposals: IProposals[] = [
       {
         options: [
           {
-            key: "entity1",
+            key: "entity",
             value: "Renault Brjoisoi",
           },
           {
-            key: "entity1",
+            key: "entity",
             value: "Renault HQ",
           },
           {
-            key: "entity1",
+            key: "entity",
             value: "Renault Codasda",
           },
         ],
@@ -93,15 +95,15 @@ const proposals: IProposals[] = [
       {
         options: [
           {
-            key: "entity2",
+            key: "entity",
             value: "Renault Brjoisoi",
           },
           {
-            key: "entity2",
+            key: "entity",
             value: "Renault HQ",
           },
           {
-            key: "entity2",
+            key: "entity",
             value: "Renault Codasda",
           },
         ],
@@ -109,15 +111,15 @@ const proposals: IProposals[] = [
       {
         options: [
           {
-            key: "entity3",
+            key: "entity",
             value: "Renault Brjoisoi",
           },
           {
-            key: "entity3",
+            key: "entity",
             value: "Renault HQ",
           },
           {
-            key: "entity3",
+            key: "entity",
             value: "Renault Codasda",
           },
         ],
@@ -130,15 +132,15 @@ const proposals: IProposals[] = [
       {
         options: [
           {
-            key: "location1",
+            key: "location",
             value: "France",
           },
           {
-            key: "location1",
+            key: "location",
             value: "USA",
           },
           {
-            key: "location1",
+            key: "location",
             value: "Italia",
           },
         ],
@@ -146,15 +148,15 @@ const proposals: IProposals[] = [
       {
         options: [
           {
-            key: "location2",
+            key: "location",
             value: "USA",
           },
           {
-            key: "location2",
+            key: "location",
             value: "France",
           },
           {
-            key: "location2",
+            key: "location",
             value: "Italia",
           },
         ],
@@ -162,15 +164,15 @@ const proposals: IProposals[] = [
       {
         options: [
           {
-            key: "location3",
+            key: "location",
             value: "Italia",
           },
           {
-            key: "location3",
+            key: "location",
             value: "USA",
           },
           {
-            key: "location3",
+            key: "location",
             value: "France",
           },
         ],
@@ -237,7 +239,7 @@ const proposals: IProposals[] = [
       {
         options: [
           {
-            key: "date1",
+            key: "date",
             value: "",
           },
         ],
@@ -245,7 +247,7 @@ const proposals: IProposals[] = [
       {
         options: [
           {
-            key: "date2",
+            key: "date",
             value: "",
           },
         ],
@@ -253,7 +255,7 @@ const proposals: IProposals[] = [
       {
         options: [
           {
-            key: "date3",
+            key: "date",
             value: "",
           },
         ],
@@ -266,15 +268,15 @@ const proposals: IProposals[] = [
       {
         options: [
           {
-            key: "firm11",
+            key: "firm",
             value: "Racine",
           },
           {
-            key: "firm12",
+            key: "firm",
             value: "Clifford chance",
           },
           {
-            key: "firm13",
+            key: "firm",
             value: "SVZ",
           },
         ],
@@ -282,15 +284,15 @@ const proposals: IProposals[] = [
       {
         options: [
           {
-            key: "firm21",
+            key: "firm",
             value: "Clifford chance",
           },
           {
-            key: "firm22",
+            key: "firm",
             value: "SVZ",
           },
           {
-            key: "firm22",
+            key: "firm",
             value: "Racine",
           },
         ],
@@ -298,15 +300,15 @@ const proposals: IProposals[] = [
       {
         options: [
           {
-            key: "firm31",
+            key: "firm",
             value: "SVZ",
           },
           {
-            key: "firm32",
+            key: "firm",
             value: "Racine",
           },
           {
-            key: "firm33",
+            key: "firm",
             value: "Clifford chance",
           },
         ],
@@ -315,7 +317,7 @@ const proposals: IProposals[] = [
   },
 ];
 
-export const Proposals: FC = () => {
+export const Proposals: FC<IFormikValues> = ({ values, handleChange }) => {
   const [dateValue, setDateValue] = useState<string[]>([
     "2010-05-19",
     "2010-05-19",
@@ -331,11 +333,14 @@ export const Proposals: FC = () => {
             <ColumnTitle>{proposal.title}</ColumnTitle>
             {proposal.title !== "Date"
               ? proposal.fields.map((field, index) => (
-                  <Category as="select" name={field.options[index].key}>
+                  <Category
+                    component="select"
+                    name={`proposals.${field.options[index].key}.${index}`}
+                  >
                     {field.options.map((option) => (
                       <FieldOption
                         as="option"
-                        key={option.key}
+                        key={option.key + Math.trunc(Math.random() * 150)}
                       >
                         {option.value}
                       </FieldOption>
@@ -346,10 +351,11 @@ export const Proposals: FC = () => {
                   element.options.map((option) => (
                     <>
                       <DateField
+                        component="input"
                         type="date"
-                        name={option.key}
+                        name={`proposals.${option.key}.${index}`}
                         value={dateValue[index]}
-                        key={option.key}
+                        key={option.key + Math.trunc(Math.random() * 150)}
                         onChange={(event: ChangeEvent<HTMLDataElement>) => {
                           let newArr = [...dateValue];
                           newArr[index] = event.target.value;

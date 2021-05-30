@@ -90,7 +90,10 @@ export const PanelInformations: FC<IUserProps & IFormikValues> = ({
             {usersList
               .filter((user) => user.id !== userId + 1)
               .map((user) => (
-                <CustomField as="option" value={user.name}>
+                <CustomField
+                  as="option"
+                  value={user.name}
+                >
                   {user.name}
                 </CustomField>
               ))}
@@ -127,9 +130,6 @@ export const PanelInformations: FC<IUserProps & IFormikValues> = ({
           <Option beforeImg={Theme.Icons.user}>Profile</Option>
         </CorrespondantBox>
       </CustomSection>
-      <div>
-        <pre>{JSON.stringify(values, null, 2)}</pre>
-      </div>
     </PanelWrapper>
   );
 };

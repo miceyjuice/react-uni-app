@@ -1,43 +1,34 @@
 import React, { FC } from "react";
 import styled from "styled-components";
+import { IField } from "../Categories/Categories";
 import { Category } from "../Categories/CategoriesStyle";
 import { PanelWrapper } from "../PanelInformations/PanelInformations";
 import { SectionTitle } from "../PanelInformations/PanelInformationsStyle";
-import { InfoBox, Column, ColumnTitle, FieldOption, DateField, SectionLink } from "../Proposals/ProposalsStyle";
+import { IFormikValues } from "../Profile";
+import {
+  InfoBox,
+  Column,
+  ColumnTitle,
+  FieldOption,
+  DateField,
+  SectionLink,
+} from "../Proposals/ProposalsStyle";
+import { proposals } from "../Proposals/Proposals";
 
 export const CustomBox = styled(InfoBox)`
-    grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(5, 1fr);
 `;
 
 export interface IReviews {
-    title: string;
-    elements: string[];
-  }
+  title: string;
+  fields: IField[];
+}
 
-const reviews: IReviews[] = [
-    {
-      title: "Name",
-      elements: ["Operation m50", "Operation botox", "Op. Latandre"],
-    },
-    {
-      title: "Entity",
-      elements: ["Renault Brjoisoi", "Renault HQ", "Renault Codasda"],
-    },
-    {
-      title: "Location",
-      elements: ["France", "USA", "Italia"],
-    },
-    {
-      title: "Expertise",
-      elements: ["#Tax", "#M&A", "#Social"],
-    },
-    {
-      title: "Date",
-      elements: ["dsds", "USA", "Italia"],
-    },
-  ];
+const reviews: IReviews[] = proposals.slice(0, proposals.length - 1);
 
-export const InternalReviews: FC = () => {
+console.log(reviews);
+
+export const InternalReviews: FC<IFormikValues> = ({ values }) => {
   return (
     <PanelWrapper>
       <SectionTitle>Internal reviews</SectionTitle>
@@ -46,23 +37,27 @@ export const InternalReviews: FC = () => {
           <Column>
             <ColumnTitle>{review.title}</ColumnTitle>
             {review.title !== "Date"
-              ? review.elements.map((element, index) => (
-                  <Category as="select">
-                    <FieldOption
-                      as="option"
-                      value={review.title.toLowerCase() + (index + 1)}
-                    >
-                      {element}
-                    </FieldOption>
+              ? review.fields.map((field, index) => (
+                  <Category
+                    component="select"
+                    name={`internalReviews.${field.options[index].key}.${index}`}
+                  >
+                    {field.options.map((option) => (
+                      <FieldOption
+                        as="option"
+                        key={option.key + Math.trunc(Math.random() * 150)}
+                      >
+                        {option.value}
+                      </FieldOption>
+                    ))}
                   </Category>
                 ))
-              : review.elements.map(() => (
-                  <DateField type="date"></DateField>
-                ))}
+              : review.fields.map(() => <DateField type="date"></DateField>)}
           </Column>
         ))}
       </CustomBox>
       <SectionLink>See more reviews</SectionLink>
+      <pre>{JSON.stringify(values.internalReviews, null, 10)}</pre>
     </PanelWrapper>
   );
 };
