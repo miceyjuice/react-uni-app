@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useContext } from "react";
 import Theme from "../../../styledHelpers/Theme";
 import { StyledUl, StyledLi } from "../SideMenu/SideMenuStyle";
 import { useSelector } from "react-redux";
@@ -8,24 +8,27 @@ import { IUsersPhotosReducer } from "../../../reducers/usersPhotosReducers";
 import { Link } from "react-router-dom";
 import { AddButton, PersonBlock, PersonFullName, PersonImage, PersonJob, ProfileStyledA, Wrapper } from "./ProfileSectionStyle";
 import { IUserProps } from '../../MainPage/MainPage';
+import { UserIdContext } from "../../../contexts/UserIdContext";
 
 
-export const ProfileSection: FC<IUserProps> = ({userId}) => {
+export const ProfileSection: FC = () => {
 
   const { usersList, usersPhotosList } = useSelector<IState, IUsersReducer & IUsersPhotosReducer>((globalState) => ({
     ...globalState.users,
     ...globalState.usersPhotosList
   }));
 
+  const currentUserId = useContext(UserIdContext);
+
   return (
     <Wrapper>
       <PersonBlock>
-        <PersonImage src={ usersPhotosList[userId]?.url } />
+        <PersonImage src={ usersPhotosList[currentUserId]?.url } />
         <PersonFullName to="/profile">
-          {usersList[userId]?.name}
+          {usersList[currentUserId]?.name}
         </PersonFullName>
         <PersonJob>
-          { usersList[userId]?.company.name }
+          { usersList[currentUserId]?.company.name }
         </PersonJob>
       </PersonBlock>
       <>

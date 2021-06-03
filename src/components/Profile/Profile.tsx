@@ -53,7 +53,7 @@ export interface IFormikValues {
   };
 }
 
-export const Profile: FC<IUserProps> = ({ userId }) => {
+export const Profile: FC = () => {
   const [isUpdatingPersonalInfo, setisUpdatingPersonalInfo] =
     useState<boolean>(false);
   const [isUpdatingMoreInfo, setIsUpdatingMoreInfo] = useState<boolean>(false);
@@ -65,7 +65,6 @@ export const Profile: FC<IUserProps> = ({ userId }) => {
       <PersonalInfo
         isUpdating={isUpdatingPersonalInfo}
         toggleUpdating={setisUpdatingPersonalInfo}
-        userId={userId}
       />
       <Formik
         enableReinitialize
@@ -154,7 +153,6 @@ export const Profile: FC<IUserProps> = ({ userId }) => {
             <PanelInformations
               isUpdating={isUpdatingMoreInfo}
               values={values}
-              userId={userId}
             />
             <Proposals
               isUpdating={isUpdatingMoreInfo}

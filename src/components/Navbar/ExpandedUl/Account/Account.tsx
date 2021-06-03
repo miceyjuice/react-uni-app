@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useContext } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { IState } from "../../../../reducers";
@@ -14,12 +14,9 @@ import {
 } from "./AccountStyle";
 import StyledA from "../../../../styledHelpers/components/StyledA";
 import Theme from "../../../../styledHelpers/Theme";
+import { UserIdContext } from "../../../../contexts/UserIdContext";
 
-interface IAccountIdProps {
-  id: number;
-}
-
-export const Account: FC<IAccountIdProps> = ({id}) => {
+export const Account: FC = () => {
   const { usersList, usersPhotosList } = useSelector<
     IState,
     IUsersReducer & IUsersPhotosReducer
@@ -28,13 +25,15 @@ export const Account: FC<IAccountIdProps> = ({id}) => {
     ...globalState.usersPhotosList,
   }));
 
+  const currentUserId = useContext(UserIdContext);
+
   return (
     <AccountLi>
       <SectionParagraph>Account</SectionParagraph>
       <AccountBox>
-        <AccountImg src={usersPhotosList[id]?.url} />
+        <AccountImg src={usersPhotosList[currentUserId]?.url} />
         <AccountInfo>
-          {usersList[id]?.name}
+          {usersList[currentUserId]?.name}
           <Link to="/profile">See profile</Link>
         </AccountInfo>
       </AccountBox>

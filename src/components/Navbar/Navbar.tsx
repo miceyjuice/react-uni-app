@@ -17,9 +17,9 @@ import {
   LeftNav,
   SearchIcon,
 } from "./NavbarStyle";
-import { IDisplayProps, IUserProps } from "../MainPage/MainPage";
+import { IDisplayProps } from "../MainPage/MainPage";
 
-export const NavBar: FC<IUserProps & IDisplayProps> = ({ userId, isHidden }) => {
+export const NavBar: FC<IDisplayProps> = ({ isHidden }) => {
   const [wrapperRef, dropdownOpen, toggleDropdown] = useDropdown();
 
   const GetCurrentRoute = (): string => {
@@ -43,7 +43,7 @@ export const NavBar: FC<IUserProps & IDisplayProps> = ({ userId, isHidden }) => 
             >
               {GetCurrentRoute()}
             </CurrentRoute>
-            {dropdownOpen && <ExpandedUl userId={userId} />}
+            {dropdownOpen && <ExpandedUl/>}
           </DropdownWrapper>
         </Menu>
       </LeftNav>

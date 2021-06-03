@@ -5,13 +5,12 @@ import Workspace from './Workspace/Workspace'
 import { StyledUl } from '../../../styledHelpers/components/navbar/expandedUl/StyledUl';
 import Account from "./Account/Account";
 import Logout from "./Logout/Logout";
-import { IUserProps } from '../../MainPage/MainPage'
 
 export interface IFilterProps {
   filterValue: string;
 }
 
-export const ExpandedUl: FC<IUserProps> = ({userId}) => {
+export const ExpandedUl: FC = () => {
 
   const [filterValue, setFilterValue] = useState<string>('');
 
@@ -20,7 +19,7 @@ export const ExpandedUl: FC<IUserProps> = ({userId}) => {
       <Filter setFilterValue={setFilterValue} filterValue={filterValue}/>
       <Platform filterValue={filterValue} />
       <Workspace filterValue={filterValue} />
-      <Account id={userId}/>
+      <Account/>
       <Logout />
     </StyledUl>
   );

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Theme from "../../../styledHelpers/Theme";
 
@@ -34,7 +35,7 @@ export const Bottom = styled.div`
   padding: 0 1rem;
   flex-wrap: wrap;
 `;
-export const Title = styled.h3`
+export const Title = styled(Link)`
   margin: 0;
   padding-left: 7rem;
   flex-basis: 100%;

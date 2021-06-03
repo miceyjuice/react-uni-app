@@ -21,6 +21,8 @@ interface IWorkspaceProps {
   lastUpdate: string;
 }
 
+const createRouteFromTitle = (title: string): string => title.toLowerCase().replaceAll(' ', '-');
+
 export const SliderBox: FC<IWorkspaceProps> = ({
   bgImg,
   title,
@@ -34,7 +36,7 @@ export const SliderBox: FC<IWorkspaceProps> = ({
       <CategoryImg src={process.env.PUBLIC_URL + categoryImg} />
       <Top bgImg={bgImg}></Top>
       <Bottom>
-        <Title>{title}</Title>
+        <Title to={"/" + createRouteFromTitle(title)}>{title}</Title>
         <Category>{category}</Category>
         <Users>{usersNumber} users</Users>
         <Update>Last update {lastUpdate} ago</Update>

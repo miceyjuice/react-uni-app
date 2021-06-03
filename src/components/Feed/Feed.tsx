@@ -1,5 +1,6 @@
-import React, { FC, useState } from "react";
+import React, { FC, useContext, useState } from "react";
 import { useSelector } from "react-redux";
+import { UserIdContext } from "../../contexts/UserIdContext";
 import { IState } from "../../reducers";
 import { IUsersCommentsReducer } from "../../reducers/usersCommentsReducers";
 import { IUsersReducer } from "../../reducers/usersReducers";
@@ -8,7 +9,7 @@ import Pagination from "./Pagination/Pagination";
 import TopBar from "./TopBar/TopBar";
 import WorkList from "./WorkList/WorkList";
 
-export const Feed: FC<{ userId: number }> = ({ userId }) => {
+export const Feed: FC = () => {
   const { usersCommentsList, usersList } = useSelector<
     IState,
     IUsersCommentsReducer & IUsersReducer
@@ -16,6 +17,8 @@ export const Feed: FC<{ userId: number }> = ({ userId }) => {
     ...globalState.usersCommentsList,
     ...globalState.users,
   }));
+  
+  const currentUserId = useContext(UserIdContext);
 
   const [filterValue, setFilterValue] = useState<string>("");
   const [selectValue, setSelectValue] = useState<string>("All");
@@ -33,7 +36,7 @@ export const Feed: FC<{ userId: number }> = ({ userId }) => {
         .filter((comment) => comment.name.includes(filterValue));
     return usersCommentsList
       .slice(0, maxPosts - 1)
-      .filter((comment) => comment.postId === userId + 1)
+      .filter((comment) => comment.postId === currentUserId + 1)
       .filter((comment) => comment.name.includes(filterValue));
   };
 

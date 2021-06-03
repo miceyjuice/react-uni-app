@@ -22,6 +22,7 @@ import Publications from "../Publications/Publications";
 import Entities from "../Entities/Entities";
 import Workspaces from "../Workspaces/Workspaces";
 import Profile from "../Profile/Profile";
+import { UserIdContext } from "../../contexts/UserIdContext";
 
 export interface IUserProps {
   userId: number;
@@ -54,26 +55,28 @@ export const MainPage: FC = () => {
   return (
     <>
       <Router>
-        <Navbar userId={randomId} isHidden={isHidden} />
-        <Wrapper>
-          <SideBar userId={randomId} isHidden={isHidden} />
-          <Content fullWidth={isHidden}>
-            <Switch>
-              <Route path="/publications">Publications component</Route>
-              <Route path="/entities">
-                <Entities setDisplayValue={setIsHidden} isHidden={isHidden} />
-              </Route>
-              <Route path="/profile">
-                <Profile userId={randomId} />
-              </Route>
-              <Route path="/">
-                <Publications userId={randomId} />
-                <Workspaces />
-                <Feed userId={randomId}/>
-              </Route>
-            </Switch>
-          </Content>
-        </Wrapper>
+        <UserIdContext.Provider value={randomId}>
+          <Navbar isHidden={isHidden} />
+          <Wrapper>
+            <SideBar isHidden={isHidden} />
+            <Content fullWidth={isHidden}>
+              <Switch>
+                <Route path="/publications">Publications component</Route>
+                <Route path="/entities">
+                  <Entities setDisplayValue={setIsHidden} isHidden={isHidden} />
+                </Route>
+                <Route path="/profile">
+                  <Profile />
+                </Route>
+                <Route path="/">
+                  <Publications />
+                  <Workspaces />
+                  <Feed />
+                </Route>
+              </Switch>
+            </Content>
+          </Wrapper>
+        </UserIdContext.Provider>
       </Router>
     </>
   );

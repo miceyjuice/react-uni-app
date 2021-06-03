@@ -1,6 +1,6 @@
-import React, { Dispatch, FC, SetStateAction } from "react";
+import React, { Dispatch, FC, SetStateAction, useContext } from "react";
 import Theme from "../../../styledHelpers/Theme";
-import { Formik, Field, Form, ErrorMessage } from "formik";
+import { Formik, ErrorMessage } from "formik";
 import {
   TopBar,
   Option,
@@ -31,16 +31,16 @@ import { IUserProps } from "../../MainPage/MainPage";
 import * as Yup from "yup";
 import CustomErrorMsg from "../CustomErrorMsg/CustomErrorMsg";
 import { SaveBtn } from "../Categories/CategoriesStyle";
+import { UserIdContext } from "../../../contexts/UserIdContext";
 
 export interface IUpdateProps {
   isUpdating: boolean;
   toggleUpdating?: Dispatch<SetStateAction<boolean>>;
 }
 
-export const PersonalInfo: FC<IUpdateProps & IUserProps> = ({
+export const PersonalInfo: FC<IUpdateProps> = ({
   isUpdating,
   toggleUpdating,
-  userId,
 }) => {
   const { usersList, usersPhotosList } = useSelector<
     IState,
@@ -49,6 +49,8 @@ export const PersonalInfo: FC<IUpdateProps & IUserProps> = ({
     ...globalState.users,
     ...globalState.usersPhotosList,
   }));
+  
+  const currentUserId = useContext(UserIdContext);
 
   const onSubmit = (data: {}, onSubmitProps: any) => {
     onSubmitProps.resetForm();
@@ -113,12 +115,12 @@ export const PersonalInfo: FC<IUpdateProps & IUserProps> = ({
         <Formik
           enableReinitialize
           initialValues={{
-            fullName: usersList[userId]?.name,
-            companyName: usersList[userId]?.company.name,
-            location: usersList[userId]?.address.city,
+            fullName: usersList[currentUserId]?.name,
+            companyName: usersList[currentUserId]?.company.name,
+            location: usersList[currentUserId]?.address.city,
             status: "Partner",
-            email: usersList[userId]?.email,
-            phone: usersList[userId]?.phone,
+            email: usersList[currentUserId]?.email,
+            phone: usersList[currentUserId]?.phone,
           }}
           onSubmit={onSubmit}
           validationSchema={InfoSchemat}
@@ -127,7 +129,7 @@ export const PersonalInfo: FC<IUpdateProps & IUserProps> = ({
             <CustomForm>
               <LeftBox>
                 <ProfileImgSection>
-                  <ProfileImg src={usersPhotosList[userId]?.url} />
+                  <ProfileImg src={usersPhotosList[currentUserId]?.url} />
                   <ProfileLink>See profile</ProfileLink>
                 </ProfileImgSection>
                 <MainInfo>

@@ -1,6 +1,7 @@
-import React, { ChangeEvent, FC } from "react";
+import React, { ChangeEvent, FC, useContext } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
+import { UserIdContext } from "../../../contexts/UserIdContext";
 import { IState } from "../../../reducers";
 import { IUsersPhotosReducer } from "../../../reducers/usersPhotosReducers";
 import { IUsersReducer } from "../../../reducers/usersReducers";
@@ -36,8 +37,7 @@ const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
   }
 };
 
-export const PanelInformations: FC<IUserProps & IFormikValues & IUpdateProps> = ({
-  userId,
+export const PanelInformations: FC<IFormikValues & IUpdateProps> = ({
   values,
   isUpdating
 }) => {
@@ -104,7 +104,6 @@ export const PanelInformations: FC<IUserProps & IFormikValues & IUpdateProps> = 
             disabled={!isUpdating}
           >
             {usersList
-              .filter((user) => user.id !== userId + 1)
               .map((user) => (
                 <CustomField as="option" value={user.name}>
                   {user.name}
@@ -133,7 +132,6 @@ export const PanelInformations: FC<IUserProps & IFormikValues & IUpdateProps> = 
             disabled={!isUpdating}
           >
             {usersList
-              .filter((user) => user.id !== userId + 1)
               .map((user) => (
                 <CustomField as="option" value={user.name}>
                   {user.name}

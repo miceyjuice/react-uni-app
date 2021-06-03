@@ -13,10 +13,10 @@ const StyledWrapper = styled.div<{isHidden: boolean}>`
   color: ${Theme.Colors.white};
 `;
 
-export const Sidebar: FC<IUserProps & IDisplayProps> = ({userId, isHidden}) => {
+export const Sidebar: FC<IDisplayProps> = ({ isHidden}) => {
   return (
     <StyledWrapper isHidden={isHidden}>
-      <ProfileSection userId={userId}/>
+      <ProfileSection/>
       <SideMenu />
     </StyledWrapper>
   );

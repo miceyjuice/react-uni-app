@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useContext } from "react";
 import Publication from "./SinglePublication/SinglePublication";
 import {
   Content,
@@ -21,8 +21,9 @@ import { IState } from "../../reducers";
 import { IUsersReducer } from "../../reducers/usersReducers";
 import { IUsersPhotosReducer } from "../../reducers/usersPhotosReducers";
 import { IUsersPostsReducer } from "../../reducers/usersPostsReducers";
+import { UserIdContext } from "../../contexts/UserIdContext";
 
-export const Publications: FC<IUserProps> = ({ userId }) => {
+export const Publications: FC = () => {
   const { usersList, usersPhotosList, usersPostsList } = useSelector<
     IState,
     IUsersReducer & IUsersPhotosReducer & IUsersPostsReducer
@@ -31,26 +32,28 @@ export const Publications: FC<IUserProps> = ({ userId }) => {
     ...globalState.usersPhotosList,
     ...globalState.usersPostsList
   }));
+  
+  const currentUserId = useContext(UserIdContext);
 
   return (
     <Wrapper>
       <MainPublication>
         <MainImg src={usersPhotosList[Math.floor(Math.random() * 5000)]?.url} />
         <MainInfo>
-          <Content>{ usersPostsList?.filter( post => post.userId === userId )[0]?.title }</Content>
+          <Content>{ usersPostsList?.filter( post => post.userId === currentUserId )[0]?.title }</Content>
           <Date>7 jan. 2020</Date>
           <Account>
-            <AccountImg src={usersPhotosList[userId]?.url} />
-            <AccountInfo>{usersList[userId]?.name}</AccountInfo>
+            <AccountImg src={usersPhotosList[currentUserId]?.url} />
+            <AccountInfo>{usersList[currentUserId]?.name}</AccountInfo>
           </Account>
         </MainInfo>
       </MainPublication>
       <PublicationsBox>
         <BoxTitle>Latest publications</BoxTitle>
         <PublicationsList>
-          <Publication userId={userId} postId={0} />
-          <Publication userId={userId} postId={1} />
-          <Publication userId={userId} postId={2} />
+          <Publication userId={currentUserId} postId={0} />
+          <Publication userId={currentUserId} postId={1} />
+          <Publication userId={currentUserId} postId={2} />
         </PublicationsList>
         <MorePublicationsLink to="/publications">
           See more publications...
