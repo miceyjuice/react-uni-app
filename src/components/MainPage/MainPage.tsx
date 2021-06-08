@@ -23,6 +23,8 @@ import Entities from "../Entities/Entities";
 import Workspaces from "../Workspaces/Workspaces";
 import Profile from "../Profile/Profile";
 import { UserIdContext } from "../../contexts/UserIdContext";
+import SingleWorkspace from "../Workspaces/SingleWorkspace/SingleWorkspace";
+import Theme from "../../styledHelpers/Theme";
 
 export interface IUserProps {
   userId: number;
@@ -67,6 +69,9 @@ export const MainPage: FC = () => {
                 </Route>
                 <Route path="/profile">
                   <Profile />
+                </Route>
+                <Route path="/client-contract">
+                  <SingleWorkspace type={"Client contract"} icon={Theme.Icons.contract} />
                 </Route>
                 <Route path="/">
                   <Publications />

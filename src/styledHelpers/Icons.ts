@@ -35,6 +35,9 @@ export const Icons = {
   undo: "/assets/icons/undo.svg",
   file: "/assets/icons/file.svg",
   user: "/assets/icons/user.svg",
+  diagram: "/assets/icons/diagram.svg",
+  calendar: "/assets/icons/calendar.svg",
+  cog: "/assets/icons/cog.svg",
 };
 
 export default Icons;

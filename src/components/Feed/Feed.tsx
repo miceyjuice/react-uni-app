@@ -4,12 +4,15 @@ import { UserIdContext } from "../../contexts/UserIdContext";
 import { IState } from "../../reducers";
 import { IUsersCommentsReducer } from "../../reducers/usersCommentsReducers";
 import { IUsersReducer } from "../../reducers/usersReducers";
+import AdditionalOptions from "./AdditionalOptions/AdditionalOptions";
 import { Wrapper } from "./FeedStyle";
 import Pagination from "./Pagination/Pagination";
 import TopBar from "./TopBar/TopBar";
 import WorkList from "./WorkList/WorkList";
 
-export const Feed: FC = () => {
+export const Feed: FC<{ enableAdditionalOptions?: boolean }> = ({
+  enableAdditionalOptions,
+}) => {
   const { usersCommentsList, usersList } = useSelector<
     IState,
     IUsersCommentsReducer & IUsersReducer
@@ -17,7 +20,7 @@ export const Feed: FC = () => {
     ...globalState.usersCommentsList,
     ...globalState.users,
   }));
-  
+
   const currentUserId = useContext(UserIdContext);
 
   const [filterValue, setFilterValue] = useState<string>("");
@@ -56,6 +59,7 @@ export const Feed: FC = () => {
         setSelectValue={setSelectValue}
         setCurrentPage={setCurrentPage}
       />
+      {enableAdditionalOptions && <AdditionalOptions />}
       <WorkList currentPosts={currentPosts} usersList={usersList} />
       <Pagination
         postsPerPage={postsPerPage}
