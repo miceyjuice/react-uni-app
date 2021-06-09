@@ -41,6 +41,12 @@ export const Title = styled(Link)`
   flex-basis: 100%;
   margin-top: 0.5rem;
   font-weight: 400;
+  text-decoration: none;
+  color: ${Theme.Colors.white};
+  
+  :hover{
+    text-decoration: underline;
+  }
 `;
 export const Category = styled.p`
   font-weight: 100;
