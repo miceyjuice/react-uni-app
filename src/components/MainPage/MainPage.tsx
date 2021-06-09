@@ -36,10 +36,38 @@ export interface IDisplayProps {
   setDisplayValue?: Dispatch<SetStateAction<boolean>>;
 }
 
+interface ISingleWorkspace {
+  title: string;
+  icon: string;
+}
+
 type GetUsers = ReturnType<typeof getUsers>;
 type GetUsersPhotos = ReturnType<typeof getUsersPhotos>;
 type GetUsersPosts = ReturnType<typeof getUsersPosts>;
 type GetUsersComments = ReturnType<typeof getUsersComments>;
+
+const singleWorkspaces: ISingleWorkspace[] = [
+  {
+    title: "Client contract",
+    icon: Theme.Icons.contract,
+  },
+  {
+    title: "Supplier contract",
+    icon: Theme.Icons.contract,
+  },
+  {
+    title: "Corporate",
+    icon: Theme.Icons.corporate,
+  },
+  {
+    title: "Group norms",
+    icon: Theme.Icons.book,
+  },
+  {
+    title: "Real estate contracts",
+    icon: Theme.Icons.contract,
+  },
+];
 
 export const MainPage: FC = () => {
   const dispatch = useDispatch();
@@ -70,21 +98,19 @@ export const MainPage: FC = () => {
                 <Route path="/profile">
                   <Profile />
                 </Route>
-                <Route path="/client-contract">
-                  <SingleWorkspace type={"Client contract"} icon={Theme.Icons.contract} />
-                </Route>
-                <Route path="/supplier-contract">
-                  <SingleWorkspace type={"Supplier contract"} icon={Theme.Icons.contract} />
-                </Route>
-                <Route path="/corporate">
-                  <SingleWorkspace type={"Corporate"} icon={Theme.Icons.corporate} />
-                </Route>
-                <Route path="/group-norms">
-                  <SingleWorkspace type={"Group norms"} icon={Theme.Icons.book} />
-                </Route>
-                <Route path="/real-estate-contracts">
-                  <SingleWorkspace type={"Real estate contracts"} icon={Theme.Icons.contract} />
-                </Route>
+                {singleWorkspaces.map((workspace) => (
+                  <Route
+                    path={
+                      "/" + workspace.title.toLowerCase().replaceAll(" ", "-")
+                    }
+                  >
+                    <SingleWorkspace
+                      type={workspace.title}
+                      icon={workspace.icon}
+                    />
+                  </Route>
+                ))}
+
                 <Route path="/">
                   <Publications />
                   <Workspaces />
