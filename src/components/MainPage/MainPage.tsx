@@ -73,6 +73,18 @@ export const MainPage: FC = () => {
                 <Route path="/client-contract">
                   <SingleWorkspace type={"Client contract"} icon={Theme.Icons.contract} />
                 </Route>
+                <Route path="/supplier-contract">
+                  <SingleWorkspace type={"Supplier contract"} icon={Theme.Icons.contract} />
+                </Route>
+                <Route path="/corporate">
+                  <SingleWorkspace type={"Corporate"} icon={Theme.Icons.corporate} />
+                </Route>
+                <Route path="/group-norms">
+                  <SingleWorkspace type={"Group norms"} icon={Theme.Icons.book} />
+                </Route>
+                <Route path="/real-estate-contracts">
+                  <SingleWorkspace type={"Real estate contracts"} icon={Theme.Icons.contract} />
+                </Route>
                 <Route path="/">
                   <Publications />
                   <Workspaces />
