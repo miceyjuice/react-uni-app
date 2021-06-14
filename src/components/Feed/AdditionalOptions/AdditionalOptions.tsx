@@ -45,8 +45,8 @@ const additionalOptions: IAdditionalOption[] = [
 const AdditionalOptions: FC = () => {
   return (
     <Wrapper>
-      {additionalOptions.map((option) => (
-        <AdditionalOption>
+      {additionalOptions.map((option, optionIdx) => (
+        <AdditionalOption key={option.text + optionIdx}>
           {option.icon != "" && <OptionIcon src={option.icon} />}
           {option.text != "" && <OptionText>{option.text}</OptionText>}
         </AdditionalOption>

@@ -88,7 +88,7 @@ export const CorrespondantImg = styled.img`
 
 export const Option = styled.div<{beforeImg: string}>`
   font-size: ${Theme.FontSizes[15]};
-  margin-left: 4rem;
+  margin-left: 2rem;
   display: flex;
   align-items: center;
 

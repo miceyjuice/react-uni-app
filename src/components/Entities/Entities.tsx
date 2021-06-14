@@ -161,13 +161,13 @@ export const Entities: FC<IDisplayProps> = ({ isHidden, setDisplayValue }) => {
           .filter((entity) =>
             entity.title.toLowerCase().includes(filterValue.toLowerCase())
           )
-          .map((entity) => (
+          .map((entity, entityIdx) => (
             <Entity
               imgLink={entity?.imgLink}
               title={entity.title}
               content={entity.content}
               spacedEl={listMosaic}
-              key={entity.title + Math.floor(Math.random() * 4213)}
+              key={entity.title + entityIdx}
             />
           ))}
       </EntitiesList>

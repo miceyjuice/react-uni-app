@@ -10,10 +10,10 @@ import {
   SectionLink,
   InfoBox,
 } from "../Proposals/ProposalsStyle";
-import { IFormikValues } from "../Profile";
 import { IUpdateProps } from "../PersonalInfo/PersonalInfo";
 import fees from "./FeesArray";
 import { FeeBox } from "./FeeAmountStyle";
+import { IFormikValues } from "../StartingData";
 
 
 
@@ -25,19 +25,20 @@ export const FeeAmount: FC<IFormikValues & IUpdateProps> = ({
     <PanelWrapper>
       <SectionTitle>Amount of fees</SectionTitle>
       <FeeBox>
-        {fees.map((fee) => (
-          <Column>
+        {fees.map((fee, feeIdx) => (
+          <Column key={fee.title.toLowerCase().replaceAll(' ', '') + feeIdx}>
             <ColumnTitle>{fee.title}</ColumnTitle>
-            {fee.fields.map((field, index) => (
+            {fee.fields.map((field, fieldIdx) => (
               <Category
                 component="select"
-                name={`feeAmount.${field.options[index].key}.${index}`}
+                name={`feeAmount.${field.options[fieldIdx].key}.${fieldIdx}`}
                 disabled={!isUpdating}
+                key={`field${fieldIdx}`}
               >
-                {field.options.map((option) => (
+                {field.options.map((option, optionIdx) => (
                   <FieldOption
                     as="option"
-                    key={option.key + Math.trunc(Math.random() * 150)}
+                    key={option.key + optionIdx}
                   >
                     {option.value}
                   </FieldOption>

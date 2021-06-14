@@ -4,9 +4,9 @@ import Theme from "../../../styledHelpers/Theme";
 import { Category, SaveBtn, Title, TopBar, Wrapper } from "./CategoriesStyle";
 import { Field } from "formik";
 import { IUpdateProps } from "../PersonalInfo/PersonalInfo";
-import { EditIcon, SaveIcon } from "../PersonalInfo/PersonalInfoStyle";
-import { IFormikValues } from "../Profile";
+import { EditIcon } from "../PersonalInfo/PersonalInfoStyle";
 import { categories } from "./CategoriesArray";
+import { IFormikValues } from "../StartingData";
 
 interface IOption {
   key: string;
@@ -55,13 +55,16 @@ export const Categories: FC<IUpdateProps & IFormikValues> = ({
                     component="select"
                     disabled={!isUpdating}
                     name={`categories.${fields.options[i].key}.${i}`}
-                    key={`${
-                      fields.options[i].key + Math.trunc(Math.random() * 150)
-                    }`}
+                    key={`${fields.options[i].key + i}`}
                   >
                     {categoriesCounter++}
-                    {fields.options.map((option) => (
-                      <Field as="option" name={option.key} value={option.value}>
+                    {fields.options.map((option, idx) => (
+                      <Field
+                        as="option"
+                        name={option.key}
+                        value={option.value}
+                        key={option.key + idx}
+                      >
                         {option.value}
                       </Field>
                     ))}
@@ -72,23 +75,19 @@ export const Categories: FC<IUpdateProps & IFormikValues> = ({
           }
           return (
             <>
-              {category.fields.map((fields, i) => (
+              {category.fields.map((fields, fieldIdx) => (
                 <Category
                   component="select"
                   disabled={!isUpdating}
                   name="categories.expertise"
                   value={values.categories.expertise}
-                  key={`${
-                    fields.options[i].key + Math.floor(Math.random() * 150)
-                  }`}
+                  key={`${fields.options[fieldIdx].key + fieldIdx}`}
                 >
-                  {fields.options.map((option) => (
+                  {fields.options.map((option, optionIdx) => (
                     <Field
                       as="option"
                       value={option.value}
-                      key={`${
-                        fields.options[i].key + Math.floor(Math.random() * 150)
-                      }`}
+                      key={`${fields.options[optionIdx].key + optionIdx}`}
                     >
                       {option.value}
                     </Field>

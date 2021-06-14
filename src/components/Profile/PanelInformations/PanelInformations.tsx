@@ -9,7 +9,7 @@ import Theme from "../../../styledHelpers/Theme";
 import { Wrapper } from "../Categories/CategoriesStyle";
 import { IUpdateProps } from "../PersonalInfo/PersonalInfo";
 import { TextField } from "../PersonalInfo/PersonalInfoStyle";
-import { IFormikValues } from "../Profile";
+import { IFormikValues } from "../StartingData";
 import {
   Option,
   SectionTitle,
@@ -30,7 +30,6 @@ export const PanelWrapper = styled(Wrapper)`
   }
 `;
 
-
 const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
   if (!e.target.files) {
     return;
@@ -39,7 +38,7 @@ const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
 
 export const PanelInformations: FC<IFormikValues & IUpdateProps> = ({
   values,
-  isUpdating
+  isUpdating,
 }) => {
   const { usersList, usersPhotosList } = useSelector<
     IState,
@@ -103,12 +102,11 @@ export const PanelInformations: FC<IFormikValues & IUpdateProps> = ({
             name="panelInformations.correspondants.0"
             disabled={!isUpdating}
           >
-            {usersList
-              .map((user) => (
-                <CustomField as="option" value={user.name}>
-                  {user.name}
-                </CustomField>
-              ))}
+            {usersList.map((user) => (
+              <CustomField as="option" value={user.name} key={`user${user.id}`}>
+                {user.name}
+              </CustomField>
+            ))}
           </CorrespondantName>
           <Option beforeImg={Theme.Icons.message}>Message</Option>
           <Option beforeImg={Theme.Icons.user}>Profile</Option>
@@ -131,12 +129,11 @@ export const PanelInformations: FC<IFormikValues & IUpdateProps> = ({
             name="panelInformations.correspondants.1"
             disabled={!isUpdating}
           >
-            {usersList
-              .map((user) => (
-                <CustomField as="option" value={user.name}>
-                  {user.name}
-                </CustomField>
-              ))}
+            {usersList.map((user) => (
+              <CustomField as="option" value={user.name} key={`user${user.id}`}>
+                {user.name}
+              </CustomField>
+            ))}
           </CorrespondantName>
           <Option beforeImg={Theme.Icons.message}>Message</Option>
           <Option beforeImg={Theme.Icons.user}>Profile</Option>

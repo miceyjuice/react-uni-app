@@ -21,15 +21,15 @@ export const WorkList: FC<IWorkListProps> = ({ currentPosts, usersList }) => {
     <Wrapper>
       {currentPosts.map((comment, index) => (
         <Work key={`work${index}`}>
-          <WorkTitle>{comment.name}</WorkTitle>
-          <Content>{comment.body}</Content>
-          <BottomBar>
-            <CompanyName>
+          <WorkTitle key={`worktitle${index}`}>{comment.name}</WorkTitle>
+          <Content key={`workcontent${index}`}>{comment.body}</Content>
+          <BottomBar key={`workbottombar${index}`}>
+            <CompanyName key={`companyname${index}`}>
               {usersList.find((user) => user.id === comment.postId)?.name ||
                 `User${Math.floor(Math.random() * 150 + 11)}`}
             </CompanyName>
-            <Category>Contract</Category>
-            <LastUpdate>
+            <Category key={`workcategory${index}`}>Contract</Category>
+            <LastUpdate key={`latestupdate${index}`}>
               Updated 3 days ago by{" "}
               {usersList.find((user) => user.id === comment.postId)?.name ||
                 `User${Math.floor(Math.random() * 150 + 11)}`}

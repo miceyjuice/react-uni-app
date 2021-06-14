@@ -44,17 +44,14 @@ const TilesBox: FC = () => {
         <TilesOption>Hide</TilesOption>
       </TilesTopBar>
       <TilesList>
-        {tiles.map((tile) => (
+        {tiles.map((tile, tileIdx) => (
           <Tile
             bgimage={tile.icon}
-            key={
-              tile.title.toLowerCase().replaceAll(" ", "") +
-              Math.floor(Math.random() * 100)
-            }
+            key={tile.title.toLowerCase().replaceAll(" ", "") + tileIdx}
           >
-            <TileIcon src={tile.icon} />
-            <TileTitle>{tile.title}</TileTitle>
-            <TileContent>{tile.content}</TileContent>
+            <TileIcon key={`tileicon${tileIdx}`} src={tile.icon} />
+            <TileTitle key={`tiletitle${tileIdx}`}>{tile.title}</TileTitle>
+            <TileContent key={`tilecontent${tileIdx}`}>{tile.content}</TileContent>
           </Tile>
         ))}
       </TilesList>

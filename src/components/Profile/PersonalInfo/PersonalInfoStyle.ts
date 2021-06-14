@@ -95,14 +95,14 @@ export const MainInfo = styled.div`
 
 export const TextField = styled(Field)<{
   disabled: boolean;
-  isBold?: boolean;
+  isbold?: boolean;
 }>`
   height: fit-content;
   flex-basis: 100%;
-  font-size: ${({ isBold }) =>
-    isBold ? Theme.FontSizes[15] : Theme.FontSizes[12]};
-  font-weight: ${({ isBold }) =>
-    isBold ? Theme.FontWeights.semibold : Theme.FontWeights.light};
+  font-size: ${({ isbold }) =>
+    isbold ? Theme.FontSizes[15] : Theme.FontSizes[12]};
+  font-weight: ${({ isbold }) =>
+    isbold ? Theme.FontWeights.semibold : Theme.FontWeights.light};
   color: #fff;
   border-radius: 0.5rem;
   border: none;

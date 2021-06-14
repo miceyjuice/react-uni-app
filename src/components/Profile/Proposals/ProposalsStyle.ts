@@ -6,8 +6,7 @@ import { Category } from "../Categories/CategoriesStyle";
 export const InfoBox = styled.div`
   flex-basis: 100%;
   display: grid;
-  grid-template-columns: repeat(6, minmax(150px, 1fr));
-  grid-template-rows: repeat(4, 50px);
+  grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
   background-color: #333;
   border-radius: 0.5rem;
   padding: 1rem;

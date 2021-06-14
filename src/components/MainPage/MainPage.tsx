@@ -98,8 +98,11 @@ export const MainPage: FC = () => {
                 <Route path="/profile">
                   <Profile />
                 </Route>
-                {singleWorkspaces.map((workspace) => (
+                {singleWorkspaces.map((workspace, idx) => (
                   <Route
+                    key={`${workspace.title.toLowerCase().replaceAll(" ", "")}${
+                      idx + 1
+                    }`}
                     path={
                       "/" + workspace.title.toLowerCase().replaceAll(" ", "-")
                     }
@@ -107,6 +110,7 @@ export const MainPage: FC = () => {
                     <SingleWorkspace
                       type={workspace.title}
                       icon={workspace.icon}
+                      key={`singleworkspace${idx}`}
                     />
                   </Route>
                 ))}

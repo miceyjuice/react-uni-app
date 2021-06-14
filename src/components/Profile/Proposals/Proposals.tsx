@@ -10,12 +10,15 @@ import {
   InfoBox,
   SectionLink,
 } from "./ProposalsStyle";
-import { IFormikValues } from "../Profile";
 import { IUpdateProps } from "../PersonalInfo/PersonalInfo";
 import proposals from "./ProposalsArray";
+import { IFormikValues } from "../StartingData";
 
-
-export const Proposals: FC<IFormikValues & IUpdateProps> = ({ values, handleChange, isUpdating }) => {
+export const Proposals: FC<IFormikValues & IUpdateProps> = ({
+  values,
+  handleChange,
+  isUpdating,
+}) => {
   const [dateValue, setDateValue] = useState<string[]>([
     "2010-05-19",
     "2010-05-19",
@@ -26,8 +29,8 @@ export const Proposals: FC<IFormikValues & IUpdateProps> = ({ values, handleChan
     <PanelWrapper>
       <SectionTitle>Proposals</SectionTitle>
       <InfoBox>
-        {proposals.map((proposal) => (
-          <Column>
+        {proposals.map((proposal, idx) => (
+          <Column key={proposal.title.toLowerCase().replaceAll(" ", "") + idx}>
             <ColumnTitle>{proposal.title}</ColumnTitle>
             {proposal.title !== "Date"
               ? proposal.fields.map((field, index) => (
@@ -35,12 +38,10 @@ export const Proposals: FC<IFormikValues & IUpdateProps> = ({ values, handleChan
                     component="select"
                     name={`proposals.${field.options[index].key}.${index}`}
                     disabled={!isUpdating}
+                    key={`${field.options[index].key}${index}`}
                   >
-                    {field.options.map((option) => (
-                      <FieldOption
-                        as="option"
-                        key={option.key + Math.trunc(Math.random() * 150)}
-                      >
+                    {field.options.map((option, optionIdx) => (
+                      <FieldOption as="option" key={option.key + optionIdx}>
                         {option.value}
                       </FieldOption>
                     ))}
@@ -55,7 +56,7 @@ export const Proposals: FC<IFormikValues & IUpdateProps> = ({ values, handleChan
                         name={`proposals.${option.key}.${index}`}
                         disabled={!isUpdating}
                         value={dateValue[index]}
-                        key={option.key + Math.trunc(Math.random() * 150)}
+                        key={option.key + index}
                         onChange={(event: ChangeEvent<HTMLDataElement>) => {
                           let newArr = [...dateValue];
                           newArr[index] = event.target.value;

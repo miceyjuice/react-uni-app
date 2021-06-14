@@ -47,7 +47,7 @@ export const PersonalInfo: FC<IUpdateProps> = ({
     ...globalState.users,
     ...globalState.usersPhotosList,
   }));
-  
+
   const currentUserId = useContext(UserIdContext);
 
   const onSubmit = (data: {}, onSubmitProps: any) => {
@@ -82,22 +82,22 @@ export const PersonalInfo: FC<IUpdateProps> = ({
     {
       name: "fullName",
       isDisabled: !isUpdating,
-      isBold: true,
+      isbold: true,
     },
     {
       name: "companyName",
       isDisabled: !isUpdating,
-      isBold: true,
+      isbold: true,
     },
     {
       name: "location",
       isDisabled: !isUpdating,
-      isBold: false,
+      isbold: false,
     },
     {
       name: "status",
       isDisabled: !isUpdating,
-      isBold: false,
+      isbold: false,
     },
   ];
 
@@ -131,12 +131,13 @@ export const PersonalInfo: FC<IUpdateProps> = ({
                   <ProfileLink>See profile</ProfileLink>
                 </ProfileImgSection>
                 <MainInfo>
-                  {personalInfos.map((personalInfo) => (
+                  {personalInfos.map((personalInfo, personalInfoIdx) => (
                     <>
                       <TextField
                         name={personalInfo.name}
                         disabled={personalInfo.isDisabled}
-                        isBold={personalInfo.isBold}
+                        isbold={personalInfo.isbold}
+                        key={personalInfo.name + personalInfoIdx}
                       />
                       <ErrorMessage
                         name={personalInfo.name}
