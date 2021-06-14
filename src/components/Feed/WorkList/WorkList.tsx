@@ -25,12 +25,14 @@ export const WorkList: FC<IWorkListProps> = ({ currentPosts, usersList }) => {
           <Content>{comment.body}</Content>
           <BottomBar>
             <CompanyName>
-              {usersList.find((user) => user.id === comment.postId)?.name}
+              {usersList.find((user) => user.id === comment.postId)?.name ||
+                `User${Math.floor(Math.random() * 150 + 11)}`}
             </CompanyName>
             <Category>Contract</Category>
             <LastUpdate>
               Updated 3 days ago by{" "}
-              {usersList.find((user) => user.id === comment.postId)?.name}
+              {usersList.find((user) => user.id === comment.postId)?.name ||
+                `User${Math.floor(Math.random() * 150 + 11)}`}
             </LastUpdate>
           </BottomBar>
         </Work>

@@ -18,7 +18,6 @@ import {
   TextField,
   CustomForm,
   Save,
-  SaveIcon,
   Undo,
   UndoIcon,
   IconsGroup,
@@ -27,7 +26,6 @@ import { useSelector } from "react-redux";
 import { IState } from "../../../reducers";
 import { IUsersReducer } from "../../../reducers/usersReducers";
 import { IUsersPhotosReducer } from "../../../reducers/usersPhotosReducers";
-import { IUserProps } from "../../MainPage/MainPage";
 import * as Yup from "yup";
 import CustomErrorMsg from "../CustomErrorMsg/CustomErrorMsg";
 import { SaveBtn } from "../Categories/CategoriesStyle";

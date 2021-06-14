@@ -1,21 +1,19 @@
 import React, { FC } from "react";
-import styled from "styled-components";
 import { IField } from "../Categories/Categories";
 import { Category } from "../Categories/CategoriesStyle";
-import { PanelWrapper } from "../PanelInformations/PanelInformations";
 import { SectionTitle } from "../PanelInformations/PanelInformationsStyle";
 import { IFormikValues } from "../Profile";
 import {
-  InfoBox,
   Column,
   ColumnTitle,
   FieldOption,
   DateField,
   SectionLink,
 } from "../Proposals/ProposalsStyle";
-import { proposals } from "../Proposals/Proposals";
+import proposals from "../Proposals/ProposalsArray";
 import { IUpdateProps } from "../PersonalInfo/PersonalInfo";
 import { CustomBox } from "./InternalReviewsStyle";
+import { PanelWrapper } from "../PanelInformations/PanelInformations";
 
 
 export interface IReviews {

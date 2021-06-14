@@ -2,15 +2,7 @@ import { Field } from "formik";
 import styled from "styled-components";
 import Theme from "../../../styledHelpers/Theme";
 import { Category } from "../Categories/CategoriesStyle";
-import { Wrapper } from "../Profile";
 
-export const PanelWrapper = styled(Wrapper)`
-  gap: 1rem;
-
-  :last-child {
-    margin-bottom: 2rem;
-  }
-`;
 
 export const CustomSection = styled.div`
   display: flex;

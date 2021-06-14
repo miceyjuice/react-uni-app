@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { Category } from "../Categories/CategoriesStyle";
-import { PanelWrapper } from "../PanelInformations/PanelInformations";
 import { SectionTitle } from "../PanelInformations/PanelInformationsStyle";
+import { PanelWrapper } from "../PanelInformations/PanelInformations";
 import {
   Column,
   ColumnTitle,
@@ -10,8 +10,6 @@ import {
   SectionLink,
   InfoBox,
 } from "../Proposals/ProposalsStyle";
-import { IReviews } from "../InternalReviews/InternalReviews";
-import styled from "styled-components";
 import { IFormikValues } from "../Profile";
 import { IUpdateProps } from "../PersonalInfo/PersonalInfo";
 import fees from "./FeesArray";
