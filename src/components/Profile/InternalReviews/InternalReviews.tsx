@@ -15,10 +15,8 @@ import {
 } from "../Proposals/ProposalsStyle";
 import { proposals } from "../Proposals/Proposals";
 import { IUpdateProps } from "../PersonalInfo/PersonalInfo";
+import { CustomBox } from "./InternalReviewsStyle";
 
-export const CustomBox = styled(InfoBox)`
-  grid-template-columns: repeat(5, 1fr);
-`;
 
 export interface IReviews {
   title: string;
@@ -26,8 +24,6 @@ export interface IReviews {
 }
 
 const reviews: IReviews[] = proposals.slice(0, proposals.length - 1);
-
-console.log(reviews);
 
 export const InternalReviews: FC<IFormikValues & IUpdateProps> = ({
   values,
