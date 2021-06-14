@@ -1,13 +1,9 @@
-import React, { ChangeEvent, FC, useContext } from "react";
+import React, { ChangeEvent, FC } from "react";
 import { useSelector } from "react-redux";
-import styled from "styled-components";
-import { UserIdContext } from "../../../contexts/UserIdContext";
 import { IState } from "../../../reducers";
 import { IUsersPhotosReducer } from "../../../reducers/usersPhotosReducers";
 import { IUsersReducer } from "../../../reducers/usersReducers";
 import Theme from "../../../styledHelpers/Theme";
-import { IUserProps } from "../../MainPage/MainPage";
-import { Wrapper } from "../Categories/CategoriesStyle";
 import { IUpdateProps } from "../PersonalInfo/PersonalInfo";
 import { TextField } from "../PersonalInfo/PersonalInfoStyle";
 import { IFormikValues } from "../Profile";
@@ -21,15 +17,9 @@ import {
   CorrespondantImg,
   CorrespondantName,
   CustomField,
+  PanelWrapper,
 } from "./PanelInformationsStyle";
 
-export const PanelWrapper = styled(Wrapper)`
-  gap: 1rem;
-
-  :last-child {
-    margin-bottom: 2rem;
-  }
-`;
 
 const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
   if (!e.target.files) {
